@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthorizationActivity">
+
+    
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="354dp"
+        android:layout_height="446dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle" />
+
+    <TextView
+        android:id="@+id/t_authorization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/authorization"
+        android:textColor="@color/text_light"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@+id/background"
+        app:layout_constraintVertical_bias="0.048" />
+
+    <TextView
+        android:id="@+id/t_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/login"
+        android:theme="@style/TextViewlight"
+        app:layout_constraintBottom_toTopOf="@+id/e_login"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/t_authorization"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/e_login"
+        android:layout_width="288dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/edit"
+        android:padding="5dip"
+        app:layout_constraintBottom_toTopOf="@+id/e_password"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/background" />
+
+    <TextView
+        android:id="@+id/t_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/password"
+        android:theme="@style/TextViewlight"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/e_login" />
+
+    <EditText
+        android:id="@+id/e_password"
+        android:layout_width="288dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/edit"
+        app:layout_constraintBottom_toTopOf="@+id/s_conference"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/t_password"/>
+
+    <TextView
+        android:id="@+id/t_conference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/conference"
+        android:theme="@style/TextViewlight"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/e_password"/>
+
+    <Spinner
+        android:id="@+id/s_conference"
+        android:layout_width="288dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/spinner"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/t_conference"
+        app:layout_constraintBottom_toTopOf="@+id/b_enter"/>
+
+    <Button
+        android:id="@+id/b_enter"
+        android:layout_width="288dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/enter"
+        android:background="@drawable/button"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/s_conference" />
+
+    <TextView
+        android:id="@+id/t_createAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/createAccount"
+        android:theme="@style/TextViewlight"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/b_enter"
+        app:layout_constraintVertical_bias="0.176" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

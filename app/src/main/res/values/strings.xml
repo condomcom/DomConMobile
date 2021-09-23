@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ConDom</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="authorization">Авторизация</string>
+    <string name="createAccount"><u>Нет аккаунта? Зарегистрироваться</u></string>
+    <string name="enter">Войти</string>
+    <string name="conference">Конференция</string>
+    <string name="password">Пароль</string>
+    <string name="login">Логин</string>
+    <string name="registration">Регистрация</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="register">Зарегистрироваться</string>
+</resources>
