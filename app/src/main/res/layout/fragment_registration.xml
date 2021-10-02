@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AuthorizationActivity">
+    >
 
-    
     <ImageView
         android:id="@+id/background"
         android:layout_width="354dp"
-        android:layout_height="446dp"
+        android:layout_height="494dp"
         android:layout_marginTop="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,11 +19,11 @@
         app:srcCompat="@drawable/rectangle" />
 
     <TextView
-        android:id="@+id/t_authorization"
+        android:id="@+id/t_registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:text="@string/authorization"
+        android:text="@string/registration"
         android:textColor="@color/text_light"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/background"
@@ -35,33 +34,81 @@
         app:layout_constraintVertical_bias="0.048" />
 
     <TextView
-        android:id="@+id/t_login"
+        android:id="@+id/t_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/login"
+        android:layout_marginTop="20dp"
+        android:text="@string/name"
         android:theme="@style/TextViewlight"
-        app:layout_constraintBottom_toTopOf="@+id/e_login"
+        app:layout_constraintBottom_toTopOf="@+id/e_name"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_authorization"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/t_registration"
+        app:layout_constraintVertical_bias="0.529" />
 
     <EditText
-        android:id="@+id/e_login"
+        android:id="@+id/e_name"
         android:layout_width="288dp"
         android:layout_height="41dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/edit"
         android:padding="5dip"
-        app:layout_constraintBottom_toTopOf="@+id/e_password"
+        app:layout_constraintBottom_toTopOf="@+id/e_surname"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/background" />
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/t_name"/>
 
     <TextView
-        android:id="@+id/t_password"
+        android:id="@+id/t_surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/surname"
+        android:theme="@style/TextViewlight"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/e_name" />
+
+    <EditText
+        android:id="@+id/e_surname"
+        android:layout_width="288dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="208dp"
+        android:background="@drawable/edit"
+        app:layout_constraintBottom_toBottomOf="@+id/e_loginReg"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/t_surname"/>
+
+    <TextView
+    android:id="@+id/t_loginReg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:text="@string/login"
+    android:theme="@style/TextViewlight"
+    app:layout_constraintEnd_toEndOf="@+id/background"
+    app:layout_constraintHorizontal_bias="0.109"
+    app:layout_constraintStart_toStartOf="@+id/background"
+    app:layout_constraintTop_toBottomOf="@+id/e_surname"/>
+
+    <EditText
+        android:id="@+id/e_loginReg"
+        android:layout_width="288dp"
+        android:layout_height="41dp"
+        android:background="@drawable/edit"
+        android:padding="5dip"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/t_loginReg"/>
+
+    <TextView
+        android:id="@+id/t_passwordReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -70,71 +117,31 @@
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/e_login" />
+        app:layout_constraintTop_toBottomOf="@+id/e_loginReg"/>
 
     <EditText
-        android:id="@+id/e_password"
+        android:id="@+id/e_passwordReg"
         android:layout_width="288dp"
         android:layout_height="41dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
         android:background="@drawable/edit"
-        app:layout_constraintBottom_toTopOf="@+id/s_conference"
+        android:padding="5dip"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_password"/>
-
-    <TextView
-        android:id="@+id/t_conference"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/conference"
-        android:theme="@style/TextViewlight"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.109"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/e_password"/>
-
-    <Spinner
-        android:id="@+id/s_conference"
-        android:layout_width="288dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/spinner"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_conference"
-        app:layout_constraintBottom_toTopOf="@+id/b_enter"/>
+        app:layout_constraintTop_toBottomOf="@+id/t_passwordReg" />
 
     <Button
-        android:id="@+id/b_enter"
+        android:id="@+id/b_register"
         android:layout_width="288dp"
         android:layout_height="55dp"
         android:layout_marginTop="40dp"
-        android:text="@string/enter"
-        android:background="@drawable/button"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/s_conference" />
-
-    <TextView
-        android:id="@+id/t_createAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/createAccount"
-        android:theme="@style/TextViewlight"
+        android:background="@drawable/button"
+        android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/b_enter"
-        app:layout_constraintVertical_bias="0.176" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/e_passwordReg"
+        app:layout_constraintVertical_bias="0.562" />
 </androidx.constraintlayout.widget.ConstraintLayout>

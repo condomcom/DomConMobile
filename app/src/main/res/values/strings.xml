@@ -11,4 +11,7 @@
     <string name="name">Имя</string>
     <string name="surname">Фамилия</string>
     <string name="register">Зарегистрироваться</string>
+    <string name="login_input_error">Ошибка ввода данных</string>
+    <string name="logon_registered">Вы успешно зарегистрировались</string>
+    <string name="logon_registered_error">Что-то пошло не так</string>
 </resources>
