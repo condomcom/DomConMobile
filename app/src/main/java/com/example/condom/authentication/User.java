@@ -1,4 +1,4 @@
-package com.example.condom;
+package com.example.condom.authentication;
 
 import java.io.Serializable;
 

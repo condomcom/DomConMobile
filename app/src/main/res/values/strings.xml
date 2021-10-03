@@ -14,4 +14,10 @@
     <string name="login_input_error">Ошибка ввода данных</string>
     <string name="logon_registered">Вы успешно зарегистрировались</string>
     <string name="logon_registered_error">Что-то пошло не так</string>
+    <string name="speakers">Спикеры</string>
+    <string name="performances">Выступления</string>
+    <string name="activities">Активности</string>
+    <string name="favourites">Избранное</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
