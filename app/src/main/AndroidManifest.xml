@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConDom">
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".AuthorizationActivity">
+        <activity android:name=".navigation.MainActivity"/>
+        <activity android:name=".authentication.AuthorizationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mobile_navigation">
+    <item
+        android:id="@+id/speakers"
+        android:enabled="true"
+        android:title="@string/speakers"
+        android:icon="@drawable/ic_speaker"
+        />
+    <item
+        android:id="@+id/performances"
+        android:enabled="true"
+        android:title="@string/performances"
+        android:icon="@drawable/ic_conference"
+        />
+    <item
+        android:id="@+id/activities"
+        android:enabled="true"
+        android:title="@string/activities"
+        android:icon="@drawable/ic_challenge"/>
+    <item
+        android:id="@+id/favourites"
+        android:enabled="true"
+        android:title="@string/favourites"
+        android:icon="@drawable/ic_baseline_favorite_border_24"/>
+</menu>
