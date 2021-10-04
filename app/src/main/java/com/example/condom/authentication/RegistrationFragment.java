@@ -19,7 +19,6 @@ public class RegistrationFragment extends Fragment {
 
     private EditText mLogin;
     private EditText mPassword;
-    private EditText mPasswordAgain;
     private Button mRegistration;
     private SharedPreferencesHelper mSharedPreferencesHelper;
 
@@ -76,11 +75,8 @@ public class RegistrationFragment extends Fragment {
 
     private boolean isPasswordsValid() {
         String password = mPassword.getText().toString();
-        String passwordAgain = mPasswordAgain.getText().toString();
 
-        return password.equals(passwordAgain)
-                && !TextUtils.isEmpty(password)
-                && !TextUtils.isEmpty(passwordAgain);
+        return !TextUtils.isEmpty(password);
     }
 
     private void showMessage(@StringRes int string) {
