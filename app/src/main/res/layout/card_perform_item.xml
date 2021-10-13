@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardView.Light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="18dp"
+    android:layout_marginEnd="18dp"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/text_light"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/t_beginning_perf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="20dp"
+                android:text="Начало в 14:00"
+                android:theme="@style/TextViewCardAccent" />
+
+            <Button
+                android:id="@+id/favourites_perf"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="-30dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/ic_favorite_inactive"
+                app:mfb_animate_favorite="true"
+                app:mfb_animate_unfavorite="true" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/image_perf"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_backend" />
+
+        <TextView
+            android:id="@+id/t_title_perf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="18dp"
+            android:gravity="center"
+            android:text="@string/backend"
+            android:theme="@style/TextViewCardTitle" />
+
+        <TextView
+            android:id="@+id/t_description_perf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:ellipsize="end"
+            android:justificationMode="inter_word"
+            android:maxLines="6"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem. Donec nec vestibulum mi, nec semper nunc. Integer fermentum leo sit amet erat ultrices, id fringilla nunc sagittis. Etiam rutrum porttitor nunc, a tincidunt est aliquam tincidunt. "
+            android:theme="@style/TextViewCardDescription" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/ic_queue" />
+
+            <TextView
+                android:id="@+id/t_duration_perf"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="4 часа"
+                android:theme="@style/TextViewCardAccent" />
+
+            <Button
+                android:id="@+id/b_details_perf"
+                style="@style/StyleButton"
+                android:layout_width="170dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button"
+                android:text="@string/details" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

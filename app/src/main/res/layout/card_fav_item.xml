@@ -1,0 +1,108 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardView.Light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="18dp"
+    android:layout_marginEnd="18dp"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/text_light"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/t_beginning_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="20dp"
+                android:text="Начало в 14:00"
+                android:theme="@style/TextViewCardAccent" />
+
+            <Button
+                android:id="@+id/favourites_fav"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="-30dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/ic_favorite_active"
+                app:mfb_animate_favorite="true"
+                app:mfb_animate_unfavorite="true" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/image_fav"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:id="@+id/t_title_fav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Long enough activity name #1"
+            android:theme="@style/TextViewCardTitle"
+            android:layout_marginTop="16dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/t_description_fav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:theme="@style/TextViewCardDescription"
+            android:justificationMode="inter_word"
+            android:ellipsize="end"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:maxLines="6"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/ic_queue"/>
+
+            <TextView
+                android:id="@+id/t_duration_fav"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="4 часа"
+                android:theme="@style/TextViewCardAccent"/>
+
+            <Button
+                android:id="@+id/b_details_fav"
+                android:layout_width="170dp"
+                android:layout_height="41dp"
+                android:background="@drawable/button"
+                android:text="@string/details"
+                style="@style/StyleButton"
+                android:layout_marginStart="45dp"
+                android:layout_marginEnd="18dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
