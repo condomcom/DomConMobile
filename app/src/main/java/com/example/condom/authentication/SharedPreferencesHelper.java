@@ -67,7 +67,7 @@ public class SharedPreferencesHelper {
         return successLogins;
     }
 
-    public boolean login(User user) {
+    /*public boolean login(User user) {
         List<User> users = getUsers();
         for (User u : users) {
             if (user.getEmail().equalsIgnoreCase(u.getEmail())
@@ -78,5 +78,5 @@ public class SharedPreferencesHelper {
             }
         }
         return false;
-    }
+    }*/
 }
