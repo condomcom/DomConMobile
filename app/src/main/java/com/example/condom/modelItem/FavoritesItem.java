@@ -1,24 +1,22 @@
-package com.example.condom.favorites;
+package com.example.condom.modelItem;
 
-public class PerformancesCardsItem {
+public class FavoritesItem {
     private String keyId;
     private String itemTitle;
     private int itemImage;
     private String itemDescription;
     private String itemBeginning;
     private String itemDuration;
-    private String favoriteStatus;
 
-    public PerformancesCardsItem(String keyId, String itemTitle, int itemImage,
+    public FavoritesItem(String keyId, String itemTitle, int itemImage,
                                  String itemDescription, String itemBeginning,
-                                 String itemDuration, String favoriteStatus) {
+                                 String itemDuration) {
         this.keyId = keyId;
         this.itemTitle = itemTitle;
         this.itemImage = itemImage;
         this.itemDescription = itemDescription;
         this.itemBeginning = itemBeginning;
         this.itemDuration = itemDuration;
-        this.favoriteStatus = favoriteStatus;
     }
 
     public String getKeyId() {
@@ -67,13 +65,5 @@ public class PerformancesCardsItem {
 
     public void setItemDuration(String itemDuration) {
         this.itemDuration = itemDuration;
-    }
-
-    public String getFavoriteStatus() {
-        return favoriteStatus;
-    }
-
-    public void setFavoriteStatus(String favoriteStatus) {
-        this.favoriteStatus = favoriteStatus;
     }
 }

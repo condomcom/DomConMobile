@@ -10,9 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
-import com.example.condom.favorites.PerformancesAdapter;
-import com.example.condom.favorites.PerformancesCardsItem;
-import com.github.ivbaranov.mfb.MaterialFavoriteButton;
+import com.example.condom.favoritesAdapter.PerformancesAdapter;
+import com.example.condom.modelItem.PerformancesCardsItem;
 
 import java.util.ArrayList;
 
@@ -39,8 +38,6 @@ public class PerformanceFragment extends Fragment {
                 "Начало в 14:00", "4 часа", "0"));
         performancesItems.add(new PerformancesCardsItem("0", "Как игры меняют наше будущее", R.drawable.ic_video_game, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem. Donec nec vestibulum mi, nec semper nunc. Integer fermentum leo sit amet erat ultrices, id fringilla nunc sagittis. Etiam rutrum porttitor nunc, a tincidunt est aliquam tincidunt.",
                 "Начало в 14:00", "4 часа", "0"));
-
-        MaterialFavoriteButton materialFavoriteButton = view.findViewById(R.id.favourites);
 
         return view;
     }

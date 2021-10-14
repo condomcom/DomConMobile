@@ -1,4 +1,4 @@
-package com.example.condom.model;
+package com.example.condom.modelIP;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -17,7 +17,7 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
 import com.example.condom.R;
-import com.example.condom.model.User;
+import com.example.condom.modelIP.User;
 
 import java.util.Calendar;
 

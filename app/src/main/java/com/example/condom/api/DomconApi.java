@@ -1,6 +1,6 @@
 package com.example.condom.api;
 
-import com.example.condom.model.User;
+import com.example.condom.modelIP.User;
 
 import java.util.List;
 

@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.condom.R;
-import com.example.condom.model.User;
+import com.example.condom.modelIP.User;
 
 import java.util.List;
 

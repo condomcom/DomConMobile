@@ -1,4 +1,4 @@
-package com.example.condom.favorites;
+package com.example.condom.favoritesAdapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
+import com.example.condom.dataBase.FavoritesDB;
+import com.example.condom.modelItem.PerformancesCardsItem;
 
 import java.util.ArrayList;
 
@@ -45,6 +47,7 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
 
     private void createTableOnFirstStart() {
         favoritesDB.insertEmpty();
+
         SharedPreferences sharedPreferences = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("firstStart", false);
@@ -62,8 +65,6 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
         holder.mDescription.setText(performancesCardsItem.getItemDescription());
         holder.mDuration.setText(performancesCardsItem.getItemDuration());
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -108,11 +109,15 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
                         mFavourites.setBackgroundResource(R.drawable.ic_favorite_active);
                         mFavourites.startAnimation(animScaleUp);
                     }
-                    else{
+                    else if(performancesCardsItem.getFavoriteStatus().equals("1")){
                         performancesCardsItem.setFavoriteStatus("0");
                         favoritesDB.removeFav(performancesCardsItem.getKeyId());
                         mFavourites.setBackgroundResource(R.drawable.ic_favorite_inactive);
                         mFavourites.startAnimation(animScaleDown);
+                    }
+                    else{
+                        favoritesDB.removeFav(performancesCardsItem.getKeyId());
+                        performancesCardsItem.setFavoriteStatus("0");
                     }
                 }
             });
@@ -130,7 +135,7 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
                 performancesCardsItem.setFavoriteStatus(item_fav_status);
 
                 //check fav status
-                if (item_fav_status == null && item_fav_status.equals("1")) {
+                if (item_fav_status != null && item_fav_status.equals("1")) {
                     viewHolder.mFavourites.setBackgroundResource(R.drawable.ic_favorite_active);
                 } else if (item_fav_status != null && item_fav_status.equals("0")) {
                     viewHolder.mFavourites.setBackgroundResource(R.drawable.ic_favorite_inactive);
