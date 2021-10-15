@@ -13,21 +13,14 @@ public class ActivityUser implements Serializable {
     public ActivityUser(String mUserStrId, String mActivityStrId) {
         this.mUserStrId = mUserStrId;
         this.mActivityStrId = mActivityStrId;
+
     }
 
     public String getUserStrId() {
         return mUserStrId;
     }
 
-    public void setUserStrId(String mUserStrId) {
-        this.mUserStrId = mUserStrId;
-    }
-
     public String getActivityStrId() {
         return mActivityStrId;
-    }
-
-    public void setActivityStrId(String mActivityStrId) {
-        this.mActivityStrId = mActivityStrId;
     }
 }
