@@ -10,9 +10,9 @@ import android.util.Log;
 import java.lang.String;
 
 public class FavoritesDB extends SQLiteOpenHelper {
-    private static int DB_VERSION = 1;
-    private static String TABLE_NAME = "FavoriteCards";
-    private static String DATABASE_NAME = "PerformancesCardsDB";
+    private static final int DB_VERSION = 1;
+    private static final String TABLE_NAME = "FavoriteCards";
+    private static final String DATABASE_NAME = "PerformancesCardsDB";
     public static String KEY_ID = "id";
     public static String ITEM_TITLE ="itemTitle";
     public static String ITEM_IMAGE = "itemImage";
@@ -25,6 +25,7 @@ public class FavoritesDB extends SQLiteOpenHelper {
             + " TEXT," + ITEM_DESCRIPTION + " TEXT," + ITEM_BEGINNING
             + " TEXT," + ITEM_DURATION + " TEXT," + FAVORITE_STATUS
             + " TEXT)";
+    private static final String TAG = "RecordsDbHelper";
 
     public FavoritesDB(Context context){super(context, DATABASE_NAME, null, DB_VERSION);}
 
@@ -35,6 +36,10 @@ public class FavoritesDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
+                + newVersion + ", which will destroy all old data");
+        db.execSQL("DROP TABLE IF EXISTS tasks");
+        onCreate(db);
     }
 
     //создать пустую таблицу

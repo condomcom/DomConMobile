@@ -20,24 +20,57 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TestActivity2 extends AppCompatActivity {
     private TextView testText;
     private TextView testText2;
-    private String urlUser = "https://condomcom-server.herokuapp.com/api/";
-    private String urlActivityUser = "https://condomcom-server.herokuapp.com/api/activities/ovwpnCo2KR-AYGJrEPxxJ/";
+    private String url = "https://condomcom-server.herokuapp.com/api/";
+    private DomconApi domconApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         testText = findViewById(R.id.test);
-        testText = findViewById(R.id.test2);
 
-        Retrofit retrofitUser = new Retrofit.Builder()
-                .baseUrl(urlUser)
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        DomconApi domconApiUser = retrofitUser.create(DomconApi.class);
+        domconApi = retrofit.create(DomconApi.class);
 
-        Call<List<User>> callUser = domconApiUser.getUsers();
+        //getUser();
+        getActivityUser();
+        //getActivityUserPost();
+    }
+
+    private void getActivityUserPost() {
+        ActivityUser activityUser = new ActivityUser(null, null);
+        Call<ActivityUser> call = domconApi.getActivityUserPost(activityUser);
+
+        call.enqueue(new Callback<ActivityUser>() {
+            @Override
+            public void onResponse(Call<ActivityUser> call, Response<ActivityUser> response) {
+                if(!response.isSuccessful()) {
+                    testText.setText("Code: " + response.code());
+                    return;
+                }
+
+                ActivityUser postAU = (ActivityUser) response.body();
+                String content = "";
+                content += "Code: " + response.code() +"\n";
+                content += "UserStrId: " + postAU.getUserStrId() + "\n";
+                content += "ActivityStrId: " + postAU.getActivityStrId() + "\n";
+                testText.append(content);
+            }
+
+            @Override
+            public void onFailure(Call<ActivityUser> call, Throwable t) {
+                testText.setText(t.getMessage());
+            }
+        });
+    }
+
+
+    private void getUser(){
+        Call<List<User>> callUser = domconApi.getUsers();
         callUser.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
@@ -70,34 +103,33 @@ public class TestActivity2 extends AppCompatActivity {
                 testText.setText(t.getMessage());
             }
         });
+    }
 
-        Retrofit retrofitActivityUser = new Retrofit.Builder()
-                .baseUrl(urlUser)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        DomconApi domconApiActivityUser = retrofitActivityUser.create(DomconApi.class);
-
-        Call<List<ActivityUser>> callActivityUser = domconApiActivityUser.getActivityUser();
+    private void getActivityUser() {
+        Call<List<ActivityUser>> callActivityUser = domconApi.getActivityUser();
         callActivityUser.enqueue(new Callback<List<ActivityUser>>() {
             @Override
             public void onResponse(Call<List<ActivityUser>> call, Response<List<ActivityUser>> response) {
-                if(!response.isSuccessful()) {
-                    testText2.setText("Code: " + response.code());
+                if (!response.isSuccessful()) {
+                    testText.setText("Code: " + response.code());
                     return;
                 }
 
                 List<ActivityUser> activityUserList = response.body();
 
-                for(ActivityUser activityUser : activityUserList){
+                for (ActivityUser activityUser : activityUserList) {
                     String content = "";
-                    content += "UserStrId" + activityUser.getUserStrId() +"\n";
-                    content += "ActivityStrId" + activityUser.getActivityStrId() +"\n\n";
+                    content += "Code: " + response.code() +"\n";
+                    content += "UserStrId: " + activityUser.getUserStrId() + "\n";
+                    content += "ActivityStrId: " + activityUser.getActivityStrId() + "\n\n";
+
+                    testText.append(content);
                 }
             }
 
             @Override
             public void onFailure(Call<List<ActivityUser>> call, Throwable t) {
-                testText2.setText(t.getMessage());
+                testText.setText(t.getMessage());
             }
         });
     }
