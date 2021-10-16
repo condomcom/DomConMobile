@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/b_test"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/background"
@@ -53,6 +53,7 @@
         android:layout_height="41dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/edit"
+        android:inputType="textEmailAddress"
         android:padding="5dip"
         app:layout_constraintBottom_toTopOf="@+id/e_password"
         app:layout_constraintEnd_toEndOf="@+id/background"
@@ -78,11 +79,12 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/edit"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/s_conference"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_password"/>
+        app:layout_constraintTop_toBottomOf="@+id/t_password" />
 
     <TextView
         android:id="@+id/t_conference"
@@ -94,7 +96,7 @@
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/e_password"/>
+        app:layout_constraintTop_toBottomOf="@+id/e_password" />
 
     <Spinner
         android:id="@+id/s_conference"
@@ -102,19 +104,20 @@
         android:layout_height="41dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/spinner"
+        app:layout_constraintBottom_toTopOf="@+id/b_enter"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_conference"
-        app:layout_constraintBottom_toTopOf="@+id/b_enter"/>
+        app:layout_constraintTop_toBottomOf="@+id/t_conference" />
 
     <Button
         android:id="@+id/b_enter"
         android:layout_width="288dp"
         android:layout_height="55dp"
         android:layout_marginTop="40dp"
-        android:text="@string/enter"
         android:background="@drawable/button"
+        android:text="@string/enter"
+        android:theme="@style/StyleButton"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="@+id/background"
@@ -134,6 +137,17 @@
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toBottomOf="@+id/b_enter"
         app:layout_constraintVertical_bias="0.176" />
+
+    <Button
+        android:id="@+id/b_test2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

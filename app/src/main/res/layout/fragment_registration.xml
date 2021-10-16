@@ -1,147 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     >
+    <!--app:layout_constraintBottom_toBottomOf="@+id/background"-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="354dp"
-        android:layout_height="494dp"
-        android:layout_marginTop="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle" />
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="354dp"
+            android:layout_height="767dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/rectangle" />
 
-    <TextView
+        <TextView
         android:id="@+id/t_registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/registration"
         android:textColor="@color/text_light"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintTop_toTopOf="@+id/background" />
 
-    <TextView
-        android:id="@+id/t_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/name"
-        android:theme="@style/TextViewlight"
-        app:layout_constraintBottom_toTopOf="@+id/e_name"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.109"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_registration"
-        app:layout_constraintVertical_bias="0.529" />
+        <TextView
+            android:id="@+id/t_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/name"
+            android:theme="@style/TextViewlight"
+            app:layout_constraintBottom_toTopOf="@+id/e_name"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/t_registration"
+            app:layout_constraintVertical_bias="0.529" />
 
-    <EditText
-        android:id="@+id/e_name"
-        android:layout_width="288dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/edit"
-        android:padding="5dip"
-        app:layout_constraintBottom_toTopOf="@+id/e_surname"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_name"/>
+        <EditText
+            android:id="@+id/e_name"
+            android:layout_width="288dp"
+            android:layout_height="41dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/edit"
+            android:layout_marginTop="-5dp"
+            app:layout_constraintBottom_toTopOf="@+id/e_surname"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/t_name" />
 
-    <TextView
-        android:id="@+id/t_surname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/surname"
-        android:theme="@style/TextViewlight"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.109"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/e_name" />
+        <TextView
+            android:id="@+id/t_surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/surname"
+            android:theme="@style/TextViewlight"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/e_name" />
 
-    <EditText
-        android:id="@+id/e_surname"
-        android:layout_width="288dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="208dp"
-        android:background="@drawable/edit"
-        app:layout_constraintBottom_toBottomOf="@+id/e_loginReg"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_surname"/>
+        <EditText
+            android:id="@+id/e_surname"
+            android:layout_width="288dp"
+            android:layout_height="41dp"
+            android:background="@drawable/edit"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/t_surname" />
 
-    <TextView
-    android:id="@+id/t_loginReg"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:text="@string/login"
-    android:theme="@style/TextViewlight"
-    app:layout_constraintEnd_toEndOf="@+id/background"
-    app:layout_constraintHorizontal_bias="0.109"
-    app:layout_constraintStart_toStartOf="@+id/background"
-    app:layout_constraintTop_toBottomOf="@+id/e_surname"/>
+        <TextView
+            android:id="@+id/t_loginReg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/login"
+            android:theme="@style/TextViewlight"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.103"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/e_dateBirth" />
 
-    <EditText
-        android:id="@+id/e_loginReg"
-        android:layout_width="288dp"
-        android:layout_height="41dp"
-        android:background="@drawable/edit"
-        android:padding="5dip"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_loginReg"/>
+        <EditText
+            android:id="@+id/e_loginReg"
+            android:layout_width="288dp"
+            android:layout_height="41dp"
+            android:background="@drawable/edit"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/t_loginReg" />
 
-    <TextView
-        android:id="@+id/t_passwordReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/password"
-        android:theme="@style/TextViewlight"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.109"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/e_loginReg"/>
+        <TextView
+            android:id="@+id/t_passwordReg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/password"
+            android:theme="@style/TextViewlight"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/e_loginReg" />
 
-    <EditText
-        android:id="@+id/e_passwordReg"
-        android:layout_width="288dp"
-        android:layout_height="41dp"
-        android:background="@drawable/edit"
-        android:padding="5dip"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/t_passwordReg" />
+        <EditText
+            android:id="@+id/e_passwordReg"
+            android:layout_width="288dp"
+            android:layout_height="41dp"
+            android:background="@drawable/edit"
+            android:inputType="textPassword"
+            android:padding="5dip"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/t_passwordReg" />
 
-    <Button
+        <Button
         android:id="@+id/b_register"
         android:layout_width="288dp"
         android:layout_height="55dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/button"
         android:text="@string/register"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
+        android:layout_marginTop="40dp"
+        android:theme="@style/StyleButton"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/e_passwordReg"
-        app:layout_constraintVertical_bias="0.562" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@+id/e_passwordReg" />
+
+        <TextView
+            android:id="@+id/t_patronymic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/patronymic"
+            android:theme="@style/TextViewlight"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.106"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/e_surname" />
+
+        <EditText
+            android:id="@+id/e_patronymic"
+            android:layout_width="288dp"
+            android:layout_height="41dp"
+            android:background="@drawable/edit"
+            android:ems="10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/t_patronymic"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/t_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/phone"
+            android:theme="@style/TextViewlight"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.107"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/e_patronymic" />
+
+        <EditText
+            android:id="@+id/e_phone"
+            android:layout_width="288dp"
+            android:layout_height="41dp"
+            android:background="@drawable/edit"
+            android:ems="10"
+            android:inputType="phone"
+            app:layout_constraintBottom_toTopOf="@+id/e_dateBirth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.347"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/t_phone"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/t_dateBirt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/dateBirt"
+            android:theme="@style/TextViewlight"
+            app:layout_constraintBottom_toTopOf="@+id/e_dateBirth"
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintHorizontal_bias="0.123"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/e_phone"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <EditText
+            android:id="@+id/e_dateBirth"
+            android:layout_width="288dp"
+            android:layout_height="41dp"
+            android:background="@drawable/edit"
+            android:ems="10"
+            android:inputType="date"
+
+            app:layout_constraintEnd_toEndOf="@+id/background"
+            app:layout_constraintStart_toStartOf="@+id/background"
+            app:layout_constraintTop_toBottomOf="@+id/t_dateBirt"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

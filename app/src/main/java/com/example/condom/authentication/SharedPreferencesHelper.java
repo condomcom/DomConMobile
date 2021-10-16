@@ -4,6 +4,7 @@ package com.example.condom.authentication;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.condom.model.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -33,7 +34,7 @@ public class SharedPreferencesHelper {
     public boolean addUser(User user) {
         List<User> users = getUsers();
         for (User u : users) {
-            if (u.getLogin().equalsIgnoreCase(user.getLogin())) {
+            if (u.getEmail().equalsIgnoreCase(user.getEmail())) {
                 return false;
             }
         }
@@ -45,7 +46,7 @@ public class SharedPreferencesHelper {
     public boolean saveOrOverrideUser(User user) {
         List<User> users = getUsers();
         for (User u : users) {
-            if (u.getLogin().equalsIgnoreCase(user.getLogin())) {
+            if (u.getEmail().equalsIgnoreCase(user.getEmail())) {
                 users.remove(u);
                 break;
             }
@@ -60,16 +61,16 @@ public class SharedPreferencesHelper {
         List<User> allUsers = getUsers();
         for (User user : allUsers) {
             if (user.hasSuccessLogin()) {
-                successLogins.add(user.getLogin());
+                successLogins.add(user.getEmail());
             }
         }
         return successLogins;
     }
 
-    public boolean login(User user) {
+    /*public boolean login(User user) {
         List<User> users = getUsers();
         for (User u : users) {
-            if (user.getLogin().equalsIgnoreCase(u.getLogin())
+            if (user.getEmail().equalsIgnoreCase(u.getEmail())
                     && user.getPassword().equals(u.getPassword())) {
                 u.setHasSuccessLogin(true);
                 mSharedPreferences.edit().putString(USERS_KEY, mGson.toJson(users, USERS_TYPE)).apply();
@@ -77,5 +78,5 @@ public class SharedPreferencesHelper {
             }
         }
         return false;
-    }
+    }*/
 }
