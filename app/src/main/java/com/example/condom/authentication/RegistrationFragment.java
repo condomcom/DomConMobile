@@ -17,7 +17,6 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
 import com.example.condom.R;
-import com.example.condom.model.User;
 
 import java.util.Calendar;
 
@@ -45,7 +44,7 @@ public class RegistrationFragment extends Fragment {
         @Override
         public void onClick(View view) {
             if (isInputValid()) {
-                User user = new User(
+                /*User user = new User(
 
                         mName.getText().toString(),
                         mSurname.getText().toString(),
@@ -53,7 +52,7 @@ public class RegistrationFragment extends Fragment {
                         mEmail.getText().toString(),
                         mPhone.getText().toString(),
                         mDateBirth.getText().toString()
-                );
+                );*/
 
                 /*ApiUtils.getApiService().users(user).enqueue(new Callback<User>() {
                     Handler handler = new Handler(getActivity().getMainLooper());

@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
-import com.example.condom.favorites.FavoritesAdapter;
-import com.example.condom.favorites.FavoritesDB;
-import com.example.condom.favorites.FavoritesItem;
+import com.example.condom.favoritesAdapter.FavoritesAdapter;
+import com.example.condom.dataBase.FavoritesDB;
+import com.example.condom.modelItem.FavoritesItem;
 
 import java.util.ArrayList;
 import java.util.List;

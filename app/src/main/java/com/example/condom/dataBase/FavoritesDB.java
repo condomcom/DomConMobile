@@ -1,4 +1,4 @@
-package com.example.condom.favorites;
+package com.example.condom.dataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -35,7 +35,6 @@ public class FavoritesDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     //создать пустую таблицу

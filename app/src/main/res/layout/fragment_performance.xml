@@ -7,20 +7,9 @@
     android:orientation="vertical"
     tools:context=".navigation.PerformanceFragment">
 
-    <!--<ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-        </LinearLayout>
-    </ScrollView>-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPerformance"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="?attr/actionBarSize"
         android:clipToPadding="true"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

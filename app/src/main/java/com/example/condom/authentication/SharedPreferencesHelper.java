@@ -4,7 +4,7 @@ package com.example.condom.authentication;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.condom.model.User;
+import com.example.condom.modelIP.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

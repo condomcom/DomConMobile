@@ -9,7 +9,6 @@
         android:id="@+id/recyclerViewFavorites"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="?attr/actionBarSize"
         android:clipToPadding="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

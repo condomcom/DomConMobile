@@ -7,7 +7,9 @@
     android:layout_marginTop="20dp"
     android:layout_marginStart="18dp"
     android:layout_marginEnd="18dp"
-    android:layout_gravity="center_horizontal">
+    android:layout_gravity="center_horizontal"
+    android:elevation="10dp"
+    app:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +32,7 @@
                 android:text="Начало в 14:00"
                 android:theme="@style/TextViewCardAccent" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/favourites_fav"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -38,6 +40,7 @@
                 android:layout_marginTop="-30dp"
                 android:layout_marginEnd="18dp"
                 android:background="@drawable/ic_favorite_active"
+                android:backgroundTint="@color/accent"
                 app:mfb_animate_favorite="true"
                 app:mfb_animate_unfavorite="true" />
         </LinearLayout>
@@ -91,17 +94,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="4 часа"
-                android:theme="@style/TextViewCardAccent"/>
+                android:theme="@style/TextViewCardAccent" />
 
             <Button
                 android:id="@+id/b_details_fav"
+                style="@style/StyleButton"
                 android:layout_width="170dp"
                 android:layout_height="41dp"
-                android:background="@drawable/button"
-                android:text="@string/details"
-                style="@style/StyleButton"
                 android:layout_marginStart="45dp"
-                android:layout_marginEnd="18dp"/>
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/button"
+                android:text="@string/details" />
         </LinearLayout>
     </LinearLayout>
 

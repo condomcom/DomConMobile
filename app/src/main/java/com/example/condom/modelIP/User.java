@@ -1,4 +1,4 @@
-package com.example.condom.model;
+package com.example.condom.modelIP;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -21,19 +21,24 @@ public class User implements Serializable {
     private String mPhone;
     @SerializedName("birthDate")
     private String mBirthDate;
-    /*@SerializedName("password")
-    private String mPassword;*/
+    @SerializedName("createdAt")
+    private String mCreatedAt;
+    @SerializedName("updatedAt")
+    private String mUpdatedAt;
 
     private boolean mHasSuccessLogin;
 
     public User(String name, String surname, String patronymic,
-                String email, String phone, String birthDate){
+                String email, String phone, String birthDate,
+                String mCreatedAt, String mUpdatedAt){
         mName = name;
         mSurname = surname;
         mPatronymic = patronymic;
         mEmail = email;
         mPhone = phone;
         mBirthDate = birthDate;
+        mCreatedAt = mCreatedAt;
+        mUpdatedAt = mUpdatedAt;
     }
 
     public int getmId() {
@@ -71,14 +76,14 @@ public class User implements Serializable {
     public String getBirthDate() {return mBirthDate;}
 
     public void setBirthDate(String birthDate){ mBirthDate = birthDate;}
-    /*public String getPassword() {
-        return mPassword;
-    }*/
 
-    /*public void setPassword(String password) {
-        mPassword = password;
-    }*/
+    public String getCreatedAt() {
+        return mCreatedAt;
+    }
 
+    public String getUpdatedAt() {
+        return mUpdatedAt;
+    }
 
     public boolean hasSuccessLogin() {
         return mHasSuccessLogin;

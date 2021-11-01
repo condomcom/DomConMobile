@@ -1,6 +1,7 @@
 package com.example.condom.api;
 
-import com.example.condom.model.User;
+import com.example.condom.modelIP.ActivityUser;
+import com.example.condom.modelIP.User;
 
 import java.util.List;
 
@@ -11,4 +12,7 @@ public interface DomconApi {
 
     @GET("users")
     Call<List<User>> getUsers();
+
+    @GET("users")
+    Call<List<ActivityUser>> getActivityUser();
 }

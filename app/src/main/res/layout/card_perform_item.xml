@@ -8,7 +8,10 @@
     android:layout_marginTop="20dp"
     android:layout_marginStart="18dp"
     android:layout_marginEnd="18dp"
-    android:layout_gravity="center_horizontal">
+    android:layout_marginBottom="20dp"
+    android:layout_gravity="center_horizontal"
+    android:elevation="10dp"
+    app:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +34,7 @@
                 android:text="Начало в 14:00"
                 android:theme="@style/TextViewCardAccent" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/favourites_perf"
                 android:layout_width="30dp"
                 android:layout_height="30dp"

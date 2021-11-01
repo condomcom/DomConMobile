@@ -1,4 +1,4 @@
-package com.example.condom.favorites;
+package com.example.condom.favoritesAdapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
+import com.example.condom.dataBase.FavoritesDB;
+import com.example.condom.modelItem.FavoritesItem;
 
 import java.util.List;
 
@@ -70,13 +72,14 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
             mFavourites.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int position = getAbsoluteAdapterPosition();
+                    int position = getAdapterPosition();
                     final FavoritesItem favoritesItem = favoritesItemList.get(position);
                     favoritesDB.removeFav(favoritesItem.getKeyId());
                     removeItem(position);
                 }
             });
         }
+
         private void removeItem(int position) {
             favoritesItemList.remove(position);
             notifyItemRemoved(position);
