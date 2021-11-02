@@ -69,6 +69,30 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/ic_conference" />
+
+            <TextView
+                android:id="@+id/t_speaker_perf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="8dp"
+                android:text="Place"
+                android:theme="@style/TextViewCardAccent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <View
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/ic_place" />
 
             <TextView

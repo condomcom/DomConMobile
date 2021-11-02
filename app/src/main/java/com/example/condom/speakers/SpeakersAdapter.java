@@ -40,6 +40,7 @@ public class SpeakersAdapter extends RecyclerView.Adapter<SpeakersAdapter.ViewHo
         holder.mDescription.setText(speakersCardsItem.getSpeakerDescription());
         holder.mPerfTime.setText(speakersCardsItem.getSpeakerPerfTime());
         holder.mPlace.setText(speakersCardsItem.getSpeakerPlace());
+        holder.mPerf.setText(speakersCardsItem.getSpeakerPerf());
     }
 
     @Override
@@ -54,6 +55,7 @@ public class SpeakersAdapter extends RecyclerView.Adapter<SpeakersAdapter.ViewHo
         TextView mDescription;
         TextView mPerfTime;
         TextView mPlace;
+        TextView mPerf;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,6 +65,7 @@ public class SpeakersAdapter extends RecyclerView.Adapter<SpeakersAdapter.ViewHo
             mDescription = itemView.findViewById(R.id.t_description_speaker);
             mPerfTime = itemView.findViewById(R.id.t_duration_perf);
             mPlace = itemView.findViewById(R.id.t_speaker_place);
+            mPerf = itemView.findViewById(R.id.t_speaker_perf);
         }
     }
 

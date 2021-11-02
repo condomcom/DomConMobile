@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         FavouritesFragment favouritesFragment = new FavouritesFragment();
         PerformanceFragment performanceFragment = new PerformanceFragment();
         SpeakerFragment speakerFragment = new SpeakerFragment();
+        setFragment(speakerFragment);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

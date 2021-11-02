@@ -31,9 +31,9 @@ public class SpeakerFragment extends Fragment {
 
         if(speakersItems.isEmpty()){
         speakersItems.add(new SpeakersCardsItem("0", "Александр Петров", R.drawable.rofl_photo, "Programmer",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem. Donec nec vestibulum mi, nec semper nunc. Integer fermentum leo sit amet erat ultrices, id fringilla nunc sagittis. Etiam rutrum", "14 октября, 16:40 - 17:40", "Кабинет №22"));
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem. Donec nec vestibulum mi, nec semper nunc. Integer fermentum leo sit amet erat ultrices, id fringilla nunc sagittis. Etiam rutrum", "14 октября, 16:40 - 17:40", "Кабинет №22", "Хакатон"));
         speakersItems.add(new SpeakersCardsItem("0", "Александр Петров", R.drawable.rofl_photo, "Programmer",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem. Donec nec vestibulum mi, nec semper nunc. Integer fermentum leo sit amet erat ultrices, id fringilla nunc sagittis. Etiam rutrum", "14 октября, 16:40 - 17:40", "Кабинет №22"));
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem. Donec nec vestibulum mi, nec semper nunc. Integer fermentum leo sit amet erat ultrices, id fringilla nunc sagittis. Etiam rutrum", "14 октября, 17:40 - 19:40", "Кабинет №21", "Конференция №2"));
         }
 
         return view;
