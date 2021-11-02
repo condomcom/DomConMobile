@@ -14,8 +14,9 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.condom.navigation.MainActivity;
 import com.example.condom.R;
+import com.example.condom.api.TestActivity2;
+import com.example.condom.navigation.MainActivity;
 
 public class AuthorizationFragment extends Fragment {
 
@@ -23,6 +24,7 @@ public class AuthorizationFragment extends Fragment {
     private EditText password;
     private Button enter;
     private TextView createAccount;
+    private Button buttonTest;
 
     public static AuthorizationFragment newInstance() {
 
@@ -36,15 +38,15 @@ public class AuthorizationFragment extends Fragment {
     private View.OnClickListener mEnterOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(isEmailValid() && isPasswordValid()){
+            //if(isEmailValid() && isPasswordValid()){
                 Intent intent = new Intent(getActivity(), MainActivity.class);
-                intent.putExtra(MainActivity.EMAIL_KEY,
-                        new User(login.getText().toString(), password.getText().toString()));
+                /*intent.putExtra(MainActivity.EMAIL_KEY,
+                        new User(login.getText().toString(), password.getText().toString()));*/
                 AuthorizationFragment.this.startActivity(intent);
-            }
-            else{
+            //}
+            /*else{
                 showMessage(R.string.login_input_error);
-            }
+            }*/
         }
     };
 
@@ -86,7 +88,14 @@ public class AuthorizationFragment extends Fragment {
         enter.setOnClickListener(mEnterOnClickListener);
 
         createAccount.setOnClickListener(mRegistrationOnClickListener);
-
+        buttonTest = v.findViewById(R.id.b_test2);
+        buttonTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TestActivity2.class);
+                AuthorizationFragment.this.startActivity(intent);
+            }
+        });
         return v;
     }
 }

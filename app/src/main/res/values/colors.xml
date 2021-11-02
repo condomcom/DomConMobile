@@ -10,4 +10,5 @@
     <color name="black">#FF000000</color>
     <color name="text_light">#FFFFFFFF</color>
     <color name="accent_grey">#666666</color>
+    <color name="ripple_effect">#88888888</color>
 </resources>
