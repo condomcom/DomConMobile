@@ -13,7 +13,6 @@ import com.example.condom.R;
 import com.example.condom.api.TestApi;
 import com.example.condom.favoritesAdapter.PerformancesAdapter;
 import com.example.condom.modelIP.Activity;
-import com.example.condom.modelIP.ActivityUser;
 import com.example.condom.modelItem.PerformancesCardsItem;
 
 import java.util.ArrayList;
@@ -64,7 +63,7 @@ public class PerformanceFragment extends Fragment {
                     if (activity.mFullName != null) {
                         PerformancesCardsItem card = new PerformancesCardsItem(i + "", activity.mShortName,
                                 R.drawable.ic_backend, activity.mDescription,
-                                "Начало", "4 часа", "0");
+                                "Начало в 14:00", "4 часа", "0");
 
                         performancesItems.add(card);
                     }

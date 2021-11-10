@@ -25,10 +25,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPerformance"
         android:layout_width="match_parent"
-        android:layout_height="728dp"
+        android:layout_height="match_parent"
         android:clipToPadding="true"
+        android:layout_marginTop="105dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatEditText"
-        tools:layout_editor_absoluteX="-1dp"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
