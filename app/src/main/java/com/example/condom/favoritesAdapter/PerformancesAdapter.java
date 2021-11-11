@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,14 +24,16 @@ import com.example.condom.modelItem.PerformancesCardsItem;
 
 import java.util.ArrayList;
 
-public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapter.ViewHolder> {
+public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapter.ViewHolder> implements Filterable {
     private ArrayList<PerformancesCardsItem> performancesCardsItems;
     private Context context;
     private FavoritesDB favoritesDB;
+    private ArrayList<PerformancesCardsItem> performancesCardsItemsFull;
 
     public PerformancesAdapter( ArrayList<PerformancesCardsItem> performancesCardsItems, Context context){
-        this.performancesCardsItems = performancesCardsItems;
+        this.performancesCardsItemsFull = performancesCardsItems;
         this.context = context;
+        this.performancesCardsItems = new ArrayList<>(performancesCardsItemsFull);
     }
 
     @NonNull
@@ -70,6 +74,43 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
     public int getItemCount() {
         return performancesCardsItems.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return newFilter;
+    }
+
+    private final Filter newFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<PerformancesCardsItem> filteredNewList = new ArrayList<>();
+
+            if(constraint == null || constraint.length() == 0){
+                filteredNewList.addAll(performancesCardsItemsFull);
+            }
+            else{
+                String filteredPattern = constraint.toString().toLowerCase().trim();
+
+                for (PerformancesCardsItem item : performancesCardsItemsFull){
+                    if(item.getItemTitle().toLowerCase().contains(filteredPattern))
+                        filteredNewList.add(item);
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredNewList;
+            results.count = filteredNewList.size();
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            performancesCardsItems.clear();
+            performancesCardsItems.addAll((ArrayList)results.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView mBeginning;

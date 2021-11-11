@@ -7,22 +7,12 @@
     tools:context=".navigation.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/main_background"/>
-
-    <TextView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="DomCon"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="10dp"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="26dp" />
-
+        android:background="@color/main_background"
+        app:title="DomCon"
+        app:titleTextColor="@color/text_light" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -38,5 +28,6 @@
         android:id="@+id/frame_nav"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_nav" />
+        android:layout_above="@id/bottom_nav"
+        android:layout_marginBottom="3dp" />
 </RelativeLayout>
