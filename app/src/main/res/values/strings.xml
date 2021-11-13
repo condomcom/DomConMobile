@@ -23,9 +23,6 @@
     <string name="patronymic">Отчество</string>
     <string name="phone">Телефон</string>
     <string name="dateBirt">Дата рождения</string>
-
-
-    <!--Удалить -->
     <string name="backend">Проблемы embedded или как мы от sqlite ушли</string>
     <string name="front">RTC и Франкенштейн</string>
     <string name="design">Проектирование сложных B2B-сервисов в деревне Виллабаджо</string>
@@ -35,4 +32,8 @@
     <string name="beginner">Начало в 14:00</string>
     <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem. Donec nec vestibulum mi, nec semper nunc. Integer fermentum leo sit amet erat ultrices, id fringilla nunc sagittis. Etiam rutrum porttitor nunc, a tincidunt est aliquam tincidunt.</string>
     <string name="search_hint">Поиск</string>
+    <string name="organizations">Оргинизации</string>
+    <string name="dateEvent">Дата проведения</string>
+    <string name="conferenceTopics">Направления</string>
+    <string name="timeEvent">Время проведения</string>
 </resources>

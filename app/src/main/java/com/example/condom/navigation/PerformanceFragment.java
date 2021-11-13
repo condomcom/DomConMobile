@@ -1,8 +1,9 @@
 package com.example.condom.navigation;
 
+import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,12 +11,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +29,7 @@ import com.example.condom.api.TestApi;
 import com.example.condom.favoritesAdapter.PerformancesAdapter;
 import com.example.condom.modelIP.Activity;
 import com.example.condom.modelItem.PerformancesCardsItem;
+import com.example.condom.navigation.dialog.FilterFullscreenDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,13 +40,17 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static androidx.core.content.ContextCompat.getColorStateList;
+
 public class PerformanceFragment extends Fragment {
     private ArrayList<PerformancesCardsItem> performancesItems;
     private PerformancesAdapter adapter;
     private ArrayList<PerformancesCardsItem> filterList = new ArrayList<>();
+    Spinner speakerFilter;
 
     private static final String TAG = "TAG";
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,12 +58,12 @@ public class PerformanceFragment extends Fragment {
 
         performancesItems = new ArrayList<PerformancesCardsItem>();
 
-
+        speakerFilter = view.findViewById(R.id.speakers_filter);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewPerformance);
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //adapter.notifyDataSetChanged();
+
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://condomcom-server.herokuapp.com/api/")
@@ -114,8 +123,10 @@ public class PerformanceFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.performance_menu, menu);
-        MenuItem menuItem = menu.findItem(R.id.search_action);
-        SearchView searchView = (SearchView) menuItem.getActionView();
+
+        MenuItem searchMenuItem = menu.findItem(R.id.search_action);
+
+        SearchView searchView = (SearchView) searchMenuItem.getActionView();
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setQueryHint("Поиск");
 
@@ -134,5 +145,22 @@ public class PerformanceFragment extends Fragment {
         });
 
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.filter_action){
+            /*AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.FullScreenFilter);
+            View view = getLayoutInflater().inflate(R.layout.full_screen_filret, null);
+
+            builder.setView(view);
+            AlertDialog dialog = builder.create();
+            dialog.show();*/
+            DialogFragment dialog = FilterFullscreenDialog.newInstance();
+            dialog.show(getActivity().getSupportFragmentManager(), "tag");
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
