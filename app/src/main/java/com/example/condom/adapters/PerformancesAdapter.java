@@ -1,7 +1,5 @@
-package com.example.condom.favoritesAdapter;
+package com.example.condom.adapters;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -18,18 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.modelItem.PerformancesCardsItem;
 import com.example.condom.navigation.dialog.CardFullscreenDialog;
-import com.example.condom.navigation.dialog.FilterFullscreenDialog;
 
 import java.util.ArrayList;
 
