@@ -82,7 +82,7 @@
         <Spinner
             android:id="@+id/speakers_filter"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/spinner_dark"
@@ -104,7 +104,7 @@
         <Spinner
             android:id="@+id/organizations_filter"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:background="@drawable/spinner_dark"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
@@ -126,7 +126,7 @@
         <Spinner
             android:id="@+id/conference_filter"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:background="@drawable/spinner_dark"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
@@ -160,7 +160,7 @@
         <EditText
             android:id="@+id/date_event_filter"
             android:layout_width="100dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_marginStart="40dp"
             android:hint="21.05"
             android:gravity="center"
@@ -182,7 +182,7 @@
         <EditText
             android:id="@+id/date_event_filter2"
             android:layout_width="100dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="30dp"
             android:hint="23.05"
             android:gravity="center"
@@ -216,7 +216,7 @@
         <EditText
             android:id="@+id/time_event_filter"
             android:layout_width="100dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_marginStart="40dp"
             android:hint="10:00"
             android:gravity="center"
@@ -238,7 +238,7 @@
         <EditText
             android:id="@+id/time_event_filter2"
             android:layout_width="100dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="30dp"
             android:hint="14:00"
             android:gravity="center"

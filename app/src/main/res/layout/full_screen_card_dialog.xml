@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:cardBackgroundColor="@color/main_background"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/fullscreen_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_white_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/fullscreen_close"
+                android:text="TITLE"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/fullscreen_fav"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_favorite_white"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image_perf_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_c_sharp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/t_title_perf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
+            android:gravity="center"
+            android:text="@string/backend"
+            android:theme="@style/TextViewCardTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_perf_card" />
+
+        <TextView
+            android:id="@+id/t_description_perf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
+            android:ellipsize="end"
+            android:justificationMode="inter_word"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt ipsum et suscipit vehicula. Vivamus vel velit scelerisque, gravida tortor sed, tristique orci. Maecenas libero libero, ultricies eu odio at, sagittis mollis felis. Sed eu tortor quis sem finibus elementum. Aliquam in scelerisque metus, vel pellentesque velit. Nulla nec arcu magna. Aliquam erat volutpat. Fusce sodales augue et ligula maximus, quis consectetur mauris tristique. Vivamus eu lobortis lectus, ac semper lacus.
+Suspendisse potenti. Maecenas vulputate ullamcorper augue, vitae dapibus arcu dictum sit amet. Vestibulum hendrerit libero et cursus fringilla. Duis blandit odio id metus bibendum, sit amet luctus massa blandit. Praesent vehicula consequat tempor. Vivamus consectetur ipsum eu sem sollicitudin fermentum. Vestibulum mattis nisi congue, euismod risus sed, eleifend mauris."
+            android:theme="@style/TextViewCardDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/t_title_perf" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/t_description_perf" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/ic_back_in_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/ic_employee"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <TextView
+            android:id="@+id/t_date_ev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginStart="18dp"
+            android:text="Дата проведения "
+            android:theme="@style/TextViewCardAccent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/t_description_perf" />
+
+        <TextView
+            android:id="@+id/t_starting_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:text="21.05"
+            android:theme="@style/TextViewCardAccent"
+            app:layout_constraintStart_toEndOf="@+id/t_date_ev"
+            app:layout_constraintTop_toBottomOf="@+id/t_description_perf" />
+
+        <TextView
+            android:id="@+id/t_time_ev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="18dp"
+            android:text="Время проведения с "
+            android:theme="@style/TextViewCardAccent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/t_date_ev" />
+
+        <TextView
+            android:id="@+id/t_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="0dp"
+            android:text="10:00"
+            android:theme="@style/TextViewCardAccent"
+            app:layout_constraintStart_toEndOf="@+id/t_time_ev"
+            app:layout_constraintTop_toBottomOf="@+id/t_date_ev" />
+
+        <TextView
+            android:id="@+id/t_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text=" до "
+            android:theme="@style/TextViewCardAccent"
+            app:layout_constraintStart_toEndOf="@+id/t_start_time"
+            app:layout_constraintTop_toBottomOf="@+id/t_date_ev" />
+
+        <TextView
+            android:id="@+id/t_end_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="14:00"
+            android:theme="@style/TextViewCardAccent"
+            app:layout_constraintStart_toEndOf="@+id/t_before"
+            app:layout_constraintTop_toBottomOf="@+id/t_date_ev" />
+
+
+        <TextView
+            android:id="@+id/t_speaker_full_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="18dp"
+            android:text="Александр Петров"
+            android:theme="@style/TextViewCardAccent"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/t_time_ev" />
+
+        <TextView
+            android:id="@+id/t_comma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="0dp"
+            android:text=", "
+            android:theme="@style/TextViewCardAccent"
+            app:layout_constraintStart_toEndOf="@+id/t_speaker_full_screen"
+            app:layout_constraintTop_toBottomOf="@+id/t_time_ev"/>
+
+        <TextView
+            android:id="@+id/t_company_full_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="0dp"
+            android:text="Контур"
+            android:theme="@style/TextViewCardAccent"
+            app:layout_constraintStart_toEndOf="@+id/t_comma"
+            app:layout_constraintTop_toBottomOf="@+id/t_time_ev" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -1,5 +1,7 @@
 package com.example.condom.favoritesAdapter;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -16,15 +18,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.modelItem.PerformancesCardsItem;
+import com.example.condom.navigation.dialog.CardFullscreenDialog;
+import com.example.condom.navigation.dialog.FilterFullscreenDialog;
 
 import java.util.ArrayList;
 
-public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapter.ViewHolder> implements Filterable {
+public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapter.ViewHolder> implements Filterable{
     private ArrayList<PerformancesCardsItem> performancesCardsItems;
     private Context context;
     private FavoritesDB favoritesDB;
@@ -112,7 +121,7 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
         }
     };
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder{
         TextView mBeginning;
         Button mFavourites;
         ImageView mImageView;
@@ -162,6 +171,19 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
                     }
                 }
             });
+
+            mDetails.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDialogFragment(v);
+                }
+            });
+        }
+
+        public void showDialogFragment(View view){
+            DialogFragment dialogFragment = CardFullscreenDialog.newInstance();
+            AppCompatActivity activity = ((AppCompatActivity)view.getContext());
+            dialogFragment.show(activity.getSupportFragmentManager(),null);
         }
     }
 

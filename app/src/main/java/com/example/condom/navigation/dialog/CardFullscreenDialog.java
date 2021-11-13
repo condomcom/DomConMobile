@@ -1,5 +1,7 @@
 package com.example.condom.navigation.dialog;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +15,25 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.condom.R;
 
-public class FilterFullscreenDialog extends DialogFragment implements View.OnClickListener {
+public class CardFullscreenDialog extends DialogFragment implements View.OnClickListener {
 
-    public static FilterFullscreenDialog newInstance(){
-        return new FilterFullscreenDialog();
+    public static CardFullscreenDialog newInstance(){
+        return new CardFullscreenDialog();
     }
+
+    /*@Nullable
+    public View onCreate(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.full_screen_card_dialog, container, false);
+
+        ImageButton close = view.findViewById(R.id.fullscreen_close);
+        ImageButton action = view.findViewById(R.id.fullscreen_fav);
+
+        close.setOnClickListener(this);
+        action.setOnClickListener(this);
+
+        return view;
+    }*/
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,10 +45,10 @@ public class FilterFullscreenDialog extends DialogFragment implements View.OnCli
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.full_screen_filret, container, false);
+        View view = inflater.inflate(R.layout.full_screen_card_dialog, container, false);
 
-        ImageButton close = view.findViewById(R.id.fullscreen_dialog_close);
-        TextView action = view.findViewById(R.id.fullscreen_dialog_action);
+        ImageButton close = view.findViewById(R.id.fullscreen_close);
+        ImageButton action = view.findViewById(R.id.fullscreen_fav);
 
         close.setOnClickListener(this);
         action.setOnClickListener(this);
@@ -45,11 +61,11 @@ public class FilterFullscreenDialog extends DialogFragment implements View.OnCli
         int id = v.getId();
 
         switch (id){
-            case R.id.fullscreen_dialog_close:
+            case R.id.fullscreen_close:
                 dismiss();
                 break;
 
-            case R.id.fullscreen_dialog_action:
+            case R.id.fullscreen_fav:
 
                 break;
         }

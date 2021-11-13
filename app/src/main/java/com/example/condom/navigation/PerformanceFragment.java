@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -46,7 +47,6 @@ public class PerformanceFragment extends Fragment {
     private ArrayList<PerformancesCardsItem> performancesItems;
     private PerformancesAdapter adapter;
     private ArrayList<PerformancesCardsItem> filterList = new ArrayList<>();
-    Spinner speakerFilter;
 
     private static final String TAG = "TAG";
 
@@ -58,12 +58,10 @@ public class PerformanceFragment extends Fragment {
 
         performancesItems = new ArrayList<PerformancesCardsItem>();
 
-        speakerFilter = view.findViewById(R.id.speakers_filter);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewPerformance);
+
         recyclerView.setHasFixedSize(true);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://condomcom-server.herokuapp.com/api/")
@@ -87,7 +85,7 @@ public class PerformanceFragment extends Fragment {
 
                     if (activity.mFullName != null) {
                         PerformancesCardsItem card = new PerformancesCardsItem(i + "", activity.mShortName,
-                                R.drawable.ic_backend, activity.mDescription,
+                                R.drawable.ic_c_sharp, activity.mDescription,
                                 "Начало в 14:00", "4 часа", "0");
 
                         performancesItems.add(card);
