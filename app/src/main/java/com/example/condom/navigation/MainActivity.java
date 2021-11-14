@@ -5,6 +5,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -15,12 +16,16 @@ public class MainActivity extends AppCompatActivity {
     public static String EMAIL_KEY = "EMAIL_KEY";
     public static String PASSWORD_KEY = "PASSWORD_KEY";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
 
         ActivitiesFragment activitiesFragment = new ActivitiesFragment();
         FavouritesFragment favouritesFragment = new FavouritesFragment();

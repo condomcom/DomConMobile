@@ -1,4 +1,4 @@
-package com.example.condom.favoritesAdapter;
+package com.example.condom.adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,26 +10,43 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.modelItem.PerformancesCardsItem;
+import com.example.condom.navigation.dialog.CardFullscreenDialog;
 
 import java.util.ArrayList;
 
-public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapter.ViewHolder> {
+public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapter.ViewHolder> implements Filterable{
     private ArrayList<PerformancesCardsItem> performancesCardsItems;
     private Context context;
     private FavoritesDB favoritesDB;
+    private ArrayList<PerformancesCardsItem> performancesCardsItemsFull;
+
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void OnItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
 
     public PerformancesAdapter( ArrayList<PerformancesCardsItem> performancesCardsItems, Context context){
-        this.performancesCardsItems = performancesCardsItems;
+        this.performancesCardsItemsFull = performancesCardsItems;
         this.context = context;
+        this.performancesCardsItems = new ArrayList<>(performancesCardsItemsFull);
     }
 
     @NonNull
@@ -71,7 +88,44 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
         return performancesCardsItems.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public Filter getFilter() {
+        return newFilter;
+    }
+
+    private final Filter newFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<PerformancesCardsItem> filteredNewList = new ArrayList<>();
+
+            if(constraint == null || constraint.length() == 0){
+                filteredNewList.addAll(performancesCardsItemsFull);
+            }
+            else{
+                String filteredPattern = constraint.toString().toLowerCase().trim();
+
+                for (PerformancesCardsItem item : performancesCardsItemsFull){
+                    if(item.getItemTitle().toLowerCase().contains(filteredPattern))
+                        filteredNewList.add(item);
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredNewList;
+            results.count = filteredNewList.size();
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            performancesCardsItems.clear();
+            performancesCardsItems.addAll((ArrayList)results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
         TextView mBeginning;
         Button mFavourites;
         ImageView mImageView;
@@ -121,6 +175,19 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
                     }
                 }
             });
+
+            mDetails.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showDialogFragment(v);
+                }
+            });
+        }
+
+        public void showDialogFragment(View view){
+            DialogFragment dialogFragment = CardFullscreenDialog.newInstance();
+            AppCompatActivity activity = ((AppCompatActivity)view.getContext());
+            dialogFragment.show(activity.getSupportFragmentManager(),null);
         }
     }
 

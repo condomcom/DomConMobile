@@ -1,4 +1,4 @@
-package com.example.condom.favoritesAdapter;
+package com.example.condom.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
