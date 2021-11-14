@@ -1,6 +1,7 @@
 package com.example.condom.navigation;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,11 +19,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
-import com.example.condom.api.TestApi;
 import com.example.condom.adapters.PerformancesAdapter;
+import com.example.condom.modelItem.PerformancesCardsItem;
+import com.example.condom.navigation.dialog.CardFullscreenDialog;
+import com.example.condom.navigation.dialog.FilterFullscreenDialog;
+
+import com.example.condom.api.TestApi;
 import com.example.condom.modelIP.Activity;
 import com.example.condom.modelItem.PerformancesCardsItem;
-import com.example.condom.navigation.dialog.FilterFullscreenDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +37,24 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class PerformanceFragment extends Fragment {
+import java.util.ArrayList;
+
+public class PerformanceFragment extends Fragment implements PerformancesAdapter.OnItemClickListener{
+    public static final String EXTRA_ID = "id";
+    public static final String EXTRA_TITLE = "title";
+    public static final String EXTRA_DESCRIPTION = "description";
+    public static final int EXTRA_IMG = 0;
+    public static final String EXTRA_DATE = "date";
+    public static final String EXTRA_START_TIME = "start time";
+    public static final String EXTRA_END_TIME = "end time";
+    public static final String EXTRA_SPEAKER = "speaker";
+    public static final String EXTRA_COMPANY = "company";
+
+
+    //public static final String EXTRA_ID = "id";
+
+
+
     private ArrayList<PerformancesCardsItem> performancesItems;
     private PerformancesAdapter adapter;
     private ArrayList<PerformancesCardsItem> filterList = new ArrayList<>();
@@ -52,6 +73,8 @@ public class PerformanceFragment extends Fragment {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://condomcom-server.herokuapp.com/api/")
@@ -80,15 +103,17 @@ public class PerformanceFragment extends Fragment {
 
                         performancesItems.add(card);
                     }
+
                 }
                 adapter = new PerformancesAdapter(performancesItems, getActivity());
                 recyclerView.setAdapter(adapter);
+                adapter.setOnItemClickListener(PerformanceFragment.this::OnItemClick);
 
                 adapter.notifyDataSetChanged();
             }
             @Override
             public void onFailure(Call<List<Activity>> call, Throwable t) {
-                Log.i(TAG, t.getMessage());
+                 Log.i(TAG, t.getMessage());
             }
         });
         //performancesItems.add(a.mFullName);
@@ -148,5 +173,23 @@ public class PerformanceFragment extends Fragment {
             dialog.show(getActivity().getSupportFragmentManager(), "tag");
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void OnItemClick(int position) {
+        Intent detailIntent = new Intent(getActivity(), CardFullscreenDialog.class);
+        PerformancesCardsItem item = performancesItems.get(position);
+
+        //detailIntent.putExtra(EXTRA_ID, item.getKeyId());
+        //detailIntent.putExtra(EXTRA_TITLE, item.getItemTitle());
+        //detailIntent.putExtra(EXTRA_DESCRIPTION, item.getItemDescription());
+        //detailIntent.putExtra(String.valueOf(EXTRA_IMG), R.drawable.ic_c_sharp);
+        detailIntent.putExtra(EXTRA_DATE, "13.11");
+        detailIntent.putExtra(EXTRA_START_TIME, "11:00");
+        detailIntent.putExtra(EXTRA_END_TIME, "15:00");
+        detailIntent.putExtra(EXTRA_SPEAKER, "Александр Петров");
+        detailIntent.putExtra(EXTRA_COMPANY, "Контур");
+
+        startActivity(detailIntent);
     }
 }

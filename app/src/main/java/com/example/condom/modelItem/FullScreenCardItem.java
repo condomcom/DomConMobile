@@ -1,6 +1,7 @@
 package com.example.condom.modelItem;
 
 public class FullScreenCardItem {
+    //todo DELETE MODEL
     private String keyId;
     private String itemTitle;
     private int itemImage;

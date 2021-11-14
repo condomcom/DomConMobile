@@ -51,6 +51,7 @@ public class FullScreenCardAdapter extends RecyclerView.Adapter<FullScreenCardAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+        TextView titleBar;
         ImageView imageView;
         TextView textTitle;
         TextView textDescription;
@@ -62,7 +63,7 @@ public class FullScreenCardAdapter extends RecyclerView.Adapter<FullScreenCardAd
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            titleBar = itemView.findViewById(R.id.title_fullscreen);
             imageView = itemView.findViewById(R.id.image_fullscreen_card);
             textTitle = itemView.findViewById(R.id.t_fullscreen_title_card);
             textDescription = itemView.findViewById(R.id.t_fullscreen_description);

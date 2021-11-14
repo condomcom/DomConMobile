@@ -33,6 +33,16 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
     private FavoritesDB favoritesDB;
     private ArrayList<PerformancesCardsItem> performancesCardsItemsFull;
 
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void OnItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
+
     public PerformancesAdapter( ArrayList<PerformancesCardsItem> performancesCardsItems, Context context){
         this.performancesCardsItemsFull = performancesCardsItems;
         this.context = context;
