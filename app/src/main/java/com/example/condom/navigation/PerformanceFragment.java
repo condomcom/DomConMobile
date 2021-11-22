@@ -59,7 +59,7 @@ public class PerformanceFragment extends Fragment implements PerformancesAdapter
     private PerformancesAdapter adapter;
     private ArrayList<PerformancesCardsItem> filterList = new ArrayList<>();
 
-    private static final String TAG = "TAG";
+    private static final String TAG = "PerfomanceFragment";
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -73,8 +73,6 @@ public class PerformanceFragment extends Fragment implements PerformancesAdapter
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://condomcom-server.herokuapp.com/api/")
