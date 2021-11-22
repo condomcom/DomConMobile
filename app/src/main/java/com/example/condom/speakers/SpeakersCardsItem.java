@@ -3,14 +3,14 @@ package com.example.condom.speakers;
 public class SpeakersCardsItem {
     private String keyId;
     private String speakerName;
-    private int speakerImage;
+    private String speakerImage;
     private String speakerProfession;
     private String speakerDescription;
     private String speakerPerfTime;
     private String speakerPlace;
     private String speakerPerf;
 
-    public SpeakersCardsItem(String keyId, String speakerName, int speakerImage,
+    public SpeakersCardsItem(String keyId, String speakerName, String speakerImage,
                                  String speakerProfession, String speakerDescription,
                                  String speakerPerfTime, String speakerPlace, String speakerPerf) {
         this.keyId = keyId;
@@ -24,6 +24,7 @@ public class SpeakersCardsItem {
 
     }
 
+
     public String getKeyId() { return keyId;}
 
     public void setKeyId(String keyId) { this.keyId = keyId;}
@@ -32,9 +33,9 @@ public class SpeakersCardsItem {
 
     public void setSpeakerName(String speakerName) { this.speakerName = speakerName;}
 
-    public int getSpeakerImage() { return speakerImage;}
+    public String getSpeakerImage() { return speakerImage;}
 
-    public void setSpeakerImage(int speakerImage) { this.speakerImage = speakerImage;}
+    public void setSpeakerImage(String speakerImage) { this.speakerImage = speakerImage;}
 
     public String getSpeakerDescription() { return speakerDescription;}
 

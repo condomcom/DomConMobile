@@ -20,6 +20,8 @@ import com.example.condom.speakers.SpeakersAdapter;
 import com.example.condom.speakers.SpeakersCardsItem;
 
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +37,8 @@ public class SpeakerFragment extends Fragment {
     private static final String TAG = "SpeakersFragment";
     private SpeakersAdapter adapter;
 
+    private List<User> userList;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,8 +49,11 @@ public class SpeakerFragment extends Fragment {
 
         adapter = new SpeakersAdapter(speakersItems, getActivity());
 
+        userList = new ArrayList<>();
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://condomcom-server.herokuapp.com/api/")
@@ -68,9 +75,12 @@ public class SpeakerFragment extends Fragment {
                 for (int i = 0; i < users.size(); i++) {
                     User user = users.get(i);
 
+
                     if (user.getRole() == 1) {
+                        String imageUrl = user.toString();
+                        user.setImageUrl(imageUrl);
                         SpeakersCardsItem item =  new SpeakersCardsItem(i + "", user.getName() + " " + user.getSurname(),
-                                0, user.getSpeakerPosition(), user.getSpeakerDescription(),
+                                user.getImageUrl(), user.getSpeakerPosition(), user.getSpeakerDescription(),
                                 "10:00-12:00", "Аудитория Е228", "JetBrains");
 
                         speakersItems.add(item);

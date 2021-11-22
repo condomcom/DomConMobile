@@ -32,12 +32,15 @@ public class User implements Serializable {
     @SerializedName("role")
     private int mRole;
 
+    @SerializedName("imageUrl")
+    private String imageUrl;
+
     private boolean mHasSuccessLogin;
 
     public User(String name, String surname, String patronymic,
                 String email, String phone, String birthDate,
                 String mCreatedAt, String mUpdatedAt, int role,
-                String description, String position){
+                String description, String position, String imageUrl){
         mName = name;
         mSurname = surname;
         mPatronymic = patronymic;
@@ -49,6 +52,15 @@ public class User implements Serializable {
         mRole = role;
         mSpeakerPosition = position;
         mSpeakerDescription = description;
+        imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public int getRole() { return mRole; }

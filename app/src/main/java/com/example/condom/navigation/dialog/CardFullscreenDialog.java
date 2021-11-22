@@ -26,8 +26,7 @@ import com.example.condom.modelItem.FullScreenCardItem;
 import com.example.condom.modelItem.PerformancesCardsItem;
 import com.example.condom.navigation.PerformanceFragment;
 import com.example.condom.speakers.SpeakersAdapter;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+
 
 import java.util.ArrayList;
 import java.util.List;
