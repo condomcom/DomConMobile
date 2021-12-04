@@ -14,12 +14,14 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.modelItem.PerformancesCardsItem;
@@ -75,12 +77,22 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
     public void onBindViewHolder(@NonNull PerformancesAdapter.ViewHolder holder, int position) {
         final PerformancesCardsItem performancesCardsItem = performancesCardsItems.get(position);
         readCursorData(performancesCardsItem, holder);
-
         holder.mBeginning.setText(performancesCardsItem.getItemBeginning());
         holder.mImageView.setImageResource(performancesCardsItem.getItemImage());
         holder.mTitle.setText(performancesCardsItem.getItemTitle());
         holder.mDescription.setText(performancesCardsItem.getItemDescription());
         holder.mDuration.setText(performancesCardsItem.getItemDuration());
+
+        /*if(performancesCardsItem.getItemImage() != null &&
+                performancesCardsItem.getItemImage().length() > 0){
+            Glide.with(context)
+                    .load(performancesCardsItem.getItemImage())
+                    .into(holder.mImageView);
+        }
+        else{
+            Toast.makeText(context,"Не удалось загрузить картинку", Toast.LENGTH_LONG).show();
+            holder.mImageView.setImageResource(R.drawable.ic_c_sharp);
+        }*/
     }
 
     @Override

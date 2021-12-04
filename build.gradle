@@ -21,7 +21,7 @@ allprojects {
         google()
         mavenCentral()
         //jcenter() // Warnin repositories {
-            maven { url "https://jitpack.io" }
+        maven { url "https://jitpack.io" }
         maven {url 'http://maven.google.com'}
     }
 }

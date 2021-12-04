@@ -12,24 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
 import com.example.condom.adapters.PerformancesAdapter;
-import com.example.condom.api.TestApi;
+import com.example.condom.api.ApiClient;
+import com.example.condom.api.DomConApi;
 import com.example.condom.modelIP.Activity;
 import com.example.condom.modelIP.User;
 import com.example.condom.modelItem.PerformancesCardsItem;
 import com.example.condom.speakers.SpeakersAdapter;
 import com.example.condom.speakers.SpeakersCardsItem;
-
-
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SpeakerFragment extends Fragment {
     private ArrayList<SpeakersCardsItem> speakersItems = new ArrayList<>();
@@ -37,67 +31,77 @@ public class SpeakerFragment extends Fragment {
     private static final String TAG = "SpeakersFragment";
     private SpeakersAdapter adapter;
 
-    private List<User> userList;
+    private RecyclerView recyclerView;
+
+    private List<User> userList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_speaker, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewPerformance);
+        recyclerView = view.findViewById(R.id.recyclerViewPerformance);
         recyclerView.setHasFixedSize(true);
 
         adapter = new SpeakersAdapter(speakersItems, getActivity());
 
-        userList = new ArrayList<>();
-
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        getAllSpeakers();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://condomcom-server.herokuapp.com/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        return view;
+    }
 
-        TestApi a = retrofit.create(TestApi.class);
+    public void getAllSpeakers(){
 
-        Call call = a.getSpeakers();
+        Call<List<User>> call = ApiClient.getInterface().getSpeakers();
 
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 List<User> users = response.body();
-                Log.i(TAG, "Code: " + response.code());
 
-                speakersItems.clear();
+                if(response.isSuccessful()){
+                    Log.i(TAG, "Code: " + response.code());
+                    Log.i(TAG, "Всё путём ...");
 
-                for (int i = 0; i < users.size(); i++) {
-                    User user = users.get(i);
+                    speakersItems.clear();
 
+                    for (int i = 0; i < users.size(); i++) {
+                        User user = users.get(i);
 
-                    if (user.getRole() == 1) {
-                        String imageUrl = user.toString();
-                        user.setImageUrl(imageUrl);
-                        SpeakersCardsItem item =  new SpeakersCardsItem(i + "", user.getName() + " " + user.getSurname(),
-                                user.getImageUrl(), user.getSpeakerPosition(), user.getSpeakerDescription(),
-                                "10:00-12:00", "Аудитория Е228", "JetBrains");
+                        String imageUrl = user.getImageUrl().toString();
 
-                        speakersItems.add(item);
+                        if (user.getRole() == 1) {
+
+                            SpeakersCardsItem item =  new SpeakersCardsItem(i + "", user.getName() + " " + user.getSurname(),
+                                    imageUrl, user.getSpeakerPosition(), user.getSpeakerDescription(),
+                                    "10:00-12:00", "Аудитория Е228", "JetBrains");
+
+                            speakersItems.add(item);
+                        }
                     }
-
+                    
+                    PutDataRecyclerView(userList);
                 }
-                adapter = new SpeakersAdapter(speakersItems, getActivity());
-                recyclerView.setAdapter(adapter);
-
-                adapter.notifyDataSetChanged();
+                else {
+                        Log.i(TAG, "Произошла ошибка повторите попытку позже ...");
+                }
             }
+
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
                 Log.i(TAG, t.getMessage());
             }
         });
+    }
 
-        return view;
+    private void PutDataRecyclerView(List<User> userList) {
+        adapter = new SpeakersAdapter(speakersItems, getActivity());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+
+        adapter.notifyDataSetChanged();
     }
 }

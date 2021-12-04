@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_authorization.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/full_screen_card_dialog.xml" value="0.36793327154772937" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/full_screen_content.xml" value="0.33" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/full_screen_description.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
