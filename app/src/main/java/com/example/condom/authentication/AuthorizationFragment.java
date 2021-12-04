@@ -15,7 +15,6 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.condom.R;
-import com.example.condom.api.TestActivity2;
 import com.example.condom.navigation.MainActivity;
 
 public class AuthorizationFragment extends Fragment {
@@ -24,7 +23,6 @@ public class AuthorizationFragment extends Fragment {
     private EditText password;
     private Button enter;
     private TextView createAccount;
-    private Button buttonTest;
 
     public static AuthorizationFragment newInstance() {
 
@@ -88,14 +86,6 @@ public class AuthorizationFragment extends Fragment {
         enter.setOnClickListener(mEnterOnClickListener);
 
         createAccount.setOnClickListener(mRegistrationOnClickListener);
-        buttonTest = v.findViewById(R.id.b_test2);
-        buttonTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TestActivity2.class);
-                AuthorizationFragment.this.startActivity(intent);
-            }
-        });
         return v;
     }
 }

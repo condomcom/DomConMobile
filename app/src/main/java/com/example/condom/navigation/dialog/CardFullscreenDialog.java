@@ -19,15 +19,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.condom.R;
 import com.example.condom.adapters.FullScreenCardAdapter;
 import com.example.condom.adapters.PerformancesAdapter;
-import com.example.condom.api.TestApi;
+import com.example.condom.api.DomConApi;
 import com.example.condom.modelIP.Activity;
 import com.example.condom.modelIP.User;
 import com.example.condom.modelItem.FullScreenCardItem;
 import com.example.condom.modelItem.PerformancesCardsItem;
 import com.example.condom.navigation.PerformanceFragment;
 import com.example.condom.speakers.SpeakersAdapter;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+
 
 import java.util.ArrayList;
 import java.util.List;
