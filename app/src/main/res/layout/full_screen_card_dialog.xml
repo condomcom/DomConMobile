@@ -22,18 +22,29 @@
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             android:theme="@style/AppTheme.AppBarOverlay">
 
+            <ImageButton
+                android:id="@+id/fullscreen_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_close_white_24"
+                android:background="@null"
+                android:layout_gravity="left"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"/>
+
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_dialog_pref"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
             <ImageView
                 android:id="@+id/image_bar_pref"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:src="@drawable/ic_c_sharp"
-                app:tint="@color/translucentBlack"/>
+                app:tint="@color/translucentBlack" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -240,10 +251,10 @@
             <LinearLayout
                 android:layout_width="159dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="0dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.992"
+                app:layout_constraintHorizontal_bias="0.993"
                 app:layout_constraintStart_toEndOf="@+id/linearLayout3"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
@@ -295,14 +306,16 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:background="#FFFFFF"
         android:backgroundTint="@color/accent"
         android:baselineAlignBottom="false"
         android:clickable="true"
         android:src="@drawable/ic_favorite_white"
-        android:layout_marginRight="30dp"
+        android:tint="@color/text_light"
+        app:backgroundTint="@color/accent"
+        app:fabSize="normal"
         app:layout_anchor="@id/appbar_perf"
         app:layout_anchorGravity="end|bottom"
-        app:backgroundTint="@color/accent"
-        android:tint="@color/text_light"
-        app:fabSize="normal"/>
+        app:rippleColor="@color/text_light" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

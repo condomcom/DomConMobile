@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -12,6 +15,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +32,7 @@ import com.example.condom.modelItem.FullScreenCardItem;
 import com.example.condom.modelItem.PerformancesCardsItem;
 import com.example.condom.navigation.PerformanceFragment;
 import com.example.condom.speakers.SpeakersAdapter;
+import com.google.android.material.appbar.AppBarLayout;
 
 
 import java.util.ArrayList;
@@ -54,6 +60,7 @@ public class CardFullscreenDialog extends DialogFragment implements View.OnClick
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreen);
+        setHasOptionsMenu(true);
     }
 
     @Nullable
@@ -62,8 +69,9 @@ public class CardFullscreenDialog extends DialogFragment implements View.OnClick
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.full_screen_card_dialog, container, false);
 
-        /*ImageButton close = view.findViewById(R.id.fullscreen_close);
-        ImageButton action = view.findViewById(R.id.fullscreen_fav);
+        AppBarLayout appBarLayout = view.findViewById(R.id.appbar_perf);
+        ImageButton close = view.findViewById(R.id.fullscreen_close);
+        /*ImageButton action = view.findViewById(R.id.fullscreen_fav);
         //todo УДАЛИТЬ RECYCLERVIEW!!!!!!!
         recyclerView = view.findViewById(R.id.recyclerViewFullScreen);
 
@@ -71,8 +79,8 @@ public class CardFullscreenDialog extends DialogFragment implements View.OnClick
         recyclerView.setAdapter(new FullScreenCardAdapter(fullScreenCardItems, getActivity()));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));*/
 
-        /*close.setOnClickListener(this);
-        action.setOnClickListener(this);*/
+        close.setOnClickListener(this);
+        //action.setOnClickListener(this);
 
 
         //getAllCardDialog();
@@ -86,18 +94,22 @@ public class CardFullscreenDialog extends DialogFragment implements View.OnClick
         return view;
     }
 
+    /*@Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.dialog_card_menu, menu);
+        MenuItem searchMenuItem = menu.findItem(R.id.close_action);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }*/
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
 
-        /*switch (id){
+        switch (id){
             case R.id.fullscreen_close:
                 dismiss();
                 break;
-
-            case R.id.fullscreen_fav:
-
-                break;
-        }*/
+        }
     }
 }

@@ -156,7 +156,7 @@ public class PerformanceFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-   /* @Override
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
@@ -167,7 +167,7 @@ public class PerformanceFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+   /* @Override
     public void OnItemClick(int position) {
         Intent detailIntent = new Intent(getActivity(), CardFullscreenDialog.class);
         PerformancesCardsItem item = performancesItems.get(position);
