@@ -10,6 +10,9 @@
                     <stroke android:width="1dip" android:color="@color/text_dark"/>
                 </shape>
             </item>
+            <item>
+                <bitmap android:gravity="center|end" android:src="@drawable/ic_arrow_dark"/>
+            </item>
         </layer-list>
     </item>
 </selector>
