@@ -42,7 +42,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.util.ArrayList;
 
-public class PerformanceFragment extends Fragment implements PerformancesAdapter.OnItemClickListener{
+public class PerformanceFragment extends Fragment {
     public static final String EXTRA_DATE = "date";
     public static final String EXTRA_START_TIME = "start time";
     public static final String EXTRA_END_TIME = "end time";
@@ -90,11 +90,11 @@ public class PerformanceFragment extends Fragment implements PerformancesAdapter
                     for (int i = 0; i < activities.size(); i++) {
                         Activity activity = activities.get(i);
 
-                        //String imageUrl = activity.mImageUrl.toString();
+                        String imageUrl = activity.getImageUrl();
 
                         if (activity.mFullName != null) {
                             PerformancesCardsItem card = new PerformancesCardsItem(i + "", activity.mShortName,
-                                    R.drawable.ic_c_sharp, activity.mDescription,
+                                    imageUrl, activity.mDescription,
                                     "Начало в 14:00", "4 часа", "0");
 
                             performancesItems.add(card);
@@ -156,7 +156,7 @@ public class PerformanceFragment extends Fragment implements PerformancesAdapter
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
@@ -179,5 +179,5 @@ public class PerformanceFragment extends Fragment implements PerformancesAdapter
         detailIntent.putExtra(EXTRA_COMPANY, "Контур");
 
         startActivity(detailIntent);
-    }
+    }*/
 }

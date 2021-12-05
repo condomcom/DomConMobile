@@ -3,13 +3,13 @@ package com.example.condom.modelItem;
 public class PerformancesCardsItem {
     private String keyId;
     private String itemTitle;
-    private int itemImage;
+    private String itemImage;
     private String itemDescription;
     private String itemBeginning;
     private String itemDuration;
     private String favoriteStatus;
 
-    public PerformancesCardsItem(String keyId, String itemTitle, int itemImage,
+    public PerformancesCardsItem(String keyId, String itemTitle, String itemImage,
                                  String itemDescription, String itemBeginning,
                                  String itemDuration, String favoriteStatus) {
         this.keyId = keyId;
@@ -37,11 +37,11 @@ public class PerformancesCardsItem {
         this.itemTitle = itemTitle;
     }
 
-    public int getItemImage() {
+    public String getItemImage() {
         return itemImage;
     }
 
-    public void setItemImage(int itemImage) {
+    public void setItemImage(String itemImage) {
         this.itemImage = itemImage;
     }
 

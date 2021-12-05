@@ -49,15 +49,14 @@
                 android:theme="@style/TextViewCardTitle" />
 
             <TextView
-                android:textSize="12sp"
                 android:id="@+id/t_speaker_profession"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/t_speaker_name"
                 android:layout_marginStart="100dp"
                 android:text="Profession"
-                android:theme="@style/TextViewCardAccent"
-                android:layout_below="@id/t_speaker_name"
-                />
+                android:textSize="12sp"
+                android:theme="@style/TextViewCardAccent" />
 
         </RelativeLayout>>
 

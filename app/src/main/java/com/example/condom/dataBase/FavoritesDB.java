@@ -55,7 +55,7 @@ public class FavoritesDB extends SQLiteOpenHelper {
     }
 
     //вставить данные в бд
-    public void insertIntoDatabase(String item_title, int item_image, String item_description,
+    public void insertIntoDatabase(String item_title, String item_image, String item_description,
                                    String item_beginning, String item_duration, String fav_status, String id){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

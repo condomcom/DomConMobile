@@ -17,9 +17,9 @@ public class Activity implements Serializable {
     @SerializedName("description")
     public String mDescription;
     @SerializedName("imageUrl")
-    public int mImageUrl;
+    public String mImageUrl;
 
-    public Activity(String shortName, String fullName, String description, String conferencesStrId, int mImageUrl) {
+    public Activity(String shortName, String fullName, String description, String conferencesStrId, String mImageUrl) {
         mConferenceStrId = conferencesStrId;
         mShortName = shortName;
         mFullName = fullName;
@@ -43,7 +43,7 @@ public class Activity implements Serializable {
         return mDescription;
     }
 
-    public int getImageUrl() {
+    public String getImageUrl() {
         return mImageUrl;
     }
 }

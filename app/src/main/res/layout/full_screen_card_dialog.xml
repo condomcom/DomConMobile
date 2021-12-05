@@ -1,89 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:background="@color/main_background">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_perf"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:cardBackgroundColor="@color/main_background"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="200dp"
+        android:background="@color/main_background"
+        android:fitsSystemWindows="true">
 
-        <RelativeLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingbar_perf"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:title="@string/mobile"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-            <ImageButton
-                android:id="@+id/fullscreen_close"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="8dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="8dp"
-                android:src="@drawable/ic_close_white_24" />
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-            <TextView
-                android:id="@+id/title_fullscreen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="8dp"
-                android:layout_toEndOf="@id/fullscreen_close"
-                android:text="TITLE"
-                android:textColor="@android:color/white"
-                android:textSize="20sp" />
-
-            <ImageButton
-                android:id="@+id/fullscreen_fav"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/ic_favorite_white"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="8dp"/>
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/image_bar_pref"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:src="@drawable/ic_c_sharp"
+                app:tint="@color/translucentBlack"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:background="@drawable/layout_curved"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewFullScreen"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            tools:ignore="MissingConstraints" />
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_speaker_pref"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/rofl_photo"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintVertical_bias="0"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/t_speaker_name_pref"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="35dp"
+                android:text="Алексей Петрович"
+                android:theme="@style/TextViewCardTitle"
+                app:layout_constraintStart_toEndOf="@+id/image_speaker_pref"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/t_speaker_role"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Тестеровщик"
+                android:theme="@style/TextViewCardAccent"
+                app:layout_constraintStart_toEndOf="@+id/image_speaker_pref"
+                app:layout_constraintTop_toBottomOf="@+id/t_speaker_name_pref" />
+
+            <TextView
+                android:id="@+id/t_date_pref"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01/12/21"
+                android:theme="@style/TextViewCardTitle"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintHorizontal_bias="1"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="30dp"
+                app:layout_constraintStart_toEndOf="@+id/t_speaker_name_pref"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_one"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/main_background"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                app:layout_constraintTop_toBottomOf="@+id/image_speaker_pref"/>
+
+            <TextView
+                android:id="@+id/t_description_pref_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:justificationMode="inter_word"
+                android:text="Часто при разработке мобильных приложений разработчики попадают в ситуацию, когда бэкенд не работает. Причин этому много, однако итог один — разработка затягивается.
+Ребята из Surf написали опенсорсное решение для устранения таких проблем — моковый сервер. А потом оказалось, что с его помощью можно решить и ряд других задач, но уже в самом процессе разработки.
+
+Александр расскажет о том, что такое моковый сервер, как он работает, какие проблемы решает и как получилось встроить его в процессы.
+
+Слушатели увидят еще один системный путь решения «проблем с сервером» (а не просто «писать заглушки на клиенте»), узнают принцип работы, получат референс на готовый инструмент и поймут как подобные инструменты могут решать смежные проблемы (например, проблемы тестирования)."
+                android:theme="@style/TextViewCardDescription"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                app:layout_constraintTop_toBottomOf="@+id/view_one"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_free">
+
+                <ImageView
+                    android:id="@+id/ic_start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_back_in_time"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/t_description_pref_dialog" />
+
+                <TextView
+                    android:id="@+id/start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Начало в "
+                    android:theme="@style/TextViewCardAccent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_start_time"
+                    app:layout_constraintTop_toBottomOf="@+id/t_description_pref_dialog" />
+
+                <TextView
+                    android:id="@+id/start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="24dp"
+                    android:text="10:00"
+                    android:theme="@style/TextViewCardAccent"
+                    app:layout_constraintStart_toEndOf="@+id/start"
+                    app:layout_constraintTop_toBottomOf="@+id/t_description_pref_dialog" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_free">
+
+                <ImageView
+                    android:id="@+id/ic_end_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_back_in_time"
+                    app:layout_constraintEnd_toStartOf="@+id/end"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/start_time"
+                    app:layout_constraintTop_toBottomOf="@+id/t_description_pref_dialog" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Конец в "
+                    android:theme="@style/TextViewCardAccent"
+                    app:layout_constraintEnd_toStartOf="@+id/end_time"
+                    app:layout_constraintTop_toBottomOf="@+id/t_description_pref_dialog" />
 
+                <TextView
+                    android:id="@+id/end_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="20dp"
+                    android:text="13:00"
+                    android:theme="@style/TextViewCardAccent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/t_description_pref_dialog" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <ImageView
+                    android:id="@+id/ic_direction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_direction"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ic_start_time" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="26dp"
+                    android:text="Mobile"
+                    android:theme="@style/TextViewCardAccent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_direction"
+                    app:layout_constraintTop_toBottomOf="@+id/start" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="159dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.992"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                <ImageView
+                    android:id="@+id/ic_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_company"
+                    app:layout_constraintStart_toEndOf="@+id/ic_direction"
+                    app:layout_constraintTop_toBottomOf="@+id/ic_end_time" />
+
+                <TextView
+                    android:id="@+id/t_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="26dp"
+                    android:text="СКБ Лаб"
+                    android:theme="@style/TextViewCardAccent"
+                    app:layout_constraintStart_toEndOf="@+id/ic_company"
+                    app:layout_constraintTop_toBottomOf="@+id/end" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view_two"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/main_background"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"/>
+
+            <View
+                android:id="@+id/view_free"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:background="@color/main_background"
+                app:layout_constraintTop_toBottomOf="@+id/t_description_pref_dialog"
+                tools:layout_editor_absoluteX="35dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/accent"
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:src="@drawable/ic_favorite_white"
+        android:layout_marginRight="30dp"
+        app:layout_anchor="@id/appbar_perf"
+        app:layout_anchorGravity="end|bottom"
+        app:backgroundTint="@color/accent"
+        android:tint="@color/text_light"
+        app:fabSize="normal"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

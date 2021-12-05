@@ -63,7 +63,7 @@ public class FullScreenCardAdapter extends RecyclerView.Adapter<FullScreenCardAd
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleBar = itemView.findViewById(R.id.title_fullscreen);
+            /*titleBar = itemView.findViewById(R.id.title_fullscreen);
             imageView = itemView.findViewById(R.id.image_fullscreen_card);
             textTitle = itemView.findViewById(R.id.t_fullscreen_title_card);
             textDescription = itemView.findViewById(R.id.t_fullscreen_description);
@@ -71,7 +71,7 @@ public class FullScreenCardAdapter extends RecyclerView.Adapter<FullScreenCardAd
             textStartTime = itemView.findViewById(R.id.t_start_time);
             textEndTime = itemView.findViewById(R.id.t_end_time);
             textSpeaker = itemView.findViewById(R.id.t_speaker_full_screen);
-            textCompany = itemView.findViewById(R.id.t_company_full_screen);
+            textCompany = itemView.findViewById(R.id.t_company_full_screen);*/
         }
     }
 }

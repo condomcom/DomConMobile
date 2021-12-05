@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.condom.R;
 import com.example.condom.adapters.FullScreenCardAdapter;
 import com.example.condom.adapters.PerformancesAdapter;
+import com.example.condom.api.ApiClient;
 import com.example.condom.api.DomConApi;
 import com.example.condom.modelIP.Activity;
 import com.example.condom.modelIP.User;
@@ -42,6 +43,8 @@ import static android.content.ContentValues.TAG;
 public class CardFullscreenDialog extends DialogFragment implements View.OnClickListener {
     private ArrayList<FullScreenCardItem> fullScreenCardItems = new ArrayList<>();
     private FullScreenCardAdapter adapter;
+    private List<Activity> activityList = new ArrayList<>();
+    private RecyclerView recyclerView;
 
     public static CardFullscreenDialog newInstance(){
         return new CardFullscreenDialog();
@@ -59,47 +62,27 @@ public class CardFullscreenDialog extends DialogFragment implements View.OnClick
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.full_screen_card_dialog, container, false);
 
-        ImageButton close = view.findViewById(R.id.fullscreen_close);
+        /*ImageButton close = view.findViewById(R.id.fullscreen_close);
         ImageButton action = view.findViewById(R.id.fullscreen_fav);
         //todo УДАЛИТЬ RECYCLERVIEW!!!!!!!
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewFullScreen);
+        recyclerView = view.findViewById(R.id.recyclerViewFullScreen);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(new FullScreenCardAdapter(fullScreenCardItems, getActivity()));
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));*/
 
-        close.setOnClickListener(this);
-        action.setOnClickListener(this);
+        /*close.setOnClickListener(this);
+        action.setOnClickListener(this);*/
 
-        /*Intent intent = getActivity().getIntent();
-        String id = intent.getStringExtra(PerformanceFragment.EXTRA_ID);
-        String title = intent.getStringExtra(PerformanceFragment.EXTRA_TITLE);
-        //int img = intent.getIntExtra(PerformanceFragment.EXTRA_IMG);
-        String description = intent.getStringExtra(PerformanceFragment.EXTRA_DESCRIPTION);
-        String date = intent.getStringExtra(PerformanceFragment.EXTRA_DATE);
-        String startTime = intent.getStringExtra(PerformanceFragment.EXTRA_START_TIME);
-        String endTime = intent.getStringExtra(PerformanceFragment.EXTRA_END_TIME);
-        String speaker = intent.getStringExtra(PerformanceFragment.EXTRA_SPEAKER);
-        String company = intent.getStringExtra(PerformanceFragment.EXTRA_COMPANY);
 
-        TextView textTitle = view.findViewById(R.id.t_fullscreen_title_card);
-        ImageView imageView = view.findViewById(R.id.image_fullscreen_card);
-        TextView textDescription = view.findViewById(R.id.t_fullscreen_description);
-        TextView textDate = view.findViewById(R.id.t_starting_date);
-        TextView textStartTime = view.findViewById(R.id.t_start_time);
-        TextView textEndTime = view.findViewById(R.id.t_end_time);
-        TextView textSpeaker = view.findViewById(R.id.t_speaker_full_screen);
-        TextView textCompany = view.findViewById(R.id.t_company_full_screen);
+        //getAllCardDialog();
 
-        textTitle.setText(title);
-        textDate.setText(date);*/
-
-        if(fullScreenCardItems.isEmpty()){
+        /*if(fullScreenCardItems.isEmpty()){
             fullScreenCardItems.add(new FullScreenCardItem("0", "Разработка на моках", R.drawable.ic_c_sharp,
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt ipsum et suscipit vehicula. Vivamus vel velit scelerisque, gravida tortor sed, tristique orci. Maecenas libero libero, ultricies eu odio at, sagittis mollis felis. Sed eu tortor quis sem finibus elementum. Aliquam in scelerisque metus, vel pellentesque velit. Nulla nec arcu magna. Aliquam erat volutpat. Fusce sodales augue et ligula maximus, quis consectetur mauris tristique. Vivamus eu lobortis lectus, ac semper lacus.\n" +
                             "Suspendisse potenti. Maecenas vulputate ullamcorper augue, vitae dapibus arcu dictum sit amet. Vestibulum hendrerit libero et cursus fringilla. Duis blandit odio id metus bibendum, sit amet luctus massa blandit. Praesent vehicula consequat tempor. Vivamus consectetur ipsum eu sem sollicitudin fermentum. Vestibulum mattis nisi congue, euismod risus sed, eleifend mauris.",
                     "13.11", "11:00", "15:00", "Александр Петров", "Контур"));
-        }
+        }*/
         return view;
     }
 
@@ -107,7 +90,7 @@ public class CardFullscreenDialog extends DialogFragment implements View.OnClick
     public void onClick(View v) {
         int id = v.getId();
 
-        switch (id){
+        /*switch (id){
             case R.id.fullscreen_close:
                 dismiss();
                 break;
@@ -115,6 +98,6 @@ public class CardFullscreenDialog extends DialogFragment implements View.OnClick
             case R.id.fullscreen_fav:
 
                 break;
-        }
+        }*/
     }
 }

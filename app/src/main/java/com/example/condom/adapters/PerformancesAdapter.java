@@ -78,12 +78,12 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
         final PerformancesCardsItem performancesCardsItem = performancesCardsItems.get(position);
         readCursorData(performancesCardsItem, holder);
         holder.mBeginning.setText(performancesCardsItem.getItemBeginning());
-        holder.mImageView.setImageResource(performancesCardsItem.getItemImage());
+        //holder.mImageView.setImageResource(performancesCardsItem.getItemImage());
         holder.mTitle.setText(performancesCardsItem.getItemTitle());
         holder.mDescription.setText(performancesCardsItem.getItemDescription());
         holder.mDuration.setText(performancesCardsItem.getItemDuration());
 
-        /*if(performancesCardsItem.getItemImage() != null &&
+        if(performancesCardsItem.getItemImage() != null &&
                 performancesCardsItem.getItemImage().length() > 0){
             Glide.with(context)
                     .load(performancesCardsItem.getItemImage())
@@ -92,7 +92,7 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
         else{
             Toast.makeText(context,"Не удалось загрузить картинку", Toast.LENGTH_LONG).show();
             holder.mImageView.setImageResource(R.drawable.ic_c_sharp);
-        }*/
+        }
     }
 
     @Override
