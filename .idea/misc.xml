@@ -5,14 +5,21 @@
       <map>
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable-anydpi/ic_arrow_dark.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable-anydpi/ic_favorite_white.xml" value="0.3828125" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/edit.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic__favorite_white.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_back_in_time.xml" value="0.3828125" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_calendar.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_close_white_24.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_company.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_direction.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_employee.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_favorite_white.xml" value="0.3828125" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_filter.xml" value="0.3828125" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_new_filter.xml" value="0.3828125" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_profile_user.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/layout_curved.xml" value="0.3828125" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/nav_rv.xml" value="0.3828125" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/new_search.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/spinner_dark.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/activity_test.xml" value="0.36666666666666664" />
@@ -24,6 +31,8 @@
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/full_screen_description.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/full_screen_filret.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fullscreen_card_dialog_item.xml" value="0.2" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/nav_rv_item.xml" value="0.5" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/new_home_activitu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/menu/dialog_card_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/menu/performance_menu.xml" value="0.36102564102564105" />
