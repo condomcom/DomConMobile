@@ -15,5 +15,7 @@
 
     <!--new color-->
     <color name="new_main_background">#00b6d9</color>
-    <color name="new_accent">#a5d3db</color>
+    <color name="new_ac">#a5d3db</color>
+    <color name="new_accent">#dbf9ff</color>
+    <color name="new_accent_grey">#F8F8F8</color>
 </resources>
