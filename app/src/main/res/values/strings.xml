@@ -29,11 +29,13 @@
     <string name="mobile">«Разработка на моках»</string>
     <string name="game">Как игры меняют наше будущее</string>
     <string name="duration">Как игры меняют наше будущее</string>
-    <string name="beginner">Начало в </string>
+    <string name="beginner">Начало в  </string>
     <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem. Donec nec vestibulum mi, nec semper nunc. Integer fermentum leo sit amet erat ultrices, id fringilla nunc sagittis. Etiam rutrum porttitor nunc, a tincidunt est aliquam tincidunt.</string>
     <string name="search_hint">Поиск</string>
     <string name="organizations">Оргинизации</string>
     <string name="dateEvent">Дата проведения</string>
     <string name="conferenceTopics">Направления</string>
     <string name="timeEvent">Время проведения</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

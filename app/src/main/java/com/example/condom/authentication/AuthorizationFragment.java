@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.condom.HomeFragment;
 import com.example.condom.NewHomeActivityActivity;
 import com.example.condom.R;
 import com.example.condom.navigation.MainActivity;
@@ -38,14 +39,19 @@ public class AuthorizationFragment extends Fragment {
         @Override
         public void onClick(View v) {
             //if(isEmailValid() && isPasswordValid()){
-                Intent intent = new Intent(getActivity(), NewHomeActivityActivity.class);
+                //Intent intent = new Intent(getActivity(), NewHomeActivityActivity.class);
                 /*intent.putExtra(MainActivity.EMAIL_KEY,
                         new User(login.getText().toString(), password.getText().toString()));*/
-                AuthorizationFragment.this.startActivity(intent);
+                //AuthorizationFragment.this.startActivity(intent);
             //}
             /*else{
                 showMessage(R.string.login_input_error);
             }*/
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, HomeFragment.newInstance())
+                    .addToBackStack(HomeFragment.class.getName())
+                    .commit();
         }
     };
 
