@@ -1,12 +1,12 @@
 package com.example.condom;
 
-public class newSpeakerRVItem {
+public class DynamicSpeakerItem {
     private int keyId;
     private String speakerName;
     private int speakerImage;
     private String speakerProfession;
 
-    public newSpeakerRVItem(int keyId, String speakerName, int speakerImage, String speakerProfession) {
+    public DynamicSpeakerItem(int keyId, String speakerName, int speakerImage, String speakerProfession) {
         this.keyId = keyId;
         this.speakerName = speakerName;
         this.speakerImage = speakerImage;

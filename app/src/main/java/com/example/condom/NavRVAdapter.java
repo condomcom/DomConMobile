@@ -9,16 +9,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHolder>{
     private ArrayList<NavRVItem> items;
-    private int index = 0;
+    private int index = -1;
+    UpdateRecyclerView updateRecyclerView;
+    FragmentActivity activity;
+    boolean check = true;
+    boolean select = true;
 
-    public NavRVAdapter(ArrayList<NavRVItem> items) {
+    public NavRVAdapter(ArrayList<NavRVItem> items, FragmentActivity activity, UpdateRecyclerView updateRecyclerView) {
         this.items = items;
+        this.activity = activity;
+        this.updateRecyclerView = updateRecyclerView;
     }
 
     @NonNull
@@ -36,19 +43,74 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
         holder.imageView.setImageResource(currentItem.getImage());
         holder.text.setText(currentItem.getText());
 
+        /*if(check){
+            ArrayList<DynamicRVItem> items = new ArrayList<DynamicRVItem>();
+            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+
+            updateRecyclerView.callback(position, items);
+            check = false;
+        }*/
+
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 index = position;
                 notifyDataSetChanged();
+
+                if(position == 0){
+                    ArrayList<DynamicSpeakerItem> items = new ArrayList<DynamicSpeakerItem>();
+                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+
+                    updateRecyclerView.callbackSpeaker(position, items);
+                }
+                else if(position == 1){
+                    ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
+                    items.add(new DynamicPerformanceItem(1, "Разработка на моках", R.drawable.mobile,
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00"));
+                    items.add(new DynamicPerformanceItem(2, "Разработка на моках", R.drawable.mobile,
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00"));
+                    items.add(new DynamicPerformanceItem(3, "Разработка на моках", R.drawable.mobile,
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00"));
+
+                    updateRecyclerView.callbackPerformance(position, items);
+                }
+                else if(position == 2){
+                    ArrayList<DynamicSpeakerItem> items = new ArrayList<DynamicSpeakerItem>();
+
+                    updateRecyclerView.callbackSpeaker(position, items);
+                }
+                else if(position == 3){
+                    ArrayList<DynamicFavoritesItem> items = new ArrayList<DynamicFavoritesItem>();
+                    items.add(new DynamicFavoritesItem("1", "Разработка на моках", R.drawable.mobile,
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00"));
+
+                    updateRecyclerView.callbackFavorites(position, items);
+                }
             }
         });
 
-        if(index == position){
-            holder.linearLayout.setBackgroundResource(R.drawable.nav_rv_active);
+        if (select){
+            if(position == 0)
+                holder.linearLayout.setBackgroundResource(R.drawable.nav_rv_active);
+                select = false;
         }
         else{
-            holder.linearLayout.setBackgroundResource(R.drawable.nav_rv);
+            if(index == position){
+                holder.linearLayout.setBackgroundResource(R.drawable.nav_rv_active);
+            }
+            else{
+                holder.linearLayout.setBackgroundResource(R.drawable.nav_rv);
+            }
         }
     }
 

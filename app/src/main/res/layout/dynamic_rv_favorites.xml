@@ -18,6 +18,7 @@
         android:outlineAmbientShadowColor="#FFFFFF"
         android:tint="#FFFFFF"
         app:fabSize="normal"
+        android:layout_marginBottom="5dp"
         app:backgroundTint="@color/new_ac"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,8 +92,6 @@
             app:mfb_animate_favorite="true"
             app:mfb_animate_unfavorite="true" />
 
-
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -100,7 +99,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat"
-            android:text="@string/beginner"
+            android:text="Начало в "
             android:textSize="14sp"
             android:layout_marginBottom="15dp"
             app:layout_constraintBottom_toTopOf="@+id/view2"

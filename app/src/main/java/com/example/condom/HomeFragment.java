@@ -10,17 +10,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.condom.authentication.AuthorizationFragment;
-
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements  UpdateRecyclerView{
     private RecyclerView recyclerViewNav;
     private NavRVAdapter adapterNav;
     private ArrayList<NavRVItem> navRVItemArrayList;
     private RecyclerView recyclerViewDynamic;
-    private ArrayList<newSpeakerRVItem> newSpeakerRVItemArrayList;
-    private SpeakerRVAdapter speakerRVAdapter;
+    private ArrayList<DynamicSpeakerItem> dynamicSpeakerItemArrayList;
+    private DynamicRVAdapterSpeaker dynamicRVAdapterSpeaker;
+    private ArrayList<DynamicPerformanceItem> dynamicPerformanceItemsArrayList;
+    private DynamicRVAdapterPerformance dynamicRVAdapterPerformance;
+    private ArrayList<DynamicFavoritesItem> dynamicFavoritesItemArrayList;
+    private DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
 
     public static HomeFragment newInstance() {
 
@@ -38,7 +40,6 @@ public class HomeFragment extends Fragment {
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
 
         navRVItemArrayList = new ArrayList<>();
-        newSpeakerRVItemArrayList = new ArrayList<>();
 
         navRVItemArrayList.add(new NavRVItem(R.drawable.speaker, "Спикеры"));
         navRVItemArrayList.add(new NavRVItem(R.drawable.work, "Выступления"));
@@ -46,26 +47,46 @@ public class HomeFragment extends Fragment {
         navRVItemArrayList.add(new NavRVItem(R.drawable.favourite, "Избранное"));
 
         recyclerViewNav = view.findViewById(R.id.nav_recyclerView);
-        recyclerViewDynamic = view.findViewById(R.id.item_recyclerView);
-
-        adapterNav = new NavRVAdapter(navRVItemArrayList);
-        recyclerViewDynamic.setLayoutManager(new LinearLayoutManager(getActivity()));
-        speakerRVAdapter = new SpeakerRVAdapter(recyclerViewDynamic, getActivity(), newSpeakerRVItemArrayList);
-
-        adapterNav = new NavRVAdapter(navRVItemArrayList);
-        recyclerViewDynamic.setLayoutManager(new LinearLayoutManager(getActivity()));
-        speakerRVAdapter = new SpeakerRVAdapter(recyclerViewDynamic, getActivity(), newSpeakerRVItemArrayList);
+        adapterNav = new NavRVAdapter(navRVItemArrayList, getActivity(), this);
 
         recyclerViewNav.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         recyclerViewNav.setAdapter(adapterNav);
-        recyclerViewDynamic.setAdapter(speakerRVAdapter);
 
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
+
+
+        recyclerViewDynamic = view.findViewById(R.id.item_recyclerView);
+        dynamicSpeakerItemArrayList = new ArrayList<>();
+
+        dynamicRVAdapterSpeaker = new DynamicRVAdapterSpeaker(dynamicSpeakerItemArrayList);
+        recyclerViewDynamic.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterSpeaker);
+
+        dynamicPerformanceItemsArrayList = new ArrayList<>();
+        dynamicRVAdapterPerformance = new DynamicRVAdapterPerformance(dynamicPerformanceItemsArrayList);
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterPerformance);
 
         return view;
+    }
+
+    @Override
+    public void callbackSpeaker(int position, ArrayList<DynamicSpeakerItem> items) {
+
+        dynamicRVAdapterSpeaker = new DynamicRVAdapterSpeaker(items);
+        dynamicRVAdapterSpeaker.notifyDataSetChanged();
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterSpeaker);
+    }
+
+    @Override
+    public void callbackPerformance(int position, ArrayList<DynamicPerformanceItem> items) {
+        dynamicRVAdapterPerformance = new DynamicRVAdapterPerformance(items);
+        dynamicRVAdapterPerformance.notifyDataSetChanged();
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterPerformance);
+    }
+
+    @Override
+    public void callbackFavorites(int position, ArrayList<DynamicFavoritesItem> items) {
+        dynamicRVAdapterFavorites = new DynamicRVAdapterFavorites(items);
+        dynamicRVAdapterFavorites.notifyDataSetChanged();
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);
     }
 }

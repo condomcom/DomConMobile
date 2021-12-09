@@ -1,7 +1,6 @@
 package com.example.condom;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -13,16 +12,16 @@ public class NewHomeActivityActivity extends AppCompatActivity {
     private NavRVAdapter adapterNav;
     private ArrayList<NavRVItem> navRVItemArrayList;
     private RecyclerView recyclerViewDynamic;
-    private ArrayList<newSpeakerRVItem> newSpeakerRVItemArrayList;
-    private SpeakerRVAdapter speakerRVAdapter;
+    private ArrayList<DynamicSpeakerItem> dynamicSpeakerItemArrayList;
+    private DynamicRVAdapterSpeaker dynamicRVAdapterSpeaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_home_activity);
 
-        navRVItemArrayList = new ArrayList<>();
-        newSpeakerRVItemArrayList = new ArrayList<>();
+        /*navRVItemArrayList = new ArrayList<>();
+        dynamicRVItemArrayList = new ArrayList<>();
 
         navRVItemArrayList.add(new NavRVItem(R.drawable.speaker, "Спикеры"));
         navRVItemArrayList.add(new NavRVItem(R.drawable.work, "Выступления"));
@@ -34,17 +33,17 @@ public class NewHomeActivityActivity extends AppCompatActivity {
 
         adapterNav = new NavRVAdapter(navRVItemArrayList);
         recyclerViewDynamic.setLayoutManager(new LinearLayoutManager(this));
-        speakerRVAdapter = new SpeakerRVAdapter(recyclerViewDynamic, this, newSpeakerRVItemArrayList);
+        dynamicRVAdapter = new DynamicRVAdapter(recyclerViewDynamic, this, dynamicRVItemArrayList);
 
         recyclerViewNav.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewNav.setAdapter(adapterNav);
-        recyclerViewDynamic.setAdapter(speakerRVAdapter);
+        recyclerViewDynamic.setAdapter(dynamicRVAdapter);
 
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
-        newSpeakerRVItemArrayList.add(new newSpeakerRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
+        dynamicRVItemArrayList.add(new DynamicRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
+        dynamicRVItemArrayList.add(new DynamicRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
+        dynamicRVItemArrayList.add(new DynamicRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
+        dynamicRVItemArrayList.add(new DynamicRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));
+        dynamicRVItemArrayList.add(new DynamicRVItem(0,"Василий Петрович",R.drawable.rofl_photo, "Разработчик"));*/
 
     }
 }
