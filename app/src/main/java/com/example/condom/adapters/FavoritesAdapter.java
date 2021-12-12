@@ -43,7 +43,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
         holder.mImageView.setImageResource(favoritesItemList.get(position).getItemImage());
         holder.mTitle.setText(favoritesItemList.get(position).getItemTitle());
         holder.mDescription.setText(favoritesItemList.get(position).getItemDescription());
-        holder.mDuration.setText(favoritesItemList.get(position).getItemDuration());
+        //holder.mDuration.setText(favoritesItemList.get(position).getItemDuration());
     }
 
     @Override

@@ -1,6 +1,9 @@
-package com.example.condom;
+package com.example.condom.ui.adapters;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.condom.R;
+import com.example.condom.dataBase.FavoritesDB;
+import com.example.condom.ui.UpdateRecyclerView;
+import com.example.condom.ui.modelItem.DynamicFavoritesItem;
+import com.example.condom.ui.modelItem.DynamicPerformanceItem;
+import com.example.condom.ui.modelItem.DynamicSpeakerItem;
+import com.example.condom.ui.modelItem.NavRVItem;
+
 import java.util.ArrayList;
 
 public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHolder>{
@@ -22,10 +33,19 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
     boolean check = true;
     boolean select = true;
 
-    public NavRVAdapter(ArrayList<NavRVItem> items, FragmentActivity activity, UpdateRecyclerView updateRecyclerView) {
+    private Context context;
+
+    public ArrayList<DynamicFavoritesItem> dynamicFavoritesItemArrayList = new ArrayList<>();
+    public DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
+    public FavoritesDB favoritesDB;
+    private ArrayList<DynamicPerformanceItem> dynamicPerformanceItemArrayList = new ArrayList<>();
+    private DynamicRVAdapterFavorites favoritesAdapter;
+
+    public NavRVAdapter(ArrayList<NavRVItem> items, FragmentActivity activity, UpdateRecyclerView updateRecyclerView, Context context) {
         this.items = items;
         this.activity = activity;
         this.updateRecyclerView = updateRecyclerView;
+        this.context = context;
     }
 
     @NonNull
@@ -75,13 +95,14 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                 }
                 else if(position == 1){
                     ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
-                    items.add(new DynamicPerformanceItem(1, "Разработка на моках", R.drawable.mobile,
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00"));
-                    items.add(new DynamicPerformanceItem(2, "Разработка на моках", R.drawable.mobile,
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00"));
-                    items.add(new DynamicPerformanceItem(3, "Разработка на моках", R.drawable.mobile,
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00"));
-
+                    if(dynamicPerformanceItemArrayList.isEmpty()) {
+                        items.add(new DynamicPerformanceItem("0", "Разработка на моках", R.drawable.mobile,
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00", "0"));
+                        items.add(new DynamicPerformanceItem("1", "Разработка 2", R.drawable.mobile,
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00", "0"));
+                        items.add(new DynamicPerformanceItem("2", "Разработка 3", R.drawable.mobile,
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00", "0"));
+                    }
                     updateRecyclerView.callbackPerformance(position, items);
                 }
                 else if(position == 2){
@@ -90,11 +111,8 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                     updateRecyclerView.callbackSpeaker(position, items);
                 }
                 else if(position == 3){
-                    ArrayList<DynamicFavoritesItem> items = new ArrayList<DynamicFavoritesItem>();
-                    items.add(new DynamicFavoritesItem("1", "Разработка на моках", R.drawable.mobile,
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00"));
-
-                    updateRecyclerView.callbackFavorites(position, items);
+                    loadData();
+                    updateRecyclerView.callbackFavorites(position, dynamicFavoritesItemArrayList);
                 }
             }
         });
@@ -118,6 +136,32 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
     public int getItemCount() {
         return items.size();
     }
+
+    public void loadData() {
+            if (dynamicRVAdapterFavorites != null) {
+                dynamicFavoritesItemArrayList.clear();
+            }
+            favoritesDB = new FavoritesDB(context);
+            SQLiteDatabase sqLiteDatabase = favoritesDB.getReadableDatabase();
+            Cursor cursor = favoritesDB.selectAllFavoriteList();
+            try {
+                while (cursor.moveToNext()) {
+                    String title = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_TITLE));
+                    String beginner = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_BEGINNING));
+                    String description = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_DESCRIPTION));
+                    String id = cursor.getString(cursor.getColumnIndex(FavoritesDB.KEY_ID));
+                    int image = Integer.parseInt(cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_IMAGE)));
+
+                    DynamicFavoritesItem favoritesItem = new DynamicFavoritesItem(id, title, image, description, beginner);
+                    dynamicFavoritesItemArrayList.add(favoritesItem);
+                }
+            } finally {
+                if (cursor != null && cursor.isClosed()) cursor.close();
+                sqLiteDatabase.close();
+            }
+            //favoritesAdapter = new DynamicRVAdapterFavorites(dynamicFavoritesItemArrayList, context);
+    }
+
 
     public class NavRVViewHolder extends RecyclerView.ViewHolder {
         TextView text;

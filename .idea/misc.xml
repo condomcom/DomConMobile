@@ -16,6 +16,8 @@
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_company.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_direction.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_employee.xml" value="0.3828125" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_favorite_active.xml" value="0.3828125" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_favorite_inactive.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_favorite_white.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_filter.xml" value="0.3828125" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/ic_new_filter.xml" value="0.3828125" />
@@ -37,6 +39,9 @@
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_activities.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_authorization.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_new_favorites.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_new_performance.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_new_speaker.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_performance_new.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_speaker_new.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/full_screen_card_dialog.xml" value="0.22" />

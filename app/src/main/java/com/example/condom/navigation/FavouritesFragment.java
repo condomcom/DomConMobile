@@ -51,11 +51,11 @@ public class FavouritesFragment extends Fragment {
                 String title = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_TITLE));
                 String beginner = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_BEGINNING));
                 String description = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_DESCRIPTION));
-                String duration = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_DURATION));
+                //String duration = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_DURATION));
                 String id = cursor.getString(cursor.getColumnIndex(FavoritesDB.KEY_ID));
                 int image = Integer.parseInt(cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_IMAGE)));
 
-                FavoritesItem favoritesItem = new FavoritesItem(id, title, image, description, beginner, duration);
+                FavoritesItem favoritesItem = new FavoritesItem(id, title, image, description, beginner);
                 favoritesItemList.add(favoritesItem);
             }
         }

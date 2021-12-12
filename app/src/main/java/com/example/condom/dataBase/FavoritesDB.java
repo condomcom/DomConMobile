@@ -18,12 +18,12 @@ public class FavoritesDB extends SQLiteOpenHelper {
     public static String ITEM_IMAGE = "itemImage";
     public static String ITEM_DESCRIPTION = "itemDescription";
     public static String ITEM_BEGINNING = "itemBeginning";
-    public static String ITEM_DURATION = "itemDuration";
+    //public static String ITEM_DURATION = "itemDuration";
     public static String FAVORITE_STATUS = "favStatus";
     public static String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME +"("
             + KEY_ID + " TEXT," + ITEM_TITLE + " TEXT," + ITEM_IMAGE
             + " TEXT," + ITEM_DESCRIPTION + " TEXT," + ITEM_BEGINNING
-            + " TEXT," + ITEM_DURATION + " TEXT," + FAVORITE_STATUS
+            + " TEXT," + " TEXT," + FAVORITE_STATUS
             + " TEXT)";
     private static final String TAG = "RecordsDbHelper";
 
@@ -55,8 +55,8 @@ public class FavoritesDB extends SQLiteOpenHelper {
     }
 
     //вставить данные в бд
-    public void insertIntoDatabase(String item_title, String item_image, String item_description,
-                                   String item_beginning, String item_duration, String fav_status, String id){
+    public void insertIntoDatabase(String item_title, int item_image, String item_description,
+                                   String item_beginning, String fav_status, String id){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -65,7 +65,6 @@ public class FavoritesDB extends SQLiteOpenHelper {
         contentValues.put(KEY_ID, id);
         contentValues.put(ITEM_DESCRIPTION, item_description);
         contentValues.put(ITEM_BEGINNING, item_beginning);
-        contentValues.put(ITEM_DURATION, item_duration);
         contentValues.put(FAVORITE_STATUS, fav_status);
 
         sqLiteDatabase.insert(TABLE_NAME, null, contentValues);

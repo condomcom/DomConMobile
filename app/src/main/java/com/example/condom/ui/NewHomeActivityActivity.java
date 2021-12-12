@@ -1,9 +1,15 @@
-package com.example.condom;
+package com.example.condom.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.example.condom.R;
+import com.example.condom.ui.adapters.DynamicRVAdapterSpeaker;
+import com.example.condom.ui.adapters.NavRVAdapter;
+import com.example.condom.ui.modelItem.DynamicSpeakerItem;
+import com.example.condom.ui.modelItem.NavRVItem;
 
 import java.util.ArrayList;
 

@@ -84,7 +84,6 @@
         android:layout_marginTop="15dp"
         android:layout_marginRight="70dp"
         android:background="@drawable/ic_favorite_inactive"
-        android:backgroundTint="@color/accent_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"

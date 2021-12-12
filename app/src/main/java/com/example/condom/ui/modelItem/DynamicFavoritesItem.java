@@ -1,24 +1,22 @@
-package com.example.condom;
+package com.example.condom.ui.modelItem;
 
-public class DynamicPerformanceItem {
-    private int id;
+public class DynamicFavoritesItem {
+    private String keyId;
     private String itemTitle;
     private int itemImage;
     private String itemDescription;
     private String itemBeginning;
-    //private String favoriteStatus;
 
-    public DynamicPerformanceItem(int id, String itemTitle, int itemImage, String itemDescription, String itemBeginning) {
-        this.id = id;
+    public DynamicFavoritesItem(String keyId, String itemTitle, int itemImage, String itemDescription, String itemBeginning) {
+        this.keyId = keyId;
         this.itemTitle = itemTitle;
         this.itemImage = itemImage;
         this.itemDescription = itemDescription;
         this.itemBeginning = itemBeginning;
-        //this.favoriteStatus = favoriteStatus;
     }
 
-    public int getId() {
-        return id;
+    public String getKeyId() {
+        return keyId;
     }
 
     public String getItemTitle() {
@@ -36,8 +34,4 @@ public class DynamicPerformanceItem {
     public String getItemBeginning() {
         return itemBeginning;
     }
-
-   /* public String getFavoriteStatus() {
-        return favoriteStatus;
-    }*/
 }

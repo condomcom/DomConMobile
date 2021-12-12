@@ -1,4 +1,4 @@
-package com.example.condom;
+package com.example.condom.ui.modelItem;
 
 public class DynamicSpeakerItem {
     private int keyId;

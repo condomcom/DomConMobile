@@ -1,4 +1,4 @@
-package com.example.condom;
+package com.example.condom.ui.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.condom.R;
+import com.example.condom.ui.modelItem.DynamicSpeakerItem;
 
 import java.util.ArrayList;
 

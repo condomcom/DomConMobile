@@ -1,5 +1,7 @@
-package com.example.condom;
+package com.example.condom.ui.navigation;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,19 +12,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.condom.R;
+import com.example.condom.dataBase.FavoritesDB;
+import com.example.condom.ui.adapters.NavRVAdapter;
+import com.example.condom.ui.UpdateRecyclerView;
+import com.example.condom.ui.adapters.DynamicRVAdapterFavorites;
+import com.example.condom.ui.adapters.DynamicRVAdapterPerformance;
+import com.example.condom.ui.adapters.DynamicRVAdapterSpeaker;
+import com.example.condom.ui.modelItem.DynamicFavoritesItem;
+import com.example.condom.ui.modelItem.DynamicPerformanceItem;
+import com.example.condom.ui.modelItem.DynamicSpeakerItem;
+import com.example.condom.ui.modelItem.NavRVItem;
+
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements  UpdateRecyclerView{
+public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private RecyclerView recyclerViewNav;
     private NavRVAdapter adapterNav;
     private ArrayList<NavRVItem> navRVItemArrayList;
-    private RecyclerView recyclerViewDynamic;
+    public RecyclerView recyclerViewDynamic;
     private ArrayList<DynamicSpeakerItem> dynamicSpeakerItemArrayList;
     private DynamicRVAdapterSpeaker dynamicRVAdapterSpeaker;
     private ArrayList<DynamicPerformanceItem> dynamicPerformanceItemsArrayList;
     private DynamicRVAdapterPerformance dynamicRVAdapterPerformance;
     private ArrayList<DynamicFavoritesItem> dynamicFavoritesItemArrayList;
     private DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
+    private FavoritesDB favoritesDB;
 
     public static HomeFragment newInstance() {
 
@@ -47,7 +62,7 @@ public class HomeFragment extends Fragment implements  UpdateRecyclerView{
         navRVItemArrayList.add(new NavRVItem(R.drawable.favourite, "Избранное"));
 
         recyclerViewNav = view.findViewById(R.id.nav_recyclerView);
-        adapterNav = new NavRVAdapter(navRVItemArrayList, getActivity(), this);
+        adapterNav = new NavRVAdapter(navRVItemArrayList, getActivity(), this, getContext());
 
         recyclerViewNav.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         recyclerViewNav.setAdapter(adapterNav);
@@ -62,10 +77,45 @@ public class HomeFragment extends Fragment implements  UpdateRecyclerView{
         recyclerViewDynamic.setAdapter(dynamicRVAdapterSpeaker);
 
         dynamicPerformanceItemsArrayList = new ArrayList<>();
-        dynamicRVAdapterPerformance = new DynamicRVAdapterPerformance(dynamicPerformanceItemsArrayList);
+        dynamicRVAdapterPerformance = new DynamicRVAdapterPerformance(dynamicPerformanceItemsArrayList, getActivity());
         recyclerViewDynamic.setAdapter(dynamicRVAdapterPerformance);
 
+        favoritesDB = new FavoritesDB(getActivity());
+        /*dynamicFavoritesItemArrayList = new ArrayList<>();
+        dynamicRVAdapterFavorites = new DynamicRVAdapterFavorites(dynamicFavoritesItemArrayList, getActivity());
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);*/
+
+        //loadData();
+
         return view;
+    }
+
+    public void loadData() {
+        if(dynamicRVAdapterFavorites != null){
+            dynamicFavoritesItemArrayList.clear();
+        }
+        SQLiteDatabase sqLiteDatabase = favoritesDB.getReadableDatabase();
+        Cursor cursor = favoritesDB.selectAllFavoriteList();
+        try{
+            while (cursor.moveToNext()){
+                String title = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_TITLE));
+                String beginner = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_BEGINNING));
+                String description = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_DESCRIPTION));
+                String id = cursor.getString(cursor.getColumnIndex(FavoritesDB.KEY_ID));
+                int image = Integer.parseInt(cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_IMAGE)));
+
+                DynamicFavoritesItem favoritesItem = new DynamicFavoritesItem(id, title, image, description, beginner);
+                dynamicFavoritesItemArrayList.add(favoritesItem);
+            }
+        }
+        finally {
+            if(cursor != null && cursor.isClosed()) cursor.close();
+            sqLiteDatabase.close();
+        }
+
+        dynamicRVAdapterFavorites = new DynamicRVAdapterFavorites(dynamicFavoritesItemArrayList, getActivity());
+
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);
     }
 
     @Override
@@ -78,15 +128,15 @@ public class HomeFragment extends Fragment implements  UpdateRecyclerView{
 
     @Override
     public void callbackPerformance(int position, ArrayList<DynamicPerformanceItem> items) {
-        dynamicRVAdapterPerformance = new DynamicRVAdapterPerformance(items);
+        dynamicRVAdapterPerformance = new DynamicRVAdapterPerformance(items, getContext());
         dynamicRVAdapterPerformance.notifyDataSetChanged();
         recyclerViewDynamic.setAdapter(dynamicRVAdapterPerformance);
     }
 
     @Override
     public void callbackFavorites(int position, ArrayList<DynamicFavoritesItem> items) {
-        dynamicRVAdapterFavorites = new DynamicRVAdapterFavorites(items);
-        dynamicRVAdapterFavorites.notifyDataSetChanged();
-        recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);
+            dynamicRVAdapterFavorites = new DynamicRVAdapterFavorites(items, getContext());
+            dynamicRVAdapterFavorites.notifyDataSetChanged();
+            recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);
     }
 }

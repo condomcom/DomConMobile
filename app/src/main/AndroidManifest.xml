@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConDom">
         <activity
-            android:name=".NewHomeActivityActivity"
+            android:name=".ui.NewHomeActivityActivity"
             android:exported="false" />
         <activity android:name=".navigation.MainActivity">
             <intent-filter>

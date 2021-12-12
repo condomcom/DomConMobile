@@ -1,4 +1,8 @@
-package com.example.condom;
+package com.example.condom.ui;
+
+import com.example.condom.ui.modelItem.DynamicFavoritesItem;
+import com.example.condom.ui.modelItem.DynamicPerformanceItem;
+import com.example.condom.ui.modelItem.DynamicSpeakerItem;
 
 import java.util.ArrayList;
 

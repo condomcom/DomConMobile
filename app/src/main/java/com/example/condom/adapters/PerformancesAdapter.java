@@ -157,7 +157,7 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
             mDuration = itemView.findViewById(R.id.t_duration_perf);
             mDetails = itemView.findViewById(R.id.b_details_perf);
 
-            mFavourites.setOnClickListener(new View.OnClickListener() {
+            /*mFavourites.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     final Animation animScaleUp = AnimationUtils.loadAnimation(itemView.getContext(), R.anim.scale_up);
@@ -186,7 +186,7 @@ public class PerformancesAdapter extends RecyclerView.Adapter<PerformancesAdapte
                         performancesCardsItem.setFavoriteStatus("0");
                     }
                 }
-            });
+            });*/
 
             mDetails.setOnClickListener(new View.OnClickListener() {
                 @Override
