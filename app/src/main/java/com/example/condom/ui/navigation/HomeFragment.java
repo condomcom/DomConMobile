@@ -1,5 +1,6 @@
 package com.example.condom.ui.navigation;
 
+import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -8,9 +9,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
@@ -38,6 +42,8 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private ArrayList<DynamicFavoritesItem> dynamicFavoritesItemArrayList;
     private DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
     private FavoritesDB favoritesDB;
+    private EditText searchView;
+    private CharSequence search = "";
 
     public static HomeFragment newInstance() {
 
@@ -69,6 +75,8 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
 
 
 
+
+
         recyclerViewDynamic = view.findViewById(R.id.item_recyclerView);
         dynamicSpeakerItemArrayList = new ArrayList<>();
 
@@ -86,6 +94,29 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
         recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);*/
 
         //loadData();
+
+        searchView = view.findViewById(R.id.search);
+
+        searchView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                dynamicRVAdapterSpeaker.filter(s);
+                dynamicRVAdapterPerformance.filter(s);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
 
         return view;
     }

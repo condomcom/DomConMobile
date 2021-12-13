@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.ui.modelItem.DynamicPerformanceItem;
+import com.example.condom.ui.modelItem.DynamicSpeakerItem;
 
 import java.util.ArrayList;
 
@@ -27,10 +29,13 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
     private ArrayList<DynamicPerformanceItem> dynamicPerformanceItems;
     private FavoritesDB favoritesDB;
     private Context context;
+    private ArrayList<DynamicPerformanceItem> performanceItemArrayListCopy;
 
     public DynamicRVAdapterPerformance(ArrayList<DynamicPerformanceItem> dynamicRVAdapterPerformance, Context context) {
         this.dynamicPerformanceItems = dynamicRVAdapterPerformance;
         this.context = context;
+        this.performanceItemArrayListCopy = new ArrayList<>();
+        performanceItemArrayListCopy.addAll(dynamicRVAdapterPerformance);
     }
 
     public class DynamicHolder extends RecyclerView.ViewHolder {
@@ -145,5 +150,24 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
     @Override
     public int getItemCount() {
         return dynamicPerformanceItems.size();
+    }
+
+    public void filter(CharSequence charSequence){
+        ArrayList<DynamicPerformanceItem> tempArrayList = new ArrayList<>();
+        if(!TextUtils.isEmpty(charSequence)){
+            for(DynamicPerformanceItem item : dynamicPerformanceItems){
+                if(item.getItemTitle().toLowerCase().contains(charSequence)){
+                    tempArrayList.add(item);
+                }
+            }
+        }
+        else{
+            tempArrayList.addAll(performanceItemArrayListCopy);
+        }
+
+        dynamicPerformanceItems.clear();
+        dynamicPerformanceItems.addAll(tempArrayList);
+        notifyDataSetChanged();
+        tempArrayList.clear();
     }
 }

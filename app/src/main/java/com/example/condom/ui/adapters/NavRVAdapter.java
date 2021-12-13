@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
@@ -34,12 +35,12 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
     boolean select = true;
 
     private Context context;
+    FragmentTransaction fTrans;
 
     public ArrayList<DynamicFavoritesItem> dynamicFavoritesItemArrayList = new ArrayList<>();
     public DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
     public FavoritesDB favoritesDB;
     private ArrayList<DynamicPerformanceItem> dynamicPerformanceItemArrayList = new ArrayList<>();
-    private DynamicRVAdapterFavorites favoritesAdapter;
 
     public NavRVAdapter(ArrayList<NavRVItem> items, FragmentActivity activity, UpdateRecyclerView updateRecyclerView, Context context) {
         this.items = items;
@@ -64,15 +65,15 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
         holder.text.setText(currentItem.getText());
 
         /*if(check){
-            ArrayList<DynamicRVItem> items = new ArrayList<DynamicRVItem>();
-            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicRVItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            ArrayList<DynamicSpeakerItem> items = new ArrayList<DynamicSpeakerItem>();
+            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
 
-            updateRecyclerView.callback(position, items);
+            updateRecyclerView.callbackSpeaker(position, items);
             check = false;
         }*/
 
@@ -84,16 +85,18 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
 
                 if(position == 0){
                     ArrayList<DynamicSpeakerItem> items = new ArrayList<DynamicSpeakerItem>();
-                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Пётр", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Игорь", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Иван", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Александр", R.drawable.rofl_photo, "Разработчик"));
                     items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
                     items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
 
                     updateRecyclerView.callbackSpeaker(position, items);
                 }
-                else if(position == 1){
+                else if(position == 1 ){
+
+
                     ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
                     if(dynamicPerformanceItemArrayList.isEmpty()) {
                         items.add(new DynamicPerformanceItem("0", "Разработка на моках", R.drawable.mobile,
