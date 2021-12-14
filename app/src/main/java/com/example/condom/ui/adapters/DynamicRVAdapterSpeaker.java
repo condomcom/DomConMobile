@@ -45,6 +45,7 @@ public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapt
         private View viewTitle;
         private View viewPlace;
         private View viewTime;
+        private TextView placeLoc;
 
         public DynamicRVHolder(@NonNull View itemView) {
             super(itemView);
@@ -53,12 +54,13 @@ public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapt
             name = itemView.findViewById(R.id.text_speaker_name);
             profession = itemView.findViewById(R.id.text_speaker_profession);
             title = itemView.findViewById(R.id.text_speaker_title);
-            place = itemView.findViewById(R.id.text_speaker_loc);
+            place = itemView.findViewById(R.id.text_speaker_location);
             time = itemView.findViewById(R.id.text_speaker_time);
             fabMoreDetailed = itemView.findViewById(R.id.floatingActionButton_speaker);
             //constraintLayoutSpeakerGone = itemView.findViewById(R.id.constraintLayout_speaker_gone);
             constraintLayoutSpeakerItem = itemView.findViewById(R.id.constraintLayout_speaker);
 
+            placeLoc = itemView.findViewById(R.id.text_speaker_loc);
             viewTitle = itemView.findViewById(R.id.view_pref_title);
             viewPlace = itemView.findViewById(R.id.view_pref_loc);
             viewTime = itemView.findViewById(R.id.view_pref_time);
@@ -68,7 +70,8 @@ public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapt
                 public void onClick(View v) {
                     if(title.getVisibility() == View.GONE && time.getVisibility() == View.GONE
                             && place.getVisibility() == View.GONE && viewTitle.getVisibility() == View.GONE
-                            && viewPlace.getVisibility() == View.GONE && viewTime.getVisibility() == View.GONE){
+                            && viewPlace.getVisibility() == View.GONE && viewTime.getVisibility() == View.GONE
+                            && placeLoc.getVisibility() == View.GONE){
                         fabMoreDetailed.setImageResource(R.drawable.ic_arrow_up);
                         TransitionManager.beginDelayedTransition(constraintLayoutSpeakerItem, new AutoTransition());
                         title.setVisibility(View.VISIBLE);
@@ -77,11 +80,11 @@ public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapt
                         viewTitle.setVisibility(View.VISIBLE);
                         viewTime.setVisibility(View.VISIBLE);
                         viewPlace.setVisibility(View.VISIBLE);
-
+                        placeLoc.setVisibility(View.VISIBLE);
                     }
                     else{
                         fabMoreDetailed.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24);
-
+                        placeLoc.setVisibility(View.GONE);
                         title.setVisibility(View.GONE);
                         place.setVisibility(View.GONE);
                         time.setVisibility(View.GONE);
