@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,7 +44,6 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
     private FavoritesDB favoritesDB;
     private EditText searchView;
-    private CharSequence search = "";
 
     public static HomeFragment newInstance() {
 
@@ -72,10 +72,6 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
 
         recyclerViewNav.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         recyclerViewNav.setAdapter(adapterNav);
-
-
-
-
 
         recyclerViewDynamic = view.findViewById(R.id.item_recyclerView);
         dynamicSpeakerItemArrayList = new ArrayList<>();
@@ -119,34 +115,6 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
 
 
         return view;
-    }
-
-    public void loadData() {
-        if(dynamicRVAdapterFavorites != null){
-            dynamicFavoritesItemArrayList.clear();
-        }
-        SQLiteDatabase sqLiteDatabase = favoritesDB.getReadableDatabase();
-        Cursor cursor = favoritesDB.selectAllFavoriteList();
-        try{
-            while (cursor.moveToNext()){
-                String title = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_TITLE));
-                String beginner = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_BEGINNING));
-                String description = cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_DESCRIPTION));
-                String id = cursor.getString(cursor.getColumnIndex(FavoritesDB.KEY_ID));
-                int image = Integer.parseInt(cursor.getString(cursor.getColumnIndex(FavoritesDB.ITEM_IMAGE)));
-
-                DynamicFavoritesItem favoritesItem = new DynamicFavoritesItem(id, title, image, description, beginner);
-                dynamicFavoritesItemArrayList.add(favoritesItem);
-            }
-        }
-        finally {
-            if(cursor != null && cursor.isClosed()) cursor.close();
-            sqLiteDatabase.close();
-        }
-
-        dynamicRVAdapterFavorites = new DynamicRVAdapterFavorites(dynamicFavoritesItemArrayList, getActivity());
-
-        recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);
     }
 
     @Override

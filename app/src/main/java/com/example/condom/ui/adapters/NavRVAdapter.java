@@ -85,12 +85,12 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
 
                 if(position == 0){
                     ArrayList<DynamicSpeakerItem> items = new ArrayList<DynamicSpeakerItem>();
-                    items.add(new DynamicSpeakerItem(1, "Пётр", R.drawable.rofl_photo, "Разработчик"));
-                    items.add(new DynamicSpeakerItem(1, "Игорь", R.drawable.rofl_photo, "Разработчик"));
-                    items.add(new DynamicSpeakerItem(1, "Иван", R.drawable.rofl_photo, "Разработчик"));
-                    items.add(new DynamicSpeakerItem(1, "Александр", R.drawable.rofl_photo, "Разработчик"));
-                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
+                    items.add(new DynamicSpeakerItem(1, "Пётр Петрович", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
+                    items.add(new DynamicSpeakerItem(1, "Игорь Петрович", R.drawable.rofl_photo, "Разработчик", "fvffvfv", "fv", "vfv"));
+                    items.add(new DynamicSpeakerItem(1, "Григорий Петрович", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
+                    items.add(new DynamicSpeakerItem(1, "Александр аапапапра", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
+                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
+                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
 
                     updateRecyclerView.callbackSpeaker(position, items);
                 }

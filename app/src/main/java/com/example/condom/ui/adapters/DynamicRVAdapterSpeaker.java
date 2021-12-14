@@ -1,6 +1,8 @@
 package com.example.condom.ui.adapters;
 
 import android.text.TextUtils;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
 import com.example.condom.ui.modelItem.DynamicSpeakerItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -32,7 +35,16 @@ public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapt
         private ImageView avatar;
         private TextView name;
         private TextView profession;
-        private ConstraintLayout constraintLayout;
+        private FloatingActionButton fabMoreDetailed;
+        private ConstraintLayout constraintLayoutSpeakerGone;
+        private ConstraintLayout constraintLayoutSpeakerItem;
+
+        private TextView title;
+        private TextView place;
+        private TextView time;
+        private View viewTitle;
+        private View viewPlace;
+        private View viewTime;
 
         public DynamicRVHolder(@NonNull View itemView) {
             super(itemView);
@@ -40,7 +52,46 @@ public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapt
             avatar = itemView.findViewById(R.id.circleImageView_speaker);
             name = itemView.findViewById(R.id.text_speaker_name);
             profession = itemView.findViewById(R.id.text_speaker_profession);
-            constraintLayout = itemView.findViewById(R.id.constraintLayout_speaker_item);
+            title = itemView.findViewById(R.id.text_speaker_title);
+            place = itemView.findViewById(R.id.text_speaker_loc);
+            time = itemView.findViewById(R.id.text_speaker_time);
+            fabMoreDetailed = itemView.findViewById(R.id.floatingActionButton_speaker);
+            //constraintLayoutSpeakerGone = itemView.findViewById(R.id.constraintLayout_speaker_gone);
+            constraintLayoutSpeakerItem = itemView.findViewById(R.id.constraintLayout_speaker);
+
+            viewTitle = itemView.findViewById(R.id.view_pref_title);
+            viewPlace = itemView.findViewById(R.id.view_pref_loc);
+            viewTime = itemView.findViewById(R.id.view_pref_time);
+
+            fabMoreDetailed.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(title.getVisibility() == View.GONE && time.getVisibility() == View.GONE
+                            && place.getVisibility() == View.GONE && viewTitle.getVisibility() == View.GONE
+                            && viewPlace.getVisibility() == View.GONE && viewTime.getVisibility() == View.GONE){
+                        fabMoreDetailed.setImageResource(R.drawable.ic_arrow_up);
+                        TransitionManager.beginDelayedTransition(constraintLayoutSpeakerItem, new AutoTransition());
+                        title.setVisibility(View.VISIBLE);
+                        place.setVisibility(View.VISIBLE);
+                        time.setVisibility(View.VISIBLE);
+                        viewTitle.setVisibility(View.VISIBLE);
+                        viewTime.setVisibility(View.VISIBLE);
+                        viewPlace.setVisibility(View.VISIBLE);
+
+                    }
+                    else{
+                        fabMoreDetailed.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24);
+
+                        title.setVisibility(View.GONE);
+                        place.setVisibility(View.GONE);
+                        time.setVisibility(View.GONE);
+                        viewTitle.setVisibility(View.GONE);
+                        viewTime.setVisibility(View.GONE);
+                        viewPlace.setVisibility(View.GONE);
+                        TransitionManager.beginDelayedTransition(constraintLayoutSpeakerItem, new AutoTransition());
+                    }
+                }
+            });
         }
     }
 
@@ -59,49 +110,15 @@ public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapt
         holder.avatar.setImageResource(currentItem.getSpeakerImage());
         holder.name.setText(currentItem.getSpeakerName());
         holder.profession.setText(currentItem.getSpeakerProfession());
+        holder.title.setText(currentItem.getSpeakerTitle());
+        holder.place.setText(currentItem.getSpeakerPlace());
+        holder.time.setText(currentItem.getSpeakerTime());
     }
 
     @Override
     public int getItemCount() {
         return dynamicSpeakerItems.size();
     }
-
-    /*public Filter getFilter(){
-
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                String Key = constraint.toString();
-
-                if(Key.isEmpty()){
-                    filterSpeakerList = dynamicSpeakerItems;
-                }
-                else{
-                    ArrayList<DynamicSpeakerItem> listFiltered = new ArrayList<>();
-
-                    for(DynamicSpeakerItem item : dynamicSpeakerItems){
-                        if(item.getSpeakerName().toLowerCase().contains(Key.toLowerCase())){
-                            listFiltered.add(item);
-                        }
-                    }
-
-                    filterSpeakerList = listFiltered;
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = filterSpeakerList;
-
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-
-                filterSpeakerList = (ArrayList<DynamicSpeakerItem>) results.values;
-                notifyDataSetChanged();
-            }
-        };
-    }*/
 
     public void filter(CharSequence charSequence){
         ArrayList<DynamicSpeakerItem> tempArrayList = new ArrayList<>();
