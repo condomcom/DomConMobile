@@ -42,7 +42,7 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
     }
 
     public class DynamicHolder extends RecyclerView.ViewHolder {
-        private TextView title, description, beginning;
+        private TextView title, description, beginning, speaker, end, direction, place, date;
         private ImageView imagePerformance;
         private Button favourites;
         private FloatingActionButton details;
@@ -56,6 +56,12 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
             beginning = itemView.findViewById(R.id.text_beginner_perf);
             favourites = itemView.findViewById(R.id.new_favourites_perf);
             details = itemView.findViewById(R.id.floatingActionButton_pref);
+
+            speaker = itemView.findViewById(R.id.speaker_details);
+            end = itemView.findViewById(R.id.end_time_details);
+            place = itemView.findViewById(R.id.place_details);
+            direction = itemView.findViewById(R.id.direction_details);
+            date = itemView.findViewById(R.id.date_details);
 
             favourites.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -131,12 +137,22 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
 
                 Intent intent = new Intent(context, DetailsActivity.class);
                 intent.putExtra("title", currentItem.getItemTitle());
-                //intent.putExtra("imagePerformance", currentItem.getItemImage());
+                intent.putExtra("speaker", currentItem.getItemImage());
                 intent.putExtra("description", currentItem.getItemDescription());
                 intent.putExtra("beginning", currentItem.getItemBeginning());
+                intent.putExtra("end", currentItem.getItemEnd());
+                intent.putExtra("direction", currentItem.getItemDirection());
+                intent.putExtra("place", currentItem.getItemPlace());
+                intent.putExtra("date", currentItem.getItemDate());
                 context.startActivity(intent);
             }
         });
+
+        holder.speaker.setText(currentItem.getItemSpeaker());
+        holder.end.setText(currentItem.getItemEnd());
+        holder.direction.setText(currentItem.getItemDirection());
+        holder.place.setText(currentItem.getItemPlace());
+        holder.date.setText(currentItem.getItemDate());
     }
 
     private void readCursorData(DynamicPerformanceItem dynamicPerformanceItem,DynamicRVAdapterPerformance.DynamicHolder

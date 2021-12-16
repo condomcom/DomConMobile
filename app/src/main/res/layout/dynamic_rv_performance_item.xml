@@ -159,5 +159,50 @@
         app:layout_constraintStart_toEndOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/text_title_perf" />
 
+    <TextView
+        android:id="@+id/speaker_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Speaker"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_description_perf" />
+
+    <TextView
+        android:id="@+id/end_time_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="end_time"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speaker_details" />
+
+    <TextView
+        android:id="@+id/place_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="place"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/end_time_details" />
+
+    <TextView
+        android:id="@+id/date_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/place_details" />
+
+    <TextView
+        android:id="@+id/direction_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="direction"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_details" />
+
   </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
