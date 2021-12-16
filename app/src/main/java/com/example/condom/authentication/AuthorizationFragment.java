@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.condom.ui.navigation.HomeFragment;
+import com.example.condom.ui.HomeFragment;
 import com.example.condom.R;
 
 public class AuthorizationFragment extends Fragment {

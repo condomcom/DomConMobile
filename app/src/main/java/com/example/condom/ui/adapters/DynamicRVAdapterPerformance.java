@@ -1,6 +1,7 @@
 package com.example.condom.ui.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,8 +21,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
+import com.example.condom.ui.DetailsActivity;
 import com.example.condom.ui.modelItem.DynamicPerformanceItem;
 import com.example.condom.ui.modelItem.DynamicSpeakerItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -39,11 +42,10 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
     }
 
     public class DynamicHolder extends RecyclerView.ViewHolder {
-        private TextView title;
+        private TextView title, description, beginning;
         private ImageView imagePerformance;
-        private TextView description;
-        private TextView beginning;
         private Button favourites;
+        private FloatingActionButton details;
 
         public DynamicHolder(@NonNull View itemView) {
             super(itemView);
@@ -53,6 +55,7 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
             description = itemView.findViewById(R.id.text_description_perf);
             beginning = itemView.findViewById(R.id.text_beginner_perf);
             favourites = itemView.findViewById(R.id.new_favourites_perf);
+            details = itemView.findViewById(R.id.floatingActionButton_pref);
 
             favourites.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -121,6 +124,19 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
         holder.imagePerformance.setImageResource(currentItem.getItemImage());
         holder.description.setText(currentItem.getItemDescription());
         holder.beginning.setText(currentItem.getItemBeginning());
+
+        holder.details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra("title", currentItem.getItemTitle());
+                //intent.putExtra("imagePerformance", currentItem.getItemImage());
+                intent.putExtra("description", currentItem.getItemDescription());
+                intent.putExtra("beginning", currentItem.getItemBeginning());
+                context.startActivity(intent);
+            }
+        });
     }
 
     private void readCursorData(DynamicPerformanceItem dynamicPerformanceItem,DynamicRVAdapterPerformance.DynamicHolder

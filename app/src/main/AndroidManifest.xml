@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConDom">
         <activity
+            android:name=".ui.DetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.NewHomeActivityActivity"
             android:exported="false" />
         <activity android:name=".navigation.MainActivity">

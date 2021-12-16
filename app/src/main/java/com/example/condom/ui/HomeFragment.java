@@ -1,11 +1,7 @@
-package com.example.condom.ui.navigation;
+package com.example.condom.ui;
 
-import android.annotation.SuppressLint;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +16,6 @@ import android.widget.EditText;
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.ui.adapters.NavRVAdapter;
-import com.example.condom.ui.UpdateRecyclerView;
 import com.example.condom.ui.adapters.DynamicRVAdapterFavorites;
 import com.example.condom.ui.adapters.DynamicRVAdapterPerformance;
 import com.example.condom.ui.adapters.DynamicRVAdapterSpeaker;
