@@ -130,6 +130,11 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
         holder.imagePerformance.setImageResource(currentItem.getItemImage());
         holder.description.setText(currentItem.getItemDescription());
         holder.beginning.setText(currentItem.getItemBeginning());
+        holder.speaker.setText(currentItem.getItemSpeaker());
+        holder.end.setText(currentItem.getItemEnd());
+        holder.direction.setText(currentItem.getItemDirection());
+        holder.place.setText(currentItem.getItemPlace());
+        holder.date.setText(currentItem.getItemDate());
 
         holder.details.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +142,7 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
 
                 Intent intent = new Intent(context, DetailsActivity.class);
                 intent.putExtra("title", currentItem.getItemTitle());
-                intent.putExtra("speaker", currentItem.getItemImage());
+                intent.putExtra("speaker", currentItem.getItemSpeaker());
                 intent.putExtra("description", currentItem.getItemDescription());
                 intent.putExtra("beginning", currentItem.getItemBeginning());
                 intent.putExtra("end", currentItem.getItemEnd());
@@ -147,12 +152,6 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
                 context.startActivity(intent);
             }
         });
-
-        holder.speaker.setText(currentItem.getItemSpeaker());
-        holder.end.setText(currentItem.getItemEnd());
-        holder.direction.setText(currentItem.getItemDirection());
-        holder.place.setText(currentItem.getItemPlace());
-        holder.date.setText(currentItem.getItemDate());
     }
 
     private void readCursorData(DynamicPerformanceItem dynamicPerformanceItem,DynamicRVAdapterPerformance.DynamicHolder
