@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:scaleType="centerCrop"
         android:src="@drawable/background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,8 +19,8 @@
 
     <ImageButton
         android:id="@+id/button_close_details"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:background="@color/new_main_background"
@@ -34,6 +34,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
@@ -44,8 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout_details"
@@ -65,7 +65,7 @@
             android:id="@+id/text_title_details"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Проектирование сложных B2B-сервисов в деревне Виллабаджо"
+            android:text="title"
             android:textSize="18sp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
@@ -83,7 +83,7 @@
             android:id="@+id/text_speaker_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Иван Иванович"
+            android:text="speaker"
             android:fontFamily="@font/montserrat"
             android:textSize="15sp"
             android:layout_marginRight="10dp"
@@ -113,8 +113,8 @@
 
         <ImageView
             android:id="@+id/image_time_details"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/clock"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -130,46 +130,46 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
             android:fontFamily="@font/montserrat"
-            android:text="12:00"
-            android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="start"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_time_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintStart_toEndOf="@+id/image_time_details"
-            app:layout_constraintTop_toTopOf="@+id/image_time_details" />
+            app:layout_constraintTop_toTopOf="@+id/image_time_details"
+            app:layout_constraintVertical_bias="0.5" />
 
         <TextView
             android:id="@+id/dash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"
-            android:textSize="11dp"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_time_start_details"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@+id/text_time_start_details"
-            app:layout_constraintTop_toTopOf="@+id/image_time_details" />
+            app:layout_constraintTop_toTopOf="@+id/image_time_details"
+            app:layout_constraintVertical_bias="0.5" />
 
         <TextView
             android:id="@+id/text_time_end_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
-            android:text="15:00"
-            android:textSize="11sp"
+            android:text="end"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintStart_toEndOf="@+id/dash"
-            app:layout_constraintTop_toTopOf="@+id/dash"/>
+            app:layout_constraintTop_toTopOf="@+id/dash"
+            app:layout_constraintVertical_bias="0" />
 
         <ImageView
             android:id="@+id/image_place_details"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/place"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="50dp"
@@ -182,24 +182,38 @@
 
 
         <TextView
+            android:id="@+id/text_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Аудитория "
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_place_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/image_place_details"
+            app:layout_constraintTop_toTopOf="@+id/image_place_details"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
             android:id="@+id/text_place_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
-            android:text="Аудитория 222"
-            android:textSize="11sp"
-            android:layout_marginLeft="7dp"
+            android:text="place"
+            android:textSize="13sp"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_place_details"
-            app:layout_constraintTop_toTopOf="@+id/image_place_details" />
+            app:layout_constraintStart_toEndOf="@+id/text_place"
+            app:layout_constraintTop_toTopOf="@+id/text_place" />
 
         <ImageView
             android:id="@+id/image_direction_details"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/directions"
             app:layout_constraintVertical_bias="0"
@@ -213,24 +227,24 @@
             android:id="@+id/text_direction_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="Backend"
-            android:textSize="11sp"
             android:layout_marginLeft="7dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/montserrat"
+            android:text="direction"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_direction_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@+id/image_direction_details"
             app:layout_constraintTop_toTopOf="@+id/image_direction_details"
-            app:layout_constraintVertical_bias="0" />
+            app:layout_constraintVertical_bias="0.5" />
 
         <ImageView
             android:id="@+id/image_date_details"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/calendar_ic"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
@@ -242,23 +256,23 @@
             android:id="@+id/text_date_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:text="12.12.2021"
-            android:textSize="11sp"
             android:layout_marginLeft="7dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/montserrat"
+            android:text="date"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_date_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@+id/image_date_details"
             app:layout_constraintTop_toTopOf="@+id/image_date_details"
-            app:layout_constraintVertical_bias="0" />
+            app:layout_constraintVertical_bias="0.5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="100dp"
         android:translationY="-60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -266,26 +280,21 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout_details"
         app:layout_constraintVertical_bias="0">
 
-            <TextView
-                android:id="@+id/text_description_details"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
-                android:justificationMode="inter_word"
-                android:scrollbars="vertical"
-                android:text="Часто при разработке мобильных приложений разработчики попадают в ситуацию, когда бэкенд не работает. Причин этому много, однако итог один — разработка затягивается.
-Ребята из Surf написали опенсорсное решение для устранения таких проблем — моковый сервер. А потом оказалось, что с его помощью можно решить и ряд других задач, но уже в самом процессе разработки.
-
-Александр расскажет о том, что такое моковый сервер, как он работает, какие проблемы решает и как получилось встроить его в процессы.
-
-Слушатели увидят еще один системный путь решения «проблем с сервером» (а не просто «писать заглушки на клиенте»), узнают принцип работы, получат референс на готовый инструмент и поймут как подобные инструменты могут решать смежные проблемы (например, проблемы тестирования)."
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0"
-                app:layout_constraintWidth_percent="0.9" />
+        <TextView
+            android:id="@+id/text_description_details"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/montserrat"
+            android:justificationMode="inter_word"
+            android:scrollbars="vertical"
+            android:text="description"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

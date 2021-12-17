@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 import com.example.condom.R;
@@ -44,6 +45,8 @@ public class DetailsActivity extends AppCompatActivity {
         delDirection.setText(direction);
         delPlace.setText(place);
         delDate.setText(date);
+
+        delDescription.setMovementMethod(new ScrollingMovementMethod());
 
     }
 }

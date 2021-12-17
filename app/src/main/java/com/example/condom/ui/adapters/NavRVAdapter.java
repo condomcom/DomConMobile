@@ -100,7 +100,8 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                     ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
                     if(dynamicPerformanceItemArrayList.isEmpty()) {
                         items.add(new DynamicPerformanceItem("0", "Разработка на моках", R.drawable.mobile,
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00", "0",
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                "15:00", "0",
                                 "Ivan Ivanovich", "16:00", "Backend", "333", "13.12.2021"));
                         items.add(new DynamicPerformanceItem("1", "Разработка 2", R.drawable.mobile,
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00", "0",
