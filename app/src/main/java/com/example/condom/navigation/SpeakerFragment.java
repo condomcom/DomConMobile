@@ -11,14 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
-import com.example.condom.adapters.PerformancesAdapter;
 import com.example.condom.api.ApiClient;
-import com.example.condom.api.DomConApi;
-import com.example.condom.modelIP.Activity;
 import com.example.condom.modelIP.User;
-import com.example.condom.modelItem.PerformancesCardsItem;
-import com.example.condom.speakers.SpeakersAdapter;
-import com.example.condom.speakers.SpeakersCardsItem;
+import com.example.condom.adapters.SpeakersAdapter;
+import com.example.condom.modelItem.SpeakersCardsItem;
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;

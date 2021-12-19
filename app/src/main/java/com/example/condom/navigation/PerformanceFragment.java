@@ -29,7 +29,6 @@ import com.example.condom.navigation.dialog.FilterFullscreenDialog;
 import com.example.condom.api.DomConApi;
 import com.example.condom.modelIP.Activity;
 import com.example.condom.modelItem.PerformancesCardsItem;
-import com.example.condom.speakers.SpeakersAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

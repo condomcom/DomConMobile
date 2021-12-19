@@ -28,7 +28,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="35dp"
-
                 android:layout_marginLeft="16dp">
 
                 <ImageView
@@ -146,6 +145,17 @@
             android:maxLines="6"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem. Donec nec vestibulum mi, nec semper nunc. Integer fermentum leo sit amet erat ultrices, id fringilla nunc sagittis. Etiam rutrum porttitor nunc, a tincidunt est aliquam tincidunt."
             android:theme="@style/TextViewCardDescription" />
+
+        <Button
+            android:id="@+id/b_details_speaker"
+            style="@style/StyleButton"
+            android:layout_width="170dp"
+            android:layout_height="41dp"
+            android:layout_gravity="right"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/button"
+            android:text="@string/details" />
 
     </LinearLayout>
 

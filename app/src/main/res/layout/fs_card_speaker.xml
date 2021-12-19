@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:cardCornerRadius="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="26dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/fs_image_speaker"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="26dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/rofl_photo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/fs_image_center"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fs_speaker_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        android:text="Александр Петров"
+        android:theme="@style/TextViewCardTitle"
+        app:layout_constraintStart_toEndOf="@+id/fs_image_center"
+        app:layout_constraintTop_toTopOf="@+id/fs_image_center"
+        app:layout_constraintTop_toBottomOf="@+id/fs_image_center" />
+
+    <TextView
+        android:id="@+id/fs_speaker_profession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="26dp"
+        android:text="Programmer"
+        android:theme="@style/TextViewCardAccent"
+        app:layout_constraintStart_toEndOf="@+id/fs_image_center"
+        app:layout_constraintLeft_toLeftOf="@+id/fs_image_center"
+        app:layout_constraintTop_toBottomOf="@+id/fs_speaker_name" />
+
+    <TextView
+        android:id="@+id/fs_description_speaker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginTop="15dp"
+        android:ellipsize="end"
+        android:justificationMode="inter_word"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        android:theme="@style/TextViewCardDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fs_image_center" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="21dp"
+        android:src="@drawable/ic_baseline_timer_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fs_description_speaker" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/ic_place"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/ic_conference"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+
+    <TextView
+        android:id="@+id/fs_duration_perf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="18dp"
+        android:text="14 октября"
+        android:theme="@style/TextViewCardAccent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/fs_description_speaker" />
+
+    <TextView
+        android:id="@+id/fs_speaker_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="18dp"
+        android:text="Кабинет №22"
+        android:theme="@style/TextViewCardAccent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/fs_duration_perf" />
+
+    <TextView
+        android:id="@+id/fs_speaker_perf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="18dp"
+        android:text="Хакатон"
+        android:theme="@style/TextViewCardAccent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/fs_speaker_place" />
+
+    <TextView
+        android:id="@+id/fs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="18dp"
+        android:text=""
+        android:theme="@style/TextViewCardAccent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/fs_speaker_perf" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

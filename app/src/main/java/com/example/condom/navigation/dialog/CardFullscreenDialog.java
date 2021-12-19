@@ -25,7 +25,6 @@ import com.example.condom.modelIP.User;
 import com.example.condom.modelItem.FullScreenCardItem;
 import com.example.condom.modelItem.PerformancesCardsItem;
 import com.example.condom.navigation.PerformanceFragment;
-import com.example.condom.speakers.SpeakersAdapter;
 
 
 import java.util.ArrayList;
