@@ -19,7 +19,6 @@
         android:tint="#FFFFFF"
         app:fabSize="normal"
         android:layout_marginBottom="5dp"
-        app:backgroundTint="@color/new_ac"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1"

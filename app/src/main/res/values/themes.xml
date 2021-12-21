@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ConDom" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimary">@color/new_main_background</item>
         <item name="android:textColorHint">@color/placeholder_text</item>
 
         <!--<item name="colorPrimaryVariant">@color/purple_700</item>
@@ -23,7 +23,7 @@
     <style name="StyleButton">
         <item name="android:textColor">@color/text_light</item>
         <item name="android:fontFamily">@font/montserrat</item>
-        <item name="android:textSize">15dp</item>
+        <item name="android:textSize">17dp</item>
         <item name="android:textAllCaps">false</item>
     </style>
 

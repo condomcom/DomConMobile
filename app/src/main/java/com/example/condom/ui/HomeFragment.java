@@ -1,5 +1,6 @@
 package com.example.condom.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,7 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
+import com.example.condom.FilterActivity;
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.ui.adapters.NavRVAdapter;
@@ -39,6 +43,7 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
     private FavoritesDB favoritesDB;
     private EditText searchView;
+    private ImageButton filtered;
 
     public static HomeFragment newInstance() {
 
@@ -80,11 +85,6 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
         recyclerViewDynamic.setAdapter(dynamicRVAdapterPerformance);
 
         favoritesDB = new FavoritesDB(getActivity());
-        /*dynamicFavoritesItemArrayList = new ArrayList<>();
-        dynamicRVAdapterFavorites = new DynamicRVAdapterFavorites(dynamicFavoritesItemArrayList, getActivity());
-        recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);*/
-
-        //loadData();
 
         searchView = view.findViewById(R.id.search);
 
@@ -105,6 +105,16 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
             @Override
             public void afterTextChanged(Editable s) {
 
+            }
+        });
+
+        filtered = view.findViewById(R.id.b_filter);
+
+        filtered.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), FilterActivity.class);
+                getActivity().startActivity(intent);
             }
         });
 
