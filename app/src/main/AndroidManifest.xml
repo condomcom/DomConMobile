@@ -12,8 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConDom">
         <activity
-            android:name=".FilterActivity"
-            android:exported="false" />
+            android:name="com.example.condom.ui.FilterActivity"/>
         <activity
             android:name=".ui.DetailsActivity"
             android:exported="false" />

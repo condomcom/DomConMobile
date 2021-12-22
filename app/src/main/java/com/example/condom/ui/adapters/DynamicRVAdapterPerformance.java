@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.Filter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
     private FavoritesDB favoritesDB;
     private Context context;
     private ArrayList<DynamicPerformanceItem> performanceItemArrayListCopy;
+    private Filter fRecords;
 
     public DynamicRVAdapterPerformance(ArrayList<DynamicPerformanceItem> dynamicRVAdapterPerformance, Context context) {
         this.dynamicPerformanceItems = dynamicRVAdapterPerformance;
@@ -188,6 +190,27 @@ public class DynamicRVAdapterPerformance extends RecyclerView.Adapter<DynamicRVA
         if(!TextUtils.isEmpty(charSequence)){
             for(DynamicPerformanceItem item : dynamicPerformanceItems){
                 if(item.getItemTitle().toLowerCase().contains(charSequence)){
+                    tempArrayList.add(item);
+                }
+            }
+        }
+        else{
+            tempArrayList.addAll(performanceItemArrayListCopy);
+        }
+
+        dynamicPerformanceItems.clear();
+        dynamicPerformanceItems.addAll(tempArrayList);
+        notifyDataSetChanged();
+        tempArrayList.clear();
+    }
+
+    public void filteringRecyclerView(CharSequence charSequence){
+        ArrayList<DynamicPerformanceItem> tempArrayList = new ArrayList<>();
+        if(!TextUtils.isEmpty(charSequence)){
+            for(DynamicPerformanceItem item : dynamicPerformanceItems){
+                if(item.getItemBeginning().toLowerCase().contains(charSequence)
+                        || item.getItemEnd().toLowerCase().contains(charSequence)
+                        || item.getItemDate().toLowerCase().contains(charSequence)){
                     tempArrayList.add(item);
                 }
             }

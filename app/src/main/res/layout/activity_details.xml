@@ -41,6 +41,8 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/text_light"
         android:elevation="15dp"
+        app:srcCompat="@drawable/lover"
+        app:tint="@color/accent_grey"
         app:backgroundTint="@color/text_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

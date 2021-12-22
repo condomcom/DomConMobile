@@ -14,9 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
-import com.example.condom.FilterActivity;
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.ui.adapters.NavRVAdapter;

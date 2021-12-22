@@ -100,14 +100,14 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                     ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
                     if(dynamicPerformanceItemArrayList.isEmpty()) {
                         items.add(new DynamicPerformanceItem("0", "Разработка на моках", R.drawable.mobile,
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                                 "15:00", "0",
                                 "Ivan Ivanovich", "16:00", "Backend", "333", "13.12.2021"));
                         items.add(new DynamicPerformanceItem("1", "Разработка 2", R.drawable.mobile,
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00", "0",
                                 "Ivan Ivanovich", "15:00", "Backend", "666", "15.12.2021"));
                         items.add(new DynamicPerformanceItem("2", "Разработка 3", R.drawable.mobile,
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00", "0",
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "10:00", "0",
                                 "Ivan Ivanovich", "11:00", "Backend", "666", "14.12.2021"));
                     }
                     updateRecyclerView.callbackPerformance(position, items);
@@ -124,19 +124,19 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
             }
         });
 
-        if (select){
+        /*if (select){
             if(position == 0)
                 holder.linearLayout.setBackgroundResource(R.drawable.nav_rv_active);
                 select = false;
-        }
-        else{
+        }*/
+
             if(index == position){
                 holder.linearLayout.setBackgroundResource(R.drawable.nav_rv_active);
             }
             else{
                 holder.linearLayout.setBackgroundResource(R.drawable.nav_rv);
             }
-        }
+
     }
 
     @Override
