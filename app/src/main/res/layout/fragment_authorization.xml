@@ -6,11 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/t_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/montserrat"
+        android:text="DomCon"
+        android:textColor="@color/black"
+        android:textSize="52sp" />
+
     <ImageView
         android:id="@+id/background"
         android:layout_width="354dp"
         android:layout_height="446dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="130dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

@@ -17,10 +17,12 @@ import android.widget.ImageButton;
 
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
+import com.example.condom.ui.adapters.DynamicRVAdapterActivity;
 import com.example.condom.ui.adapters.NavRVAdapter;
 import com.example.condom.ui.adapters.DynamicRVAdapterFavorites;
 import com.example.condom.ui.adapters.DynamicRVAdapterPerformance;
 import com.example.condom.ui.adapters.DynamicRVAdapterSpeaker;
+import com.example.condom.ui.modelItem.DynamicActivityItem;
 import com.example.condom.ui.modelItem.DynamicFavoritesItem;
 import com.example.condom.ui.modelItem.DynamicPerformanceItem;
 import com.example.condom.ui.modelItem.DynamicSpeakerItem;
@@ -37,6 +39,8 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private DynamicRVAdapterSpeaker dynamicRVAdapterSpeaker;
     private ArrayList<DynamicPerformanceItem> dynamicPerformanceItemsArrayList;
     private DynamicRVAdapterPerformance dynamicRVAdapterPerformance;
+    private DynamicRVAdapterActivity dynamicRVAdapterActivity;
+    private ArrayList<DynamicActivityItem> dynamicActivityItemsArrayList;
     private ArrayList<DynamicFavoritesItem> dynamicFavoritesItemArrayList;
     private DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
     private FavoritesDB favoritesDB;
@@ -81,6 +85,10 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
         dynamicPerformanceItemsArrayList = new ArrayList<>();
         dynamicRVAdapterPerformance = new DynamicRVAdapterPerformance(dynamicPerformanceItemsArrayList, getActivity());
         recyclerViewDynamic.setAdapter(dynamicRVAdapterPerformance);
+
+        dynamicActivityItemsArrayList = new ArrayList<>();
+        dynamicRVAdapterActivity = new DynamicRVAdapterActivity(dynamicActivityItemsArrayList, getActivity());
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterActivity);
 
         favoritesDB = new FavoritesDB(getActivity());
 
@@ -136,9 +144,16 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
     }
 
     @Override
+    public void callbackActivity(int position, ArrayList<DynamicActivityItem> items) {
+        dynamicRVAdapterActivity = new DynamicRVAdapterActivity(items, getContext());
+        dynamicRVAdapterActivity.notifyDataSetChanged();
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterActivity);
+    }
+
+    @Override
     public void callbackFavorites(int position, ArrayList<DynamicFavoritesItem> items) {
-            dynamicRVAdapterFavorites = new DynamicRVAdapterFavorites(items, getContext());
-            dynamicRVAdapterFavorites.notifyDataSetChanged();
-            recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);
+        dynamicRVAdapterFavorites = new DynamicRVAdapterFavorites(items, getContext());
+        dynamicRVAdapterFavorites.notifyDataSetChanged();
+        recyclerViewDynamic.setAdapter(dynamicRVAdapterFavorites);
     }
 }

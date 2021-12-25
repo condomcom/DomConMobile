@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +18,22 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
+import com.example.condom.api.ApiClient;
 import com.example.condom.dataBase.FavoritesDB;
+import com.example.condom.modelIP.Activity;
 import com.example.condom.ui.UpdateRecyclerView;
+import com.example.condom.ui.modelItem.DynamicActivityItem;
 import com.example.condom.ui.modelItem.DynamicFavoritesItem;
 import com.example.condom.ui.modelItem.DynamicPerformanceItem;
 import com.example.condom.ui.modelItem.DynamicSpeakerItem;
 import com.example.condom.ui.modelItem.NavRVItem;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHolder>{
     private ArrayList<NavRVItem> items;
@@ -41,6 +50,8 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
     public DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
     public FavoritesDB favoritesDB;
     private ArrayList<DynamicPerformanceItem> dynamicPerformanceItemArrayList = new ArrayList<>();
+    private ArrayList<DynamicActivityItem> dynamicActivityItemArrayList = new ArrayList<>();
+    private static final String TAG = "ActivityFragment";
 
     public NavRVAdapter(ArrayList<NavRVItem> items, FragmentActivity activity, UpdateRecyclerView updateRecyclerView, Context context) {
         this.items = items;
@@ -96,7 +107,6 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                 }
                 else if(position == 1 ){
 
-
                     ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
                     if(dynamicPerformanceItemArrayList.isEmpty()) {
                         items.add(new DynamicPerformanceItem("0", "Разработка на моках", R.drawable.mobile,
@@ -113,9 +123,7 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                     updateRecyclerView.callbackPerformance(position, items);
                 }
                 else if(position == 2){
-                    ArrayList<DynamicSpeakerItem> items = new ArrayList<DynamicSpeakerItem>();
-
-                    updateRecyclerView.callbackSpeaker(position, items);
+                    getAllActivities();
                 }
                 else if(position == 3){
                     loadData();
@@ -145,7 +153,7 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
     }
 
     public void loadData() {
-            if (dynamicRVAdapterFavorites != null) {
+            if (dynamicFavoritesItemArrayList != null) {
                 dynamicFavoritesItemArrayList.clear();
             }
             favoritesDB = new FavoritesDB(context);
@@ -167,6 +175,48 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                 sqLiteDatabase.close();
             }
             //favoritesAdapter = new DynamicRVAdapterFavorites(dynamicFavoritesItemArrayList, context);
+    }
+
+    private void getAllActivities() {
+        Call<List<Activity>> call = ApiClient.getInterface().getActivities();
+
+        call.enqueue(new Callback<List<Activity>>() {
+            @Override
+            public void onResponse(Call<List<Activity>> call, Response<List<Activity>> response) {
+                List<Activity> activities = response.body();
+
+                if(response.isSuccessful()) {
+                    Log.i(TAG, "Code: " + response.code());
+                    Log.i(TAG, "Всё путём ...");
+
+                    dynamicActivityItemArrayList.clear();
+
+                    for (int i = 0; i < activities.size(); i++) {
+                        Activity activity = activities.get(i);
+
+                        String imageUrl = activity.getImageUrl();
+
+                        if (activity.mFullName != null) {
+                            DynamicActivityItem card = new DynamicActivityItem(Integer.MAX_VALUE - i + "", activity.mShortName,
+                                    R.drawable.mobile, activity.mDescription,
+                                    "14:00", "0", "Ivan Ivanovich", "16:00", "Backend", "333", "13.12.2021");
+
+                            dynamicActivityItemArrayList.add(card);
+                        }
+
+                        updateRecyclerView.callbackActivity(2,dynamicActivityItemArrayList);
+                    }
+                }
+                else{
+                    Log.i(TAG, "Произошла ошибка повторите попытку позже ...");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Activity>> call, Throwable t) {
+                Log.i(TAG, t.getMessage());
+            }
+        });
     }
 
 
