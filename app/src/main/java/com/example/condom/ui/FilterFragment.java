@@ -40,7 +40,7 @@ public class FilterFragment extends Fragment {
         dynamicPerformanceItemsArrayList = new ArrayList<>();
         dynamicRVAdapterPerformance = new DynamicRVAdapterPerformance(dynamicPerformanceItemsArrayList, getContext());
 
-        applyButton = view.findViewById(R.id.applyButton);
+        applyButton = view.findViewById(R.id.button_enter);
         startTime = view.findViewById(R.id.edit_text_start_time);
         endTime = view.findViewById(R.id.edit_text_end_time);
         date = view.findViewById(R.id.edit_text_date);

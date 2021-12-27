@@ -173,7 +173,7 @@
             app:tint="@color/new_main_background" />
 
         <Button
-            android:id="@+id/applyButton"
+            android:id="@+id/button_enter"
             style="@style/StyleButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

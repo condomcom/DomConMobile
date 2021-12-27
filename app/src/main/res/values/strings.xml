@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ConDom</string>
+    <string name="app_name">DomCon</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="authorization">Авторизация</string>
     <string name="createAccount"><u>Нет аккаунта? Зарегистрироваться</u></string>

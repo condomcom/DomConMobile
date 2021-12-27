@@ -12,7 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConDom">
         <activity
-            android:name="com.example.condom.ui.FilterActivity"/>
+            android:name=".ui.NewAuthorizationActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.FilterActivity" />
         <activity
             android:name=".ui.DetailsActivity"
             android:exported="false" />
@@ -29,11 +37,12 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".authentication.AuthorizationActivity">
-            <intent-filter>
+
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <meta-data

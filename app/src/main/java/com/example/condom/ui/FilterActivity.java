@@ -30,7 +30,7 @@ public class FilterActivity extends AppCompatActivity {
         dynamicPerformanceItemsArrayList = new ArrayList<>();
         dynamicRVAdapterPerformance = new DynamicRVAdapterPerformance(dynamicPerformanceItemsArrayList, this);
 
-        applyButton = findViewById(R.id.applyButton);
+        applyButton = findViewById(R.id.button_enter);
         startTime = findViewById(R.id.edit_text_start_time);
         endTime = findViewById(R.id.edit_text_end_time);
         date = findViewById(R.id.edit_text_date);

@@ -57,6 +57,7 @@
             android:hint="Начало в 10:00"
             android:paddingLeft="15dp"
             android:textColorLink="@color/ripple_effect"
+            android:fontFamily="@font/montserrat"
             app:boxBackgroundColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,6 +78,7 @@
             android:background="@drawable/edit_text_dr"
             android:hint="Окончание в 12:00"
             android:paddingLeft="15dp"
+            android:fontFamily="@font/montserrat"
             app:boxBackgroundColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,6 +96,7 @@
             android:background="@drawable/edit_text_dr"
             android:hint="Дата проведения 12.12.2020"
             android:paddingLeft="15dp"
+            android:fontFamily="@font/montserrat"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_text_end_time" />
@@ -173,7 +176,7 @@
             app:tint="@color/new_main_background" />
 
         <Button
-            android:id="@+id/applyButton"
+            android:id="@+id/button_enter"
             style="@style/StyleButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
