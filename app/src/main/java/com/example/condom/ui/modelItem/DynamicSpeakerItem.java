@@ -2,22 +2,24 @@ package com.example.condom.ui.modelItem;
 
 public class DynamicSpeakerItem {
     private int keyId;
-    private String speakerName;
-    private int speakerImage;
-    private String speakerProfession;
-    private String speakerTitle;
-    private String speakerPlace;
-    private String speakerTime;
+    private String name;
+    private String surname;
+    private String image;
+    private String profession;
+    private String title;
+    private String place;
+    private String time;
 
-    public DynamicSpeakerItem(int keyId, String speakerName, int speakerImage, String speakerProfession,
+    public DynamicSpeakerItem(int keyId, String speakerName, String speakerSurname, String speakerImage, String speakerProfession,
                               String speakerTitle, String speakerPlace, String speakerTime) {
         this.keyId = keyId;
-        this.speakerName = speakerName;
-        this.speakerImage = speakerImage;
-        this.speakerProfession = speakerProfession;
-        this.speakerTitle = speakerTitle;
-        this.speakerPlace = speakerPlace;
-        this.speakerTime = speakerTime;
+        this.name = speakerName;
+        this.surname = speakerSurname;
+        this.image = speakerImage;
+        this.profession = speakerProfession;
+        this.title = speakerTitle;
+        this.place = speakerPlace;
+        this.time = speakerTime;
     }
 
     public int getKeyId() {
@@ -25,26 +27,30 @@ public class DynamicSpeakerItem {
     }
 
     public String getSpeakerName() {
-        return speakerName;
+        return name;
     }
 
-    public int getSpeakerImage() {
-        return speakerImage;
+    public String getSpeakerSurname() {
+        return surname;
     }
 
-    public String getSpeakerProfession() {
-        return speakerProfession;
+    public String getImage() {
+        return image;
     }
 
-    public String getSpeakerTitle() {
-        return speakerTitle;
+    public String getProfession() {
+        return profession;
     }
 
-    public String getSpeakerPlace() {
-        return speakerPlace;
+    public String getTitle() {
+        return title;
     }
 
-    public String getSpeakerTime() {
-        return speakerTime;
+    public String getPlace() {
+        return place;
+    }
+
+    public String getTime() {
+        return time;
     }
 }

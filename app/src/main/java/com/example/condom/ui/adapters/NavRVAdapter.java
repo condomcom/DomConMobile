@@ -21,6 +21,9 @@ import com.example.condom.R;
 import com.example.condom.api.ApiClient;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.modelIP.Activity;
+import com.example.condom.modelIP.User;
+import com.example.condom.modelItem.PerformancesCardsItem;
+import com.example.condom.speakers.SpeakersCardsItem;
 import com.example.condom.ui.UpdateRecyclerView;
 import com.example.condom.ui.modelItem.DynamicActivityItem;
 import com.example.condom.ui.modelItem.DynamicFavoritesItem;
@@ -46,6 +49,7 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
     private Context context;
     FragmentTransaction fTrans;
 
+    private ArrayList<DynamicSpeakerItem> dynamicSpeakerItemsList = new ArrayList<>();
     public ArrayList<DynamicFavoritesItem> dynamicFavoritesItemArrayList = new ArrayList<>();
     public DynamicRVAdapterFavorites dynamicRVAdapterFavorites;
     public FavoritesDB favoritesDB;
@@ -95,21 +99,13 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                 notifyDataSetChanged();
 
                 if(position == 0){
-                    ArrayList<DynamicSpeakerItem> items = new ArrayList<DynamicSpeakerItem>();
-                    items.add(new DynamicSpeakerItem(1, "Пётр Петрович", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
-                    items.add(new DynamicSpeakerItem(1, "Игорь Петрович", R.drawable.rofl_photo, "Разработчик", "fvffvfv", "fv", "vfv"));
-                    items.add(new DynamicSpeakerItem(1, "Григорий Петрович", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
-                    items.add(new DynamicSpeakerItem(1, "Александр аапапапра", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
-                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
-                    items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик", "Разработка на моках", "222", "12:00-15:00"));
-
-                    updateRecyclerView.callbackSpeaker(position, items);
+                    getAllSpeakers();
                 }
                 else if(position == 1 ){
 
-                    ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
+                    //ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
                     if(dynamicPerformanceItemArrayList.isEmpty()) {
-                        items.add(new DynamicPerformanceItem("0", "Разработка на моках", R.drawable.mobile,
+                        /*items.add(new DynamicPerformanceItem("0", "Разработка на моках", R.drawable.mobile,
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                                 "15:00", "0",
                                 "Ivan Ivanovich", "16:00", "Backend", "333", "13.12.2021"));
@@ -118,9 +114,10 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                                 "Ivan Ivanovich", "15:00", "Backend", "666", "15.12.2021"));
                         items.add(new DynamicPerformanceItem("2", "Разработка 3", R.drawable.mobile,
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "10:00", "0",
-                                "Ivan Ivanovich", "11:00", "Backend", "666", "14.12.2021"));
+                                "Ivan Ivanovich", "11:00", "Backend", "666", "14.12.2021"));*/
+                        getAllPerformance();
                     }
-                    updateRecyclerView.callbackPerformance(position, items);
+                    //updateRecyclerView.callbackPerformance(position, items);
                 }
                 else if(position == 2){
                     getAllActivities();
@@ -131,12 +128,6 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                 }
             }
         });
-
-        /*if (select){
-            if(position == 0)
-                holder.linearLayout.setBackgroundResource(R.drawable.nav_rv_active);
-                select = false;
-        }*/
 
             if(index == position){
                 holder.linearLayout.setBackgroundResource(R.drawable.nav_rv_active);
@@ -174,7 +165,6 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                 if (cursor != null && cursor.isClosed()) cursor.close();
                 sqLiteDatabase.close();
             }
-            //favoritesAdapter = new DynamicRVAdapterFavorites(dynamicFavoritesItemArrayList, context);
     }
 
     private void getAllActivities() {
@@ -205,6 +195,89 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                         }
 
                         updateRecyclerView.callbackActivity(2,dynamicActivityItemArrayList);
+                    }
+                }
+                else{
+                    Log.i(TAG, "Произошла ошибка повторите попытку позже ...");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Activity>> call, Throwable t) {
+                Log.i(TAG, t.getMessage());
+            }
+        });
+    }
+
+    private void getAllSpeakers() {
+        Call<List<User>> call = ApiClient.getInterface().getSpeakers();
+
+        call.enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                List<User> speakers = response.body();
+
+                if(response.isSuccessful()) {
+                    Log.i(TAG, "Code: " + response.code());
+                    Log.i(TAG, "Всё путём ...");
+
+                    dynamicSpeakerItemsList.clear();
+
+                    for (int i = 0; i < speakers.size(); i++) {
+                        User user = speakers.get(i);
+
+                        String imageUrl = user.getImageUrl();
+
+                        if (user.getRole() == 1) {
+                            DynamicSpeakerItem item = new DynamicSpeakerItem(i, user.getName() + " ", user.getSurname(),
+                                    imageUrl, user.getSpeakerPosition(), "dvfbfgbgfbg", "1110", "12:00-14:00");
+
+                            dynamicSpeakerItemsList.add(item);
+                        }
+
+                        updateRecyclerView.callbackSpeaker(1,dynamicSpeakerItemsList);
+                    }
+                }
+                else{
+                    Log.i(TAG, "Произошла ошибка повторите попытку позже ...");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Log.i(TAG, t.getMessage());
+            }
+        });
+    }
+
+    private void getAllPerformance() {
+
+        Call<List<Activity>> callActivity = ApiClient.getInterface().getActivities();
+
+        callActivity.enqueue(new Callback<List<Activity>>() {
+            @Override
+            public void onResponse(Call<List<Activity>> call, Response<List<Activity>> response) {
+                List<Activity> activities = response.body();
+
+                if(response.isSuccessful()) {
+                    Log.i(TAG, "Code: " + response.code());
+                    Log.i(TAG, "Всё путём ...");
+
+                    dynamicPerformanceItemArrayList.clear();
+
+                    for (int i = 0; i < activities.size(); i++) {
+                        Activity activity = activities.get(i);
+
+                        String imageUrl = activity.getImageUrl();
+
+                        if (activity.mFullName != null) {
+                            DynamicPerformanceItem item = new DynamicPerformanceItem(i + "", activity.getShortName(), R.drawable.mobile,
+                                    activity.getDescription(), "12:00", "0", "Иван Иванович" , "15:00", "Backend", "111", "12.12.2021");
+
+                            dynamicPerformanceItemArrayList.add(item);
+                        }
+
+                        updateRecyclerView.callbackPerformance(1,dynamicPerformanceItemArrayList);
                     }
                 }
                 else{

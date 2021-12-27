@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.condom.R;
+import com.example.condom.api.ApiClient;
 import com.example.condom.dataBase.FavoritesDB;
+import com.example.condom.modelIP.User;
+import com.example.condom.speakers.SpeakersCardsItem;
 import com.example.condom.ui.adapters.DynamicRVAdapterActivity;
 import com.example.condom.ui.adapters.NavRVAdapter;
 import com.example.condom.ui.adapters.DynamicRVAdapterFavorites;
@@ -29,6 +33,11 @@ import com.example.condom.ui.modelItem.DynamicSpeakerItem;
 import com.example.condom.ui.modelItem.NavRVItem;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private RecyclerView recyclerViewNav;
@@ -46,6 +55,8 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private FavoritesDB favoritesDB;
     private EditText searchView;
     private ImageButton filtered;
+    private List<User> userList = new ArrayList<>();
+    private static final String TAG = "TAG";
 
     public static HomeFragment newInstance() {
 
@@ -78,7 +89,7 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
         recyclerViewDynamic = view.findViewById(R.id.item_recyclerView);
         dynamicSpeakerItemArrayList = new ArrayList<>();
 
-        dynamicRVAdapterSpeaker = new DynamicRVAdapterSpeaker(dynamicSpeakerItemArrayList);
+        dynamicRVAdapterSpeaker = new DynamicRVAdapterSpeaker(dynamicSpeakerItemArrayList, getActivity());
         recyclerViewDynamic.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerViewDynamic.setAdapter(dynamicRVAdapterSpeaker);
 
@@ -130,8 +141,7 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
 
     @Override
     public void callbackSpeaker(int position, ArrayList<DynamicSpeakerItem> items) {
-
-        dynamicRVAdapterSpeaker = new DynamicRVAdapterSpeaker(items);
+        dynamicRVAdapterSpeaker = new DynamicRVAdapterSpeaker(items, getContext());
         dynamicRVAdapterSpeaker.notifyDataSetChanged();
         recyclerViewDynamic.setAdapter(dynamicRVAdapterSpeaker);
     }

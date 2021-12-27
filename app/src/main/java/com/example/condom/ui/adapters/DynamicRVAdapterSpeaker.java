@@ -1,39 +1,43 @@
 package com.example.condom.ui.adapters;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.condom.R;
 import com.example.condom.ui.modelItem.DynamicSpeakerItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapterSpeaker.DynamicRVHolder>{
     private ArrayList<DynamicSpeakerItem> dynamicSpeakerItems;
     private ArrayList<DynamicSpeakerItem> speakerItemArrayListCopy;
+    private Context context;
 
-    public DynamicRVAdapterSpeaker(ArrayList<DynamicSpeakerItem> dynamicSpeakerItems){
+    public DynamicRVAdapterSpeaker(ArrayList<DynamicSpeakerItem> dynamicSpeakerItems, Context context){
         this.dynamicSpeakerItems = dynamicSpeakerItems;
         this.speakerItemArrayListCopy = new ArrayList<>();
         speakerItemArrayListCopy.addAll(dynamicSpeakerItems);
+        this.context = context;
     }
 
     public class DynamicRVHolder extends RecyclerView.ViewHolder{
         private ImageView avatar;
         private TextView name;
+        private TextView surname;
         private TextView profession;
         private FloatingActionButton fabMoreDetailed;
         private ConstraintLayout constraintLayoutSpeakerGone;
@@ -52,6 +56,7 @@ public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapt
 
             avatar = itemView.findViewById(R.id.circleImageView_speaker);
             name = itemView.findViewById(R.id.text_speaker_name);
+            surname = itemView.findViewById(R.id.text_speaker_surname);
             profession = itemView.findViewById(R.id.text_speaker_profession);
             title = itemView.findViewById(R.id.text_speaker_title);
             place = itemView.findViewById(R.id.text_speaker_location);
@@ -110,12 +115,23 @@ public class DynamicRVAdapterSpeaker extends RecyclerView.Adapter<DynamicRVAdapt
     @Override
     public void onBindViewHolder(@NonNull DynamicRVAdapterSpeaker.DynamicRVHolder holder, int position) {
         DynamicSpeakerItem currentItem = dynamicSpeakerItems.get(position);
-        holder.avatar.setImageResource(currentItem.getSpeakerImage());
         holder.name.setText(currentItem.getSpeakerName());
-        holder.profession.setText(currentItem.getSpeakerProfession());
-        holder.title.setText(currentItem.getSpeakerTitle());
-        holder.place.setText(currentItem.getSpeakerPlace());
-        holder.time.setText(currentItem.getSpeakerTime());
+        holder.surname.setText(currentItem.getSpeakerSurname());
+        holder.profession.setText(currentItem.getProfession());
+        holder.title.setText(currentItem.getTitle());
+        holder.place.setText(currentItem.getPlace());
+        holder.time.setText(currentItem.getTime());
+
+        if(currentItem.getImage() != null &&
+                currentItem.getImage().length() > 0){
+            Glide.with(context)
+                    .load(currentItem.getImage())
+                    .into(holder.avatar);
+        }
+        else{
+            Toast.makeText(context,"Не удалось загрузить картинку", Toast.LENGTH_LONG).show();
+            holder.avatar.setImageResource(R.drawable.ic_speaker);
+        }
     }
 
     @Override
