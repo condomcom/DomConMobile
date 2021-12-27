@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConDom">
         <activity
-            android:name=".ui.NewAuthorizationActivity">
+            android:name=".ui.LoadingScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.NewAuthorizationActivity"/>
         <activity android:name=".ui.FilterActivity" />
         <activity
             android:name=".ui.DetailsActivity"
@@ -38,11 +38,13 @@
         </activity>
         <activity android:name=".authentication.AuthorizationActivity">
 
-            <!--<intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
 
         <meta-data

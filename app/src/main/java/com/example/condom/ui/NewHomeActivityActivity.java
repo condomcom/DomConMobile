@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.condom.R;
+import com.example.condom.databinding.NewHomeActivityBinding;
 import com.example.condom.ui.adapters.DynamicRVAdapterSpeaker;
 import com.example.condom.ui.adapters.NavRVAdapter;
 import com.example.condom.ui.modelItem.DynamicSpeakerItem;
@@ -14,17 +15,16 @@ import com.example.condom.ui.modelItem.NavRVItem;
 import java.util.ArrayList;
 
 public class NewHomeActivityActivity extends AppCompatActivity {
-    private RecyclerView recyclerViewNav;
-    private NavRVAdapter adapterNav;
-    private ArrayList<NavRVItem> navRVItemArrayList;
-    private RecyclerView recyclerViewDynamic;
-    private ArrayList<DynamicSpeakerItem> dynamicSpeakerItemArrayList;
-    private DynamicRVAdapterSpeaker dynamicRVAdapterSpeaker;
+    NewHomeActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_home_activity);
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.home_conteiner, HomeFragment.class, null)
+                .commit();
 
         /*navRVItemArrayList = new ArrayList<>();
         dynamicRVItemArrayList = new ArrayList<>();

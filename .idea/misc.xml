@@ -37,6 +37,7 @@
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/drawable/spinner_dark.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/activity_details.xml" value="0.33" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/activity_filter.xml" value="0.33" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/activity_loading_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/activity_new_authorization.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/activity_test.xml" value="0.36666666666666664" />
@@ -56,6 +57,7 @@
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_new_speaker.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_performance_new.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_registration.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_single.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/fragment_speaker_new.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/full_screen_card_dialog.xml" value="0.22" />
         <entry key="..\:/Users/lerap/AndroidStudioProjects/DomConMobile/app/src/main/res/layout/full_screen_content.xml" value="0.33" />

@@ -1,5 +1,6 @@
 package com.example.condom.authentication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -32,36 +33,26 @@ public class AuthorizationFragment extends Fragment {
         return fragment;
     }
 
-    private View.OnClickListener mEnterOnClickListener = new View.OnClickListener() {
+    /*private View.OnClickListener mEnterOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             //if(isEmailValid() && isPasswordValid()){
                 //Intent intent = new Intent(getActivity(), NewHomeActivityActivity.class);
-                /*intent.putExtra(MainActivity.EMAIL_KEY,
-                        new User(login.getText().toString(), password.getText().toString()));*/
+                *//*intent.putExtra(MainActivity.EMAIL_KEY,
+                        new User(login.getText().toString(), password.getText().toString()));*//*
                 //AuthorizationFragment.this.startActivity(intent);
             //}
-            /*else{
+            *//*else{
                 showMessage(R.string.login_input_error);
-            }*/
+            }*//*
             getFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment_container, HomeFragment.newInstance())
                     .addToBackStack(HomeFragment.class.getName())
                     .commit();
         }
-    };
+    };*/
 
-    private View.OnClickListener mRegistrationOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, RegistrationFragment.newInstance())
-                    .addToBackStack(RegistrationFragment.class.getName())
-                    .commit();
-        }
-    };
 
     private boolean isEmailValid(){
         return !TextUtils.isEmpty(login.getText())
@@ -87,9 +78,9 @@ public class AuthorizationFragment extends Fragment {
         password = v.findViewById(R.id.e_password);
         enter = v.findViewById(R.id.b_enter);
 
-        enter.setOnClickListener(mEnterOnClickListener);
+        //enter.setOnClickListener(mEnterOnClickListener);
 
-        createAccount.setOnClickListener(mRegistrationOnClickListener);
+        //createAccount.setOnClickListener(mRegistrationOnClickListener);
         return v;
     }
 }
