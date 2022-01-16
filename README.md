@@ -1,4 +1,3 @@
-"# DomConMobile" 
-"# DomConMobile" 
-"# DomConMobile" 
-"# DomConMobile" 
+# DomConMobile
+## Мобильное приложение для формирования персональной программы участия в конференции
+
