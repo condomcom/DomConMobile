@@ -1,4 +1,4 @@
-package com.example.condom.navigation;
+package com.example.condom.old_ui.navigation;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
-import com.example.condom.adapters.FavoritesAdapter;
+import com.example.condom.old_ui.navigation.adapters.FavoritesAdapter;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.modelItem.FavoritesItem;
 

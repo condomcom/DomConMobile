@@ -1,14 +1,11 @@
 package com.example.condom.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
 import com.example.condom.R;
-import com.example.condom.authentication.AuthorizationFragment;
-import com.example.condom.authentication.SingleFragmentActivity;
 import com.example.condom.ui.adapters.LoginAdapter;
 import com.google.android.material.tabs.TabLayout;
 

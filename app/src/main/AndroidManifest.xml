@@ -27,7 +27,7 @@
         <activity
             android:name=".ui.NewHomeActivityActivity"
             android:exported="false" />
-        <activity android:name=".navigation.MainActivity">
+        <activity android:name=".old_ui.navigation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -36,7 +36,7 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".authentication.AuthorizationActivity">
+        <activity android:name=".old_ui.navigation.authentication.AuthorizationActivity">
 
             <!--
             <intent-filter>

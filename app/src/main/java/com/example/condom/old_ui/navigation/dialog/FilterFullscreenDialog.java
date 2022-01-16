@@ -1,4 +1,4 @@
-package com.example.condom.navigation.dialog;
+package com.example.condom.old_ui.navigation.dialog;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

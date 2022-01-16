@@ -1,4 +1,4 @@
-package com.example.condom.navigation;
+package com.example.condom.old_ui.navigation;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,14 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.condom.R;
-import com.example.condom.adapters.PerformancesAdapter;
 import com.example.condom.api.ApiClient;
-import com.example.condom.api.DomConApi;
-import com.example.condom.modelIP.Activity;
 import com.example.condom.modelIP.User;
-import com.example.condom.modelItem.PerformancesCardsItem;
-import com.example.condom.speakers.SpeakersAdapter;
-import com.example.condom.speakers.SpeakersCardsItem;
+import com.example.condom.old_ui.navigation.speakers.SpeakersAdapter;
+import com.example.condom.old_ui.navigation.speakers.SpeakersCardsItem;
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;

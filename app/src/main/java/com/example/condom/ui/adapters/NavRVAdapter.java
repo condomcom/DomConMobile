@@ -22,18 +22,16 @@ import com.example.condom.api.ApiClient;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.modelIP.Activity;
 import com.example.condom.modelIP.User;
-import com.example.condom.modelItem.PerformancesCardsItem;
-import com.example.condom.speakers.SpeakersCardsItem;
 import com.example.condom.ui.UpdateRecyclerView;
 import com.example.condom.ui.modelItem.DynamicActivityItem;
 import com.example.condom.ui.modelItem.DynamicFavoritesItem;
 import com.example.condom.ui.modelItem.DynamicPerformanceItem;
 import com.example.condom.ui.modelItem.DynamicSpeakerItem;
 import com.example.condom.ui.modelItem.NavRVItem;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -180,6 +178,8 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 List<User> speakers = response.body();
+
+
 
                 if(response.isSuccessful()) {
                     Log.i(TAG, "Code: " + response.code());

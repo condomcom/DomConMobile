@@ -30,13 +30,10 @@ import com.example.condom.ui.modelItem.DynamicFavoritesItem;
 import com.example.condom.ui.modelItem.DynamicPerformanceItem;
 import com.example.condom.ui.modelItem.DynamicSpeakerItem;
 import com.example.condom.ui.modelItem.NavRVItem;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.reactivex.disposables.CompositeDisposable;
-import io.supercharge.shimmerlayout.ShimmerLayout;
-import retrofit2.Retrofit;
 
 public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private RecyclerView recyclerViewNav;
@@ -56,10 +53,6 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private ImageButton filtered;
     private List<User> userList = new ArrayList<>();
     private static final String TAG = "TAG";
-
-    public ShimmerLayout shimmerLayout;
-    public CompositeDisposable compositeDisposable = new CompositeDisposable();
-    DomConApi domConApi;
 
     public static HomeFragment newInstance() {
 
@@ -138,13 +131,10 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
             }
         });
 
-        shimmerLayout = view.findViewById(R.id.shimmerLayout);
-        Retrofit retrofit = ApiClient.getRetrofit();
-        domConApi = retrofit.create(DomConApi.class);
-
-
         return view;
     }
+
+
 
     @Override
     public void callbackSpeaker(int position, ArrayList<DynamicSpeakerItem> items) {

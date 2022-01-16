@@ -1,6 +1,5 @@
-package com.example.condom.authentication;
+package com.example.condom.old_ui.navigation.authentication;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.condom.ui.LoginTabFragment;

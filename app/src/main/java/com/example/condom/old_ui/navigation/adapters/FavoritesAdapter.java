@@ -1,4 +1,4 @@
-package com.example.condom.adapters;
+package com.example.condom.old_ui.navigation.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.example.condom.speakers;
+package com.example.condom.old_ui.navigation.speakers;
 
 import android.content.Context;
 
@@ -19,8 +19,6 @@ import com.example.condom.modelIP.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SpeakersAdapter extends RecyclerView.Adapter<SpeakersAdapter.ViewHolder> {
     private ArrayList<SpeakersCardsItem> speakersCardsItems;

@@ -1,6 +1,5 @@
-package com.example.condom.authentication;
+package com.example.condom.old_ui.navigation.authentication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.condom.ui.HomeFragment;
 import com.example.condom.R;
 
 public class AuthorizationFragment extends Fragment {

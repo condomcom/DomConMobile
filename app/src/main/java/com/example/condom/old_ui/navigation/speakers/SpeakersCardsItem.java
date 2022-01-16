@@ -1,4 +1,4 @@
-package com.example.condom.speakers;
+package com.example.condom.old_ui.navigation.speakers;
 
 public class SpeakersCardsItem {
     private String keyId;

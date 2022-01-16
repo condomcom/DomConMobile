@@ -1,4 +1,4 @@
-package com.example.condom.adapters;
+package com.example.condom.old_ui.navigation.adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -25,7 +23,7 @@ import com.bumptech.glide.Glide;
 import com.example.condom.R;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.modelItem.PerformancesCardsItem;
-import com.example.condom.navigation.dialog.CardFullscreenDialog;
+import com.example.condom.old_ui.navigation.dialog.CardFullscreenDialog;
 
 import java.util.ArrayList;
 

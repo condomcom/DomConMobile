@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".navigation.PerformanceFragment">
+    tools:context=".old_ui.navigation.PerformanceFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPerformance"
