@@ -78,50 +78,15 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
         NavRVItem currentItem = items.get(position);
         holder.imageView.setImageResource(currentItem.getImage());
         holder.text.setText(currentItem.getText());
-
-        /*if(check){
-            ArrayList<DynamicSpeakerItem> items = new ArrayList<DynamicSpeakerItem>();
-            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-            items.add(new DynamicSpeakerItem(1, "Иван Петрович", R.drawable.rofl_photo, "Разработчик"));
-
-            updateRecyclerView.callbackSpeaker(position, items);
-            check = false;
-        }*/
-
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 index = position;
                 notifyDataSetChanged();
 
-                if(position == 0){
-                    getAllSpeakers();
-                }
-                else if(position == 1 ){
-
-                    //ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
-                    if(dynamicPerformanceItemArrayList.isEmpty()) {
-                        /*items.add(new DynamicPerformanceItem("0", "Разработка на моках", R.drawable.mobile,
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                                "15:00", "0",
-                                "Ivan Ivanovich", "16:00", "Backend", "333", "13.12.2021"));
-                        items.add(new DynamicPerformanceItem("1", "Разработка 2", R.drawable.mobile,
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00", "0",
-                                "Ivan Ivanovich", "15:00", "Backend", "666", "15.12.2021"));
-                        items.add(new DynamicPerformanceItem("2", "Разработка 3", R.drawable.mobile,
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "10:00", "0",
-                                "Ivan Ivanovich", "11:00", "Backend", "666", "14.12.2021"));*/
-                        getAllPerformance();
-                    }
-                    //updateRecyclerView.callbackPerformance(position, items);
-                }
-                else if(position == 2){
-                    getAllActivities();
-                }
+                if(position == 0){ getAllSpeakers(); }
+                else if(position == 1){ getAllPerformance(); }
+                else if(position == 2){ getAllActivities(); }
                 else if(position == 3){
                     loadData();
                     updateRecyclerView.callbackFavorites(position, dynamicFavoritesItemArrayList);
@@ -184,16 +149,15 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                     for (int i = 0; i < activities.size(); i++) {
                         Activity activity = activities.get(i);
 
-                        String imageUrl = activity.getImageUrl();
-
+                    if (!activity.mType.equals("Выступление")){
                         if (activity.mFullName != null) {
                             DynamicActivityItem card = new DynamicActivityItem(Integer.MAX_VALUE - i + "", activity.mShortName,
                                     R.drawable.mobile, activity.mDescription,
-                                    "14:00", "0", "Ivan Ivanovich", "16:00", "Backend", "333", "13.12.2021");
+                                    activity.getStartsAt(), "0", "Иван Иванов", activity.getFinishedAt(), activity.mSubject, activity.mLocation, activity.getDate());
 
                             dynamicActivityItemArrayList.add(card);
                         }
-
+                    }
                         updateRecyclerView.callbackActivity(2,dynamicActivityItemArrayList);
                     }
                 }
@@ -270,11 +234,14 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
 
                         String imageUrl = activity.getImageUrl();
 
-                        if (activity.mFullName != null) {
-                            DynamicPerformanceItem item = new DynamicPerformanceItem(i + "", activity.getShortName(), R.drawable.mobile,
-                                    activity.getDescription(), "12:00", "0", "Иван Иванович" , "15:00", "Backend", "111", "12.12.2021");
+                        if (activity.mType.equals("Выступление")) {
+                            if (activity.mFullName != null) {
+                                DynamicPerformanceItem item = new DynamicPerformanceItem(i + "", activity.mShortName,
+                                        R.drawable.mobile, activity.mDescription,
+                                        activity.getStartsAt(), "0", "Иван Иванов", activity.getFinishedAt(), activity.mSubject, activity.mLocation, activity.getDate());
 
-                            dynamicPerformanceItemArrayList.add(item);
+                                dynamicPerformanceItemArrayList.add(item);
+                            }
                         }
 
                         updateRecyclerView.callbackPerformance(1,dynamicPerformanceItemArrayList);
