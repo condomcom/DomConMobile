@@ -103,6 +103,30 @@
             app:layout_constraintTop_toBottomOf="@+id/search"
             app:layout_constraintVertical_bias="0" />
 
+        <io.supercharge.shimmerlayout.ShimmerLayout
+            android:id="@+id/shimmerLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:shimmer_animation_duration="1200"
+            app:layout_constraintTop_toBottomOf="@+id/nav_recyclerView"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_placeholder_layout"/>
+                <include layout="@layout/item_placeholder_layout"/>
+                <include layout="@layout/item_placeholder_layout"/>
+                <include layout="@layout/item_placeholder_layout"/>
+                <include layout="@layout/item_placeholder_layout"/>
+                <include layout="@layout/item_placeholder_layout"/>
+            </LinearLayout>
+
+        </io.supercharge.shimmerlayout.ShimmerLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/item_recyclerView"
             android:layout_width="match_parent"
@@ -111,6 +135,7 @@
             android:layout_marginLeft="0dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
+            android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

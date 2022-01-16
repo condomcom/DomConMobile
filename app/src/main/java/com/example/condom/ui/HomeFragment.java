@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +17,9 @@ import android.widget.ImageButton;
 
 import com.example.condom.R;
 import com.example.condom.api.ApiClient;
+import com.example.condom.api.DomConApi;
 import com.example.condom.dataBase.FavoritesDB;
 import com.example.condom.modelIP.User;
-import com.example.condom.speakers.SpeakersCardsItem;
 import com.example.condom.ui.adapters.DynamicRVAdapterActivity;
 import com.example.condom.ui.adapters.NavRVAdapter;
 import com.example.condom.ui.adapters.DynamicRVAdapterFavorites;
@@ -35,9 +34,9 @@ import com.example.condom.ui.modelItem.NavRVItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import io.reactivex.disposables.CompositeDisposable;
+import io.supercharge.shimmerlayout.ShimmerLayout;
+import retrofit2.Retrofit;
 
 public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private RecyclerView recyclerViewNav;
@@ -57,6 +56,10 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
     private ImageButton filtered;
     private List<User> userList = new ArrayList<>();
     private static final String TAG = "TAG";
+
+    public ShimmerLayout shimmerLayout;
+    public CompositeDisposable compositeDisposable = new CompositeDisposable();
+    DomConApi domConApi;
 
     public static HomeFragment newInstance() {
 
@@ -134,6 +137,10 @@ public class HomeFragment extends Fragment implements UpdateRecyclerView {
                 getActivity().startActivity(intent);
             }
         });
+
+        shimmerLayout = view.findViewById(R.id.shimmerLayout);
+        Retrofit retrofit = ApiClient.getRetrofit();
+        domConApi = retrofit.create(DomConApi.class);
 
 
         return view;

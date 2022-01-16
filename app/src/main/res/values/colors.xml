@@ -18,4 +18,5 @@
     <color name="new_ac">#a5d3db</color>
     <color name="new_accent">#dbf9ff</color>
     <color name="new_accent_grey">#F8F8F8</color>
+    <color name="placeholder_color">#dddddd</color>
 </resources>

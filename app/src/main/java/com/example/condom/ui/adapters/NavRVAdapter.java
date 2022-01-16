@@ -104,19 +104,7 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
                 else if(position == 1 ){
 
                     //ArrayList<DynamicPerformanceItem> items = new ArrayList<>();
-                    if(dynamicPerformanceItemArrayList.isEmpty()) {
-                        /*items.add(new DynamicPerformanceItem("0", "Разработка на моках", R.drawable.mobile,
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                                "15:00", "0",
-                                "Ivan Ivanovich", "16:00", "Backend", "333", "13.12.2021"));
-                        items.add(new DynamicPerformanceItem("1", "Разработка 2", R.drawable.mobile,
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "15:00", "0",
-                                "Ivan Ivanovich", "15:00", "Backend", "666", "15.12.2021"));
-                        items.add(new DynamicPerformanceItem("2", "Разработка 3", R.drawable.mobile,
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies ante erat, vitae bibendum erat egestas ut. Nam vel sodales lorem.", "10:00", "0",
-                                "Ivan Ivanovich", "11:00", "Backend", "666", "14.12.2021"));*/
                         getAllPerformance();
-                    }
                     //updateRecyclerView.callbackPerformance(position, items);
                 }
                 else if(position == 2){
@@ -230,7 +218,7 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
 
                         if (user.getRole() == 1) {
                             DynamicSpeakerItem item = new DynamicSpeakerItem(i, user.getName() + " ", user.getSurname(),
-                                    imageUrl, user.getSpeakerPosition(), "dvfbfgbgfbg", "1110", "12:00-14:00");
+                                    imageUrl, user.getSpeakerPosition(), "Activity Name", "111", "12:00-15:00");
 
                             dynamicSpeakerItemsList.add(item);
                         }
@@ -272,7 +260,7 @@ public class NavRVAdapter extends RecyclerView.Adapter<NavRVAdapter.NavRVViewHol
 
                         if (activity.mFullName != null) {
                             DynamicPerformanceItem item = new DynamicPerformanceItem(i + "", activity.getShortName(), R.drawable.mobile,
-                                    activity.getDescription(), "12:00", "0", "Иван Иванович" , "15:00", "Backend", "111", "12.12.2021");
+                                    activity.getDescription(), "12:00", "0", "Иван Иванов" , "15:00", "Backend", "111", "12.12.2021");
 
                             dynamicPerformanceItemArrayList.add(item);
                         }
