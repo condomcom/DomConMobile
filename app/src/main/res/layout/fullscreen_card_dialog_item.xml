@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
+    <!--<com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_perf"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:background="@color/main_background"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingbar_perf"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:title="@string/mobile"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"/>
+    </com.google.android.material.appbar.AppBarLayout>-->
+    <!--<ImageView
         android:id="@+id/image_fullscreen_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,14 +85,14 @@ Suspendisse potenti. Maecenas vulputate ullamcorper augue, vitae dapibus arcu di
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="18dp"
         android:layout_marginBottom="30dp"
         android:src="@drawable/ic_employee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/t_date_ev"
@@ -148,12 +162,14 @@ Suspendisse potenti. Maecenas vulputate ullamcorper augue, vitae dapibus arcu di
         android:id="@+id/t_speaker_full_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="25dp"
-        android:layout_marginStart="18dp"
         android:text="Михаил Беляев"
         android:theme="@style/TextViewCardAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/t_time_ev" />
+        app:layout_constraintTop_toBottomOf="@+id/t_time_ev"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/t_comma"
@@ -175,6 +191,6 @@ Suspendisse potenti. Maecenas vulputate ullamcorper augue, vitae dapibus arcu di
         android:text="No name"
         android:theme="@style/TextViewCardAccent"
         app:layout_constraintStart_toEndOf="@+id/t_comma"
-        app:layout_constraintTop_toBottomOf="@+id/t_time_ev" />
+        app:layout_constraintTop_toBottomOf="@+id/t_time_ev" />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

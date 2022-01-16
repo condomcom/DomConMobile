@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edit_login"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:background="@drawable/edit_text_dr"
+        app:layout_constraintWidth_percent=".8"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias=".5"
+        android:hint="@string/login"
+        android:paddingLeft="15dp"
+        android:textColor="@color/accent_grey"
+        android:textCursorDrawable="@null"
+        android:textColorLink="@color/ripple_effect"
+        android:fontFamily="@font/montserrat"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_password"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edit_text_dr"
+        android:fontFamily="@font/montserrat"
+        android:hint="@string/password"
+        android:paddingLeft="15dp"
+        android:textColor="@color/accent_grey"
+        android:inputType="textPassword"
+        android:textCursorDrawable="@null"
+        android:layout_marginTop="30dp"
+        android:textColorLink="@color/ripple_effect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_login"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintWidth_percent=".8" />
+
+    <Spinner
+        android:id="@+id/spinner_conf"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias=".5"
+        android:background="@drawable/edit_text_dr"
+        app:layout_constraintWidth_percent=".8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#FFFFFF"
+        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_conf"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_conf"
+        app:layout_constraintTop_toTopOf="@+id/spinner_conf"
+        app:tint="@color/new_main_background" />
+
+    <Button
+        android:id="@+id/button_enter"
+        style="@style/StyleButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/new_main_background"
+        android:fontFamily="@font/montserrat"
+        android:text="Войти"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_conf"
+        app:layout_constraintVertical_bias="0.7"
+        app:layout_constraintWidth_percent=".8" />
+
+    <TextView
+        android:id="@+id/text_createAccount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/createAccount"
+        android:layout_marginTop="10dp"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintWidth_percent=".8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_enter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

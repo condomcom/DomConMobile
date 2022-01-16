@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="10dp"
+    android:id="@+id/constraintLayout_speaker_item"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_speaker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/dynamic_rv_speaker"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton_speaker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/new_ac"
+            android:outlineAmbientShadowColor="#FFFFFF"
+            android:tint="#FFFFFF"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout_speaker"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout_speaker"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintVertical_bias="1"
+            app:rippleColor="#FFFFFF"
+            app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:tint="@android:color/white"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView_speaker"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/rofl_photo"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_speaker_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/text_speaker_profession"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView_speaker"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_speaker_surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Surname"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/text_speaker_profession"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/text_speaker_name"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_speaker_profession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Тестировщик"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView_speaker"
+            app:layout_constraintTop_toBottomOf="@+id/text_speaker_name" />
+
+        <View
+            android:id="@+id/view_pref_title"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/ic_conference"
+            android:backgroundTint="@color/accent_grey"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView_speaker"
+            app:layout_constraintTop_toBottomOf="@+id/text_speaker_profession" />
+
+        <View
+            android:id="@+id/view_pref_loc"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_place"
+            android:backgroundTint="@color/accent_grey"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView_speaker"
+            app:layout_constraintTop_toBottomOf="@+id/view_pref_title" />
+
+        <View
+            android:id="@+id/view_pref_time"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_baseline_timer_24"
+            android:backgroundTint="@color/accent_grey"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/circleImageView_speaker"
+            app:layout_constraintTop_toBottomOf="@+id/view_pref_loc" />
+
+        <TextView
+            android:id="@+id/text_speaker_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Title"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/view_pref_title"
+            app:layout_constraintTop_toBottomOf="@+id/text_speaker_profession" />
+
+            <TextView
+                android:id="@+id/text_speaker_loc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Аудитория "
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/view_pref_loc"
+                app:layout_constraintTop_toBottomOf="@+id/text_speaker_title" />
+
+            <TextView
+                android:id="@+id/text_speaker_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text=""
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/text_speaker_loc"
+                app:layout_constraintTop_toBottomOf="@+id/text_speaker_title" />
+
+        <TextView
+            android:id="@+id/text_speaker_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/montserrat"
+            android:text="time"
+            android:layout_marginBottom="20dp"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view_pref_time"
+            app:layout_constraintTop_toBottomOf="@+id/text_speaker_loc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

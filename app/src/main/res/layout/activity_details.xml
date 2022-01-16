@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_light"
+    tools:context=".ui.DetailsActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/button_close_details"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/new_main_background"
+        android:src="@drawable/ic_close_white_24"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/text_light"
+        android:elevation="15dp"
+        app:srcCompat="@drawable/lover"
+        app:tint="@color/accent_grey"
+        app:backgroundTint="@color/text_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/res_details"
+        android:translationY="-80dp"
+        android:elevation="15dp"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <TextView
+            android:id="@+id/text_title_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_speaker_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="speaker"
+            android:fontFamily="@font/montserrat"
+            android:textSize="15sp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_title_details"
+            app:layout_constraintTop_toBottomOf="@+id/text_title_details" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/black"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_speaker_details"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.95" />
+
+
+        <ImageView
+            android:id="@+id/image_time_details"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/clock"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/line"
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintHorizontal_bias="0"/>
+
+
+        <TextView
+            android:id="@+id/text_time_start_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:fontFamily="@font/montserrat"
+            android:text="start"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_time_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/image_time_details"
+            app:layout_constraintTop_toTopOf="@+id/image_time_details"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/dash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_time_start_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/text_time_start_details"
+            app:layout_constraintTop_toTopOf="@+id/image_time_details"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/text_time_end_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="end"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/dash"
+            app:layout_constraintTop_toTopOf="@+id/dash"
+            app:layout_constraintVertical_bias="0" />
+
+        <ImageView
+            android:id="@+id/image_place_details"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/place"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text_time_end_details"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+
+        <TextView
+            android:id="@+id/text_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Аудитория "
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_place_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/image_place_details"
+            app:layout_constraintTop_toTopOf="@+id/image_place_details"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/text_place_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="place"
+            android:textSize="13sp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text_place"
+            app:layout_constraintTop_toTopOf="@+id/text_place" />
+
+        <ImageView
+            android:id="@+id/image_direction_details"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/directions"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/image_time_details"
+            app:layout_constraintTop_toBottomOf="@+id/image_time_details" />
+
+        <TextView
+            android:id="@+id/text_direction_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:fontFamily="@font/montserrat"
+            android:text="direction"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_direction_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/image_direction_details"
+            app:layout_constraintTop_toTopOf="@+id/image_direction_details"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <ImageView
+            android:id="@+id/image_date_details"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/calendar_ic"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/image_place_details"
+            app:layout_constraintTop_toBottomOf="@+id/image_place_details"
+            app:layout_constraintVertical_bias="0" />
+
+        <TextView
+            android:id="@+id/text_date_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:fontFamily="@font/montserrat"
+            android:text="date"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_date_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/image_date_details"
+            app:layout_constraintTop_toTopOf="@+id/image_date_details"
+            app:layout_constraintVertical_bias="0.5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="100dp"
+        android:translationY="-60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_details"
+        app:layout_constraintVertical_bias="0">
+
+        <TextView
+            android:id="@+id/text_description_details"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/montserrat"
+            android:justificationMode="inter_word"
+            android:scrollbars="vertical"
+            android:text="description"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent="0.9" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat"
+            android:textSize="32sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/new_main_background"
+            app:layout_constraintBottom_toTopOf="@+id/search"
+            app:layout_constraintEnd_toStartOf="@+id/b_filter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/b_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:src="@drawable/ic_profile_user"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0" />
+
+        <ImageButton
+            android:id="@+id/b_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:src="@drawable/ic_new_filter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/b_profile"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/b_profile"
+            app:layout_constraintVertical_bias="0" />
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_hint"
+            android:textSize="14sp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintHorizontal_bias="0"
+            android:layout_marginTop="30dp"
+            android:paddingBottom="10dp"
+            android:elevation="4dp"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/new_search"
+            app:layout_constraintWidth_percent=".7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/b_filter" />
+
+        <ImageButton
+            android:id="@+id/b_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/ic_new_search"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/search"
+            app:layout_constraintTop_toTopOf="@+id/search"
+            app:layout_constraintVertical_bias=".5" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nav_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search"
+            app:layout_constraintVertical_bias="0" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/item_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nav_recyclerView"
+            app:layout_constraintVertical_bias="0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

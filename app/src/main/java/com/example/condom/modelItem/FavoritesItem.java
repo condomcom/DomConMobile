@@ -6,17 +6,16 @@ public class FavoritesItem {
     private int itemImage;
     private String itemDescription;
     private String itemBeginning;
-    private String itemDuration;
+    //private String itemDuration;
 
     public FavoritesItem(String keyId, String itemTitle, int itemImage,
-                                 String itemDescription, String itemBeginning,
-                                 String itemDuration) {
+                                 String itemDescription, String itemBeginning) {
         this.keyId = keyId;
         this.itemTitle = itemTitle;
         this.itemImage = itemImage;
         this.itemDescription = itemDescription;
         this.itemBeginning = itemBeginning;
-        this.itemDuration = itemDuration;
+        //this.itemDuration = itemDuration;
     }
 
     public String getKeyId() {
@@ -59,11 +58,11 @@ public class FavoritesItem {
         this.itemBeginning = itemBeginning;
     }
 
-    public String getItemDuration() {
+    /*public String getItemDuration() {
         return itemDuration;
     }
 
     public void setItemDuration(String itemDuration) {
         this.itemDuration = itemDuration;
-    }
+    }*/
 }
